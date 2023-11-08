@@ -135,6 +135,7 @@ main .card {
   max-width: 400px;
   text-align: center;
   transition: transform 0.2s;
+  background-image: url(cardcolor.jpg)
 }
 
 main .card:hover {
