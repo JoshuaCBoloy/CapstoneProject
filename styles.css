@@ -11,7 +11,7 @@ body {
 
 
 header {
-  background-color: #ada9a1;
+  background-color: #f3d7d7;
   color: #fff;
   text-align: center;
   padding: 20px;
@@ -20,11 +20,15 @@ header {
 
 /* Navigation menu styles */
 nav {
-  background-color: #444;
+  font-family: arial ;
+  font-size: larger;
+  font-weight: bold;
+  background-color: #6fa1c2;
   color: #fff;
   padding: 10px;
   box-shadow: 0 5px 5px -5px #444;
 }
+
 
 nav ul {
   list-style: none;
@@ -33,18 +37,20 @@ nav ul {
 }
 
 nav li {
-  margin: 0 20px;
+  margin: 0 50px;
 }
 
 nav a {
+  font-family: arial ;
   text-decoration: none;
-  color: #fff;
+  color: #ffffff;
   font-weight: bold;
   transition: color 0.3s;
+  font-size: larger;
 }
 
 nav a:hover {
-  color: #33cc99;
+  color: #332f2f;
 }
 
 
