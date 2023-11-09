@@ -4,6 +4,8 @@ body, h1, h2, h3, p {
 }
 
 
+
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f2f2f2;
@@ -16,6 +18,8 @@ header {
   text-align: center;
   padding: 20px;
   box-shadow: 0 5px 5px -5px #333;
+  justify-content: center;
+
 }
 
 /* Navigation menu styles */
@@ -29,6 +33,9 @@ nav {
   box-shadow: 0 5px 5px -5px #444;
 }
 
+.container{
+  justify-content: right;
+}
 
 nav ul {
   list-style: none;
@@ -48,6 +55,20 @@ nav a {
   transition: color 0.3s;
   font-size: larger;
 }
+.nav input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+
+.nav a input[type=text] {
+  border: 1px solid #ccc;
+}
+
+
 
 nav a:hover {
   color: #332f2f;

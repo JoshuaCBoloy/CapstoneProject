@@ -4,14 +4,17 @@
     <link rel="shortcut icon" type="image/x-icon" href="eltlogo.png" />
     <title>Everything La Trinidad</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="aos-by-red.css">
+     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
     <header>
-        <img src="eltheader.png" width="1800" height="200">
+        <img src="eltheader.png" width="100%" height="100%">
     </header>
 
     <nav>
         <ul>
+            <input type="text" placeholder="Search...">
             <li><a href="dashboard.html">HOME</a></li>
             <li><a href="tours.html">TOURS</a></li>
             <li><a href="bookings.html">BOOKINGS</a></li>
@@ -19,25 +22,34 @@
         </ul>
     </nav>
 
-    <main>
-        <div class="card">
-            <h2>Welcome to your Dashboard</h2>
-            <p>Here you can manage your tours and bookings.</p>
+    <main>    
+        <div class="container">
+            <div class="bg1" data-aos="fade-left" data-aos-duration="9000" data-aos-once="false" style="opacity: 0.8">
+                <img src="La Trinidad1.jpg" >
+            </div>
+
+            <div class="bg2" data-aos="fade-left" data-aos-duration="9000" data-aos-once="false" style="opacity: 0.8">
+               <img src="La Trinidad2.jpg">
+              </div>
+            
+            <div class="bg3" data-aos="fade-left" data-aos-duration="9000" data-aos-once="false" style="opacity: 0.8">
+                <img src="La Trinidad2.jpg">
+            </div>
+
         </div>
 
-        <div class="card">
-            <h2>Your Tours</h2>
-            <!-- Add content related to user's tours here -->
-        </div>
-
-        <div class="card">
-            <h2>Your Bookings</h2>
-            <!-- Add content related to user's bookings here -->
-        </div>
+        
     </main>
 
     <footer>
         <p>&copy; 2023 Everything La Trinidad</p>
     </footer>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 3000,
+        once: true,
+      });
+    </script>
 </body>
 </html>
