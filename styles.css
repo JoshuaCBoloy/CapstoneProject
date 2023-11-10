@@ -33,10 +33,6 @@ nav {
   box-shadow: 0 5px 5px -5px #444;
 }
 
-.container{
-  justify-content: right;
-}
-
 nav ul {
   list-style: none;
   display: flex;
@@ -79,7 +75,7 @@ main {
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
 }
 
 
