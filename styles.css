@@ -3,9 +3,6 @@ body, h1, h2, h3, p {
   padding: 0;
 }
 
-
-
-
 body {
   font-family: Arial, sans-serif;
   background-color: #f2f2f2;
@@ -68,46 +65,9 @@ nav a {
   border: 1px solid #ccc;
 }
 
-
-
 nav a:hover {
   color: #332f2f;
 }
-
-
-main {
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-
-.card {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin: 10px;
-  min-width: 300px;
-  max-width: 400px;
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card h2 {
-  color: #333;
-  font-size: 24px;
-}
-
-.card p {
-  color: #666;
-}
-
 
 .btn {
   background-color: #33cc99;
@@ -144,9 +104,18 @@ footer {
   }
 }
 
+main {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 
 /* Tours, Bookings, Profile CSS     */ 
-main .card {
+
+/* Tours*/
+main .restaurants {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -156,18 +125,152 @@ main .card {
   max-width: 400px;
   text-align: center;
   transition: transform 0.2s;
-  background-image: url(cardcolor.jpg)
+  background-image: url(restaurants.jpg)
 }
 
-main .card:hover {
+main .restaurants:hover {
   transform: translateY(-5px);
 }
 
-main .card h2 {
+main .restaurants h2 {
   color: #333;
   font-size: 24px;
 }
 
-main .card p {
+main .restaurants p {
   color: #666;
 }
+
+main .hotels {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  min-width: 300px;
+  max-width: 400px;
+  text-align: center;
+  transition: transform 0.2s;
+  background-image: url(hotels.jpg)
+}
+
+main .hotels:hover {
+  transform: translateY(-5px);
+}
+
+main .hotels h2 {
+  color: #333;
+  font-size: 24px;
+}
+
+main .hotels p {
+  color: #666;
+}
+
+main .cafe {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  min-width: 300px;
+  max-width: 400px;
+  text-align: center;
+  transition: transform 0.2s;
+  background-image: url(cafe.jpg)
+}
+
+main .cafe:hover {
+  transform: translateY(-5px);
+}
+
+main .cafe h2 {
+  color: #333;
+  font-size: 24px;
+}
+
+main .cafe p {
+  color: #666;
+}
+
+main .touristspots {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  min-width: 300px;
+  max-width: 400px;
+  text-align: center;
+  transition: transform 0.2s;
+  background-image: url(touristspots.jpg)
+}
+
+main .touristspots:hover {
+  transform: translateY(-5px);
+}
+
+main .touristspots h2 {
+  color: #333;
+  font-size: 24px;
+}
+
+main .touristspots p {
+  color: #666;
+}
+
+/* Bookings */
+main .bookings {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  min-width: 300px;
+  max-width: 400px;
+  text-align: center;
+  transition: transform 0.2s;
+  background-image: url(cardcolor.png)
+}
+
+main .bookings:hover {
+  transform: translateY(-5px);
+}
+
+main .bookings h2 {
+  color: #333;
+  font-size: 24px;
+}
+
+main .bookings p {
+  color: #666;
+}
+
+/* Profile */
+main .profile {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  min-width: 300px;
+  max-width: 400px;
+  text-align: center;
+  transition: transform 0.2s;
+  background-image: url(cardcolor.png)
+}
+
+main .profile:hover {
+  transform: translateY(-5px);
+}
+
+main .profile h2 {
+  color: #333;
+  font-size: 24px;
+}
+
+main .profile p {
+  color: #666;
+}
+
+
