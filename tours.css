@@ -1,0 +1,116 @@
+/* Tours */
+tours {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /* Restaurants */
+  tours .restaurants {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    min-width: 300px;
+    max-width: 400px;
+    text-align: center;
+    transition: transform 0.2s;
+    text-decoration: none;
+    background-image: url(restaurants.jpg)
+  }
+  
+  tours .restaurants:hover {
+    transform: translateY(-5px);
+  }
+  
+  tours .restaurants h2 {
+    color: #333;
+    font-size: 24px;
+  }
+  
+  tours .restaurants p {
+    color: #666;
+  }
+  
+  /* Hotels */
+  tours .hotels {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    min-width: 300px;
+    max-width: 400px;
+    text-align: center;
+    transition: transform 0.2s;
+    text-decoration: none;
+    background-image: url(hotels.jpg) 
+  }
+  
+  tours .hotels:hover {
+    transform: translateY(-5px);
+  }
+  
+  tours .hotels h2 {
+    color: #333;
+    font-size: 24px;
+  }
+  
+  tours .hotels p {
+    color: #666;
+  }
+  
+  /* Cafe */
+  tours .cafe {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    min-width: 300px;
+    max-width: 400px;
+    text-align: center;
+    transition: transform 0.2s;
+    text-decoration: none;
+    background-image: url(cafe.jpg)
+  }
+  
+  tours .cafe:hover {
+    transform: translateY(-5px);
+  }
+  
+  tours .cafe h2 {
+    color: #333;
+    font-size: 24px;
+  }
+  
+  /* Tourist Spots */
+  tours .touristspots {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    min-width: 300px;
+    max-width: 400px;
+    text-align: center;
+    transition: transform 0.2s;
+    text-decoration: none;
+    background-image: url(touristspots.jpg)
+  }
+  
+  tours .touristspots:hover {
+    transform: translateY(-5px);
+  }
+  
+  tours .touristspots h2 {
+    color: #333;
+    font-size: 24px;
+  }
+  
+  tours .touristspots p {
+    color: #666;
+  }
+  

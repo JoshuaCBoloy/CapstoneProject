@@ -1,0 +1,140 @@
+/* dashboard */
+
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+  }
+  
+  
+  header {
+    background-color: #f3d7d7;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 5px 5px -5px #333;
+    justify-content: center;
+  
+  }
+  
+  /* Navigation menu styles */
+  nav {
+    font-family: arial ;
+    font-size: larger;
+    font-weight: bold;
+    background-color: #6fa1c2;
+    color: #fff;
+    padding: 10px;
+    box-shadow: 0 5px 5px -5px #444;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav li {
+    margin: 0 50px;
+  }
+  
+  nav a {
+    font-family: arial ;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s;
+    font-size: larger;
+  }
+  .nav input[type=text] {
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+  }
+  
+  .nav a input[type=text] {
+    border: 1px solid #ccc;
+  }
+  
+  nav a:hover {
+    color: #332f2f;
+  }
+  
+  
+  main {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+  }
+  
+  
+  .card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    min-width: 300px;
+    max-width: 400px;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card h2 {
+    color: #333;
+    font-size: 24px;
+  }
+  
+  .card p {
+    color: #666;
+  }
+  
+  
+  .btn {
+    background-color: #33cc99;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #1e7f5b;
+  }
+  
+  
+  footer {
+    background-color: #444;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  
+  @media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+  
+    nav li {
+        margin: 10px 0;
+    }
+  }
+  
+ 
