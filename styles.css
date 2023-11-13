@@ -142,21 +142,15 @@ main {
   justify-content: center;
 }
 
-
-
-/* Tours, Bookings, Profile CSS     */ 
-
-/* Tours*/
-
+/* Tours */
 tours {
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 600px;
-  height: 400px;
 }
 
+/* Restaurants */
 tours .restaurants {
   background-color: #fff;
   border-radius: 10px;
@@ -167,6 +161,7 @@ tours .restaurants {
   max-width: 400px;
   text-align: center;
   transition: transform 0.2s;
+  text-decoration: none;
   background-image: url(restaurants.jpg)
 }
 
@@ -183,6 +178,7 @@ tours .restaurants p {
   color: #666;
 }
 
+/* Hotels */
 tours .hotels {
   background-color: #fff;
   border-radius: 10px;
@@ -193,9 +189,8 @@ tours .hotels {
   max-width: 400px;
   text-align: center;
   transition: transform 0.2s;
-  background-image: url(hotels.jpg)
-  
-  
+  text-decoration: none;
+  background-image: url(hotels.jpg) 
 }
 
 tours .hotels:hover {
@@ -211,6 +206,7 @@ tours .hotels p {
   color: #666;
 }
 
+/* Cafe */
 tours .cafe {
   background-color: #fff;
   border-radius: 10px;
@@ -221,6 +217,7 @@ tours .cafe {
   max-width: 400px;
   text-align: center;
   transition: transform 0.2s;
+  text-decoration: none;
   background-image: url(cafe.jpg)
 }
 
@@ -233,10 +230,7 @@ tours .cafe h2 {
   font-size: 24px;
 }
 
-tours .cafe p {
-  color: #666;
-}
-
+/* Tourist Spots */
 tours .touristspots {
   background-color: #fff;
   border-radius: 10px;
@@ -247,6 +241,7 @@ tours .touristspots {
   max-width: 400px;
   text-align: center;
   transition: transform 0.2s;
+  text-decoration: none;
   background-image: url(touristspots.jpg)
 }
 
@@ -263,8 +258,16 @@ tours .touristspots p {
   color: #666;
 }
 
-/* Bookings */
-main .bookings {
+
+/* Booking */
+book {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+book .bookings {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -274,24 +277,33 @@ main .bookings {
   max-width: 400px;
   text-align: center;
   transition: transform 0.2s;
+  text-decoration: none;
   background-image: url(cardcolor.png)
 }
 
-main .bookings:hover {
+book .bookings:hover {
   transform: translateY(-5px);
 }
 
-main .bookings h2 {
+book .bookings h2 {
   color: #333;
   font-size: 24px;
 }
 
-main .bookings p {
+book .bookings p {
   color: #666;
 }
 
+
 /* Profile */
-main .profile {
+prof {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+prof .profile {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -304,16 +316,16 @@ main .profile {
   background-image: url(cardcolor.png)
 }
 
-main .profile:hover {
+prof .profile:hover {
   transform: translateY(-5px);
 }
 
-main .profile h2 {
+prof .profile h2 {
   color: #333;
   font-size: 24px;
 }
 
-main .profile p {
+prof .profile p {
   color: #666;
 }
 
