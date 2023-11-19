@@ -16,6 +16,9 @@ tours {
     min-width: 300px;
     max-width: 400px;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
     transition: transform 0.2s;
     text-decoration: none;
     background-image: url(restaurants.jpg)
@@ -26,7 +29,7 @@ tours {
   }
   
   tours .restaurants h2 {
-    color: #333;
+    color: #000000;
     font-size: 24px;
   }
   
@@ -44,6 +47,9 @@ tours {
     min-width: 300px;
     max-width: 400px;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
     transition: transform 0.2s;
     text-decoration: none;
     background-image: url(hotels.jpg) 
@@ -54,7 +60,7 @@ tours {
   }
   
   tours .hotels h2 {
-    color: #333;
+    color: #000000;
     font-size: 24px;
   }
   
@@ -72,6 +78,9 @@ tours {
     min-width: 300px;
     max-width: 400px;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
     transition: transform 0.2s;
     text-decoration: none;
     background-image: url(cafe.jpg)
@@ -82,7 +91,7 @@ tours {
   }
   
   tours .cafe h2 {
-    color: #333;
+    color: #000000;
     font-size: 24px;
   }
   
@@ -96,6 +105,9 @@ tours {
     min-width: 300px;
     max-width: 400px;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
     transition: transform 0.2s;
     text-decoration: none;
     background-image: url(touristspots.jpg)
@@ -106,7 +118,7 @@ tours {
   }
   
   tours .touristspots h2 {
-    color: #333;
+    color: #000000;
     font-size: 24px;
   }
   

@@ -66,7 +66,7 @@ body, h1, h2, h3, p {
   }
   
   
-  main {
+  touristspots {
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
@@ -74,7 +74,7 @@ body, h1, h2, h3, p {
   }
   
   
-  .card {
+  touristspots .spots {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -84,18 +84,24 @@ body, h1, h2, h3, p {
     max-width: 400px;
     text-align: center;
     transition: transform 0.2s;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    transition: transform 0.2s;
+    text-decoration: none;
+    background-image: url(cardcolor.png)
   }
   
-  .card:hover {
+  touristspots .spots:hover {
     transform: translateY(-5px);
   }
   
-  .card h2 {
+  touristspots .spots h2 {
     color: #333;
     font-size: 24px;
   }
   
-  .card p {
+  touristspots .spots p {
     color: #666;
   }
   
