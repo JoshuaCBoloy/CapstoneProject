@@ -21,6 +21,65 @@ body, h1, h2, h3, p {
     justify-content: center;
   
   }
+
+  .image-on-top {
+    position: absolute;
+    padding: 20px;
+    top: 0;
+    left: 0;
+    width: 1800;
+    height: 200;
+    z-index: 1; /* Ensure the image is on top of the slideshow */
+}
+/*slideshow */
+* {
+  box-sizing: border-box
+}
+body {
+  font-family: Verdana, sans-serif;
+  margin: 0
+}
+.mySlides {
+  display: none
+}
+img {
+  vertical-align: middle;
+}
+
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+  from {
+    opacity: .4
+  }
+  to {
+    opacity: 1
+  }
+}
+@keyframes fade {
+  from {
+    opacity: .4
+  }
+  to {
+    opacity: 1
+  }
+}
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev,
+  .next,
+  .text {
+    font-size: 11px
+  }
+}
+
+
   
   /* Navigation menu styles */
   nav {
@@ -136,6 +195,6 @@ body, h1, h2, h3, p {
     nav li {
         margin: 10px 0;
     }
+    
   }
-  
- 
+

@@ -6,10 +6,85 @@
     <link rel="stylesheet" type="text/css" href="dashboard.css">
     <link rel="stylesheet" href="aos-by-red.css">
      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
 </head>
+
 <body>
     <header>
-        <img src="eltheader.png" width="100%" height="100%">
+
+        <div class="slideshow-container">
+            <img class="image-on-top" src="headertitle.png" style="width:100%" style="height:100%">
+
+            <div class="mySlides fade">
+              <img src="s1.png" style="width:100%" style="height:100%">
+            </div>
+
+            <div class="mySlides fade">
+              <img src="s2.png" style="width:100%" style="height:100%">
+            </div>
+
+            <div class="mySlides fade"> 
+              <img src="s3.png" style="width:100%" style="height:100%">
+            </div>
+
+            <div class="mySlides fade"> 
+                <img src="s4.png" style="width:100%" style="height:100%">
+              </div>
+
+            <div class="mySlides fade"> 
+                <img src="s5.png" style="width:100%" style="height:100%">
+              </div>
+        
+           
+          <br>
+          <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+
+          </div>
+          <script>
+            let slideIndex = 0;
+            let timeoutId = null;
+            const slides = document.getElementsByClassName("mySlides");
+            const dots = document.getElementsByClassName("dot");
+            
+            showSlides();
+            function currentSlide(index) {
+                 slideIndex = index;
+                 showSlides();
+            }
+           function plusSlides(step) {
+              
+              if(step < 0) {
+                  slideIndex -= 2;
+                  
+                  if(slideIndex < 0) {
+                    slideIndex = slides.length - 1;
+                  }
+              }
+              
+              showSlides();
+           }
+            function showSlides() {
+              for(let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+                dots[i].classList.remove('active');
+              }
+              slideIndex++;
+              if(slideIndex > slides.length) {
+                slideIndex = 1
+              }
+              slides[slideIndex - 1].style.display = "block";
+              dots[slideIndex - 1].classList.add('active');
+               if(timeoutId) {
+                  clearTimeout(timeoutId);
+               }
+              timeoutId = setTimeout(showSlides, 4000); // Change image every 4 seconds
+            }
+          </script>
     </header>
 
     <nav>
