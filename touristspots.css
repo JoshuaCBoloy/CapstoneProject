@@ -65,23 +65,23 @@ body, h1, h2, h3, p {
     color: #332f2f;
   }
   
-  
-  touristspots {
+  /* La Trinidad Tourist Spots */
+  spots {
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: center;
   }
   
-  
-  touristspots .spots {
+  /* Bell Church */
+  spots .bellchurch {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 10px;
-    min-width: 300px;
-    max-width: 400px;
+    width: 300px;
+    height: 450px;
     text-align: center;
     transition: transform 0.2s;
     align-items: center;
@@ -92,20 +92,148 @@ body, h1, h2, h3, p {
     background-image: url(cardcolor.png)
   }
   
-  touristspots .spots:hover {
+  spots .bellchurch:hover {
     transform: translateY(-5px);
   }
   
-  touristspots .spots h2 {
+  spots .bellchurch h2 {
     color: #333;
     font-size: 24px;
   }
   
-  touristspots .spots p {
+  spots .bellchurch p {
     color: #666;
   }
+
+  /* Mt. Kalugong */
+  spots .kalugong {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    height: 450px;
+    text-align: center;
+    transition: transform 0.2s;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    transition: transform 0.2s;
+    text-decoration: none;
+    background-image: url(cardcolor.png)
+  }
   
+  spots .kalugong:hover {
+    transform: translateY(-5px);
+  }
   
+  spots .kalugong h2 {
+    color: #333;
+    font-size: 24px;
+  }
+  
+  spots .kalugong p {
+    color: #666;
+  }
+
+/* Stawberry Farm */
+spots .strawberry {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  width: 300px;
+  height: 450px;
+  text-align: center;
+  transition: transform 0.2s;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  transition: transform 0.2s;
+  text-decoration: none;
+  background-image: url(cardcolor.png)
+}
+
+spots .strawberry:hover {
+  transform: translateY(-5px);
+}
+
+spots .strawberry h2 {
+  color: #333;
+  font-size: 24px;
+}
+
+spots .strawberry p {
+  color: #666;
+}
+
+/* Mt. Yangbew */
+spots .yangbew {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  width: 300px;
+  height: 450px;
+  text-align: center;
+  transition: transform 0.2s;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  transition: transform 0.2s;
+  text-decoration: none;
+  background-image: url(cardcolor.png)
+}
+
+spots .yangbew:hover {
+  transform: translateY(-5px);
+}
+
+spots .yangbew h2 {
+  color: #333;
+  font-size: 24px;
+}
+
+spots .yangbew p {
+  color: #666;
+}
+
+/* Rocky Mountain Resort */
+spots .rocky {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  width: 300px;
+  height: 450px;
+  text-align: center;
+  transition: transform 0.2s;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  transition: transform 0.2s;
+  text-decoration: none;
+  background-image: url(cardcolor.png)
+}
+
+spots .rocky:hover {
+  transform: translateY(-5px);
+}
+
+spots .rocky h2 {
+  color: #333;
+  font-size: 24px;
+}
+
+spots .rocky p {
+  color: #666;
+}
+
+
   .btn {
     background-color: #33cc99;
     color: #fff;
@@ -141,4 +269,3 @@ body, h1, h2, h3, p {
     }
   }
   
- 
