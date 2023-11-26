@@ -1,92 +1,95 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="shortcut icon" type="image/x-icon" href="eltlogo.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="img/eltlogo.png" />
     <title>Everything La Trinidad</title>
     <link rel="stylesheet" type="text/css" href="dashboard.css">
-    <link rel="stylesheet" href="aos-by-red.css">
-     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 </head>
 
-<body>
-    <header>
+<header>
+  <div class="slideshow-container">
+      <img class="image-on-top" src="img/headertitle.png" style="width:100%" style="height:100%">
 
-        <div class="slideshow-container">
-            <img class="image-on-top" src="headertitle.png" style="width:100%" style="height:100%">
+      <div class="mySlides fade-header">
+        <img src="img/s1.png" style="width:100%" style="height:100%">
+      </div>
 
-            <div class="mySlides fade">
-              <img src="s1.png" style="width:100%" style="height:100%">
-            </div>
+      <div class="mySlides fade-header">
+        <img src="img/s2.png" style="width:100%" style="height:100%">
+      </div>
 
-            <div class="mySlides fade">
-              <img src="s2.png" style="width:100%" style="height:100%">
-            </div>
+      <div class="mySlides fade-header"> 
+        <img src="img/s3.png" style="width:100%" style="height:100%">
+      </div>
 
-            <div class="mySlides fade"> 
-              <img src="s3.png" style="width:100%" style="height:100%">
-            </div>
+      <div class="mySlides fade-header"> 
+          <img src="img/s4.png" style="width:100%" style="height:100%">
+        </div>
 
-            <div class="mySlides fade"> 
-                <img src="s4.png" style="width:100%" style="height:100%">
-              </div>
+      <div class="mySlides fade-header"> 
+          <img src="img/s5.png" style="width:100%" style="height:100%">
+        </div>
+  
+     
+    <br>
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(0)"></span>
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
 
-            <div class="mySlides fade"> 
-                <img src="s5.png" style="width:100%" style="height:100%">
-              </div>
+    </div>
+    <script>
+      let slideIndex = 0;
+      let timeoutId = null;
+      const slides = document.getElementsByClassName("mySlides");
+      const dots = document.getElementsByClassName("dot");
+      
+      showSlides();
+      function currentSlide(index) {
+           slideIndex = index;
+           showSlides();
+      }
+     function plusSlides(step) {
         
-           
-          <br>
-          <div style="text-align:center">
-            <span class="dot" onclick="currentSlide(0)"></span>
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-            <span class="dot" onclick="currentSlide(4)"></span>
-
-          </div>
-          <script>
-            let slideIndex = 0;
-            let timeoutId = null;
-            const slides = document.getElementsByClassName("mySlides");
-            const dots = document.getElementsByClassName("dot");
+        if(step < 0) {
+            slideIndex -= 2;
             
-            showSlides();
-            function currentSlide(index) {
-                 slideIndex = index;
-                 showSlides();
+            if(slideIndex < 0) {
+              slideIndex = slides.length - 1;
             }
-           function plusSlides(step) {
-              
-              if(step < 0) {
-                  slideIndex -= 2;
-                  
-                  if(slideIndex < 0) {
-                    slideIndex = slides.length - 1;
-                  }
-              }
-              
-              showSlides();
-           }
-            function showSlides() {
-              for(let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-                dots[i].classList.remove('active');
-              }
-              slideIndex++;
-              if(slideIndex > slides.length) {
-                slideIndex = 1
-              }
-              slides[slideIndex - 1].style.display = "block";
-              dots[slideIndex - 1].classList.add('active');
-               if(timeoutId) {
-                  clearTimeout(timeoutId);
-               }
-              timeoutId = setTimeout(showSlides, 4000); // Change image every 4 seconds
-            }
-          </script>
-    </header>
+        }
+        
+        showSlides();
+     }
+      function showSlides() {
+        for(let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+          dots[i].classList.remove('active');
+        }
+        slideIndex++;
+        if(slideIndex > slides.length) {
+          slideIndex = 1
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].classList.add('active');
+         if(timeoutId) {
+            clearTimeout(timeoutId);
+         }
+        timeoutId = setTimeout(showSlides, 4000); // Change image every 4 seconds
+      }
+    </script>
+</header>
 
+<body>
     <nav>
         <ul>
             <input type="text" placeholder="Search...">
@@ -95,36 +98,161 @@
             <li><a href="bookings.html">BOOKINGS</a></li>
             <li><a href="profile.html">PROFILE</a></li>
         </ul>
+
+        <ul class="nav pull-sm-right">
+          <li class="nav-item">
+              <a class="nav-link login-btn" data-toggle="modal" href="#loginModal">Login</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#regModal" data-toggle="modal">Register</a>
+          </li>
+      </ul>
+
+      <div class="login-modal">
+        <div class="modal fade" id="loginModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+      
+                    <!-- Modal Header -->
+                    <div class="modal-header ios-crystal-bg">
+                        <span class="modal-title">Login</span>
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                    </div>
+      
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-div">
+                            <form action="/action_page.php">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder=" E-Mail ">
+                                </div>
+                                <div class="">
+                                    <input type="password" class="form-control" placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <a href="#forgetModal" data-toggle="modal" title="Reset Password">
+                                        <small>Forgot Password ?</small></a>
+                                </div>
+                                <button type="submit" class="btn btn-danger btn-block mybtn">Submit</button>
+      
+                                <a href="#regModal" data-toggle="modal" title="Reset Password">
+                                    <small>Want to Registration ?</small></a>
+      
+                            </form>
+                        </div>
+                    </div>
+      
+      
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <div class="registration-modal">
+        <div class="modal fade" id="regModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+      
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <span class="modal-title">Registration</span>
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                    </div>
+      
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-div">
+                            <form action="/action_page.php">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder=" E-Mail ">
+                                </div>
+                                <div class="form-group">
+                                    <input type="phone" class="form-control" id="phone-number" placeholder="Phone ">
+                                </div>
+      
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="confirm-pwd"
+                                           placeholder="Confirm Password">
+                                </div>
+      
+                                <button type="submit" class="btn btn-danger btn-block mybtn">Submit</button>
+      
+                            </form>
+                        </div>
+                    </div>
+      
+      
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      
+      
+      <div class="forget-modal">
+        <div class="modal fade" id="forgetModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+      
+                    <!-- Modal Header -->
+                    <div class="modal-header ios-crystal-bgx">
+                        <span class="modal-title">Forget Password!</span>
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                    </div>
+      
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-div">
+                            <form action="#">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="email" placeholder=" E-Mail ">
+                                </div>
+      
+      
+                                <button type="submit" class="btn btn-danger btn-block mybtn">Send Reset Link</button>
+      
+      
+                            </form>
+                        </div>
+                    </div>
+      
+      
+                </div>
+            </div>
+        </div>
+      </div>
+      <!--Modal End-->
+
     </nav>
 
     <main>    
         <div class="container">
             <div class="bg1" data-aos="fade-left" data-aos-duration="9000" data-aos-once="false" style="opacity: 0.8">
-                <img align="left" src="La Trinidad1.jpg" >
+                <img align="left" src="img/La Trinidad1.jpg" >
             </div>
 
             <div class="bg2" data-aos="fade-left" data-aos-duration="9000" data-aos-once="false" style="opacity: 0.8">
-               <img src="La Trinidad2.jpg">
+               <img src="img/La Trinidad2.jpg">
               </div>
             
             <div class="bg3" data-aos="fade-left" data-aos-duration="9000" data-aos-once="false" style="opacity: 0.8">
-                <img src="La Trinidad2.jpg">
+                <img src="img/La Trinidad2.jpg">
             </div>
 
         </div>
-
-        
     </main>
+   
+
+
+
 
     <footer>
         <p>&copy; 2023 Everything La Trinidad</p>
     </footer>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init({
-        duration: 3000,
-        once: true,
-      });
-    </script>
+   
+
 </body>
 </html>

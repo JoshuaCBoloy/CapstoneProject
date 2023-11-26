@@ -16,13 +16,42 @@ body, h1, h2, h3, p {
     background-color: #f3d7d7;
     color: #fff;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     box-shadow: 0 5px 5px -5px #333;
     justify-content: center;
   
   }
 
-  .image-on-top {
+.login-btn {
+    color: white !important;
+    background-color: #a59d50;
+    border-radius: 10px;
+    vertical-align: middle;
+}
+
+.login-modal .modal-content, .registration-modal .modal-content {
+  border: 0;
+  color: white;
+  box-shadow: inherit;
+  outline: inherit;
+}
+
+.login-btn:hover {
+    background: darken;
+}
+
+.login-modal .modal-content .modal-header button, .registration-modal .modal-content .modal-header button {
+  color: white;
+  opacity: 1;
+  font-size: 30px;
+  display: inline-block;
+  font-weight: lighter;
+  vertical-align: right;
+  padding-top: 10px;
+}
+
+
+.image-on-top {
     position: absolute;
     padding: 20px;
     top: 0;
@@ -48,7 +77,7 @@ img {
 
 
 /* Fading animation */
-.fade {
+.fade-header {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
   animation-name: fade;
@@ -84,7 +113,7 @@ img {
   /* Navigation menu styles */
   nav {
     font-family: arial ;
-    font-size: larger;
+    font-size: medium;
     font-weight: bold;
     background-color: #6fa1c2;
     color: #fff;
@@ -198,3 +227,4 @@ img {
     
   }
 
+  

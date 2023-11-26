@@ -88,7 +88,7 @@ body, h1, h2, h3, p {
     display: flex;
     transition: transform 0.2s;
     text-decoration: none;
-    background-image: url(cardcolor.png)
+    background-image: url(img/cardcolor.png)
   }
   
   cafe .number1:hover {
@@ -119,7 +119,7 @@ body, h1, h2, h3, p {
     display: flex;
     transition: transform 0.2s;
     text-decoration: none;
-    background-image: url(cardcolor.png)
+    background-image: url(img/cardcolor.png)
   }
   
   cafe .number2:hover {
@@ -150,7 +150,7 @@ body, h1, h2, h3, p {
     display: flex;
     transition: transform 0.2s;
     text-decoration: none;
-    background-image: url(cardcolor.png)
+    background-image: url(img/cardcolor.png)
   }
   
   cafe .number3:hover {
