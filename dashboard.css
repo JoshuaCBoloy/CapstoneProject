@@ -23,15 +23,15 @@ body, h1, h2, h3, p {
   }
 
 .login-btn {
-    color: white !important;
-    background-color: #a59d50;
-    border-radius: 10px;
+    color: rgb(255, 255, 255) !important;
+    background-color: rgb(207, 137, 137);
+    border-radius: 15px;
     vertical-align: middle;
 }
 
 .login-modal .modal-content, .registration-modal .modal-content {
   border: 0;
-  color: white;
+  color: rgb(0, 0, 0);
   box-shadow: inherit;
   outline: inherit;
 }
@@ -40,8 +40,9 @@ body, h1, h2, h3, p {
     background: darken;
 }
 
+
 .login-modal .modal-content .modal-header button, .registration-modal .modal-content .modal-header button {
-  color: white;
+  color: rgb(0, 0, 0);
   opacity: 1;
   font-size: 30px;
   display: inline-block;
@@ -50,6 +51,23 @@ body, h1, h2, h3, p {
   padding-top: 10px;
 }
 
+/* Bootstrap reset */
+textarea:focus, 
+textarea.form-control:focus, 
+select.form-control:focus,
+input.form-control:focus, 
+input[type=text]:focus, 
+input[type=password]:focus, 
+input[type=email]:focus, 
+input[type=number]:focus, 
+[type=text].form-control:focus, 
+[type=password].form-control:focus, 
+[type=email].form-control:focus, 
+[type=tel].form-control:focus, 
+[contenteditable].form-control:focus {
+  box-shadow: inherit;
+  border-color: transparent;
+}
 
 .image-on-top {
     position: absolute;
@@ -111,20 +129,28 @@ img {
 
   
   /* Navigation menu styles */
+
   nav {
     font-family: arial ;
     font-size: medium;
     font-weight: bold;
     background-color: #6fa1c2;
-    color: #fff;
+    color: #8b3939;
     padding: 10px;
     box-shadow: 0 5px 5px -5px #444;
+  }
+
+  nav logreg {
+    justify-content: right;
+    display: flex;
+    
+
   }
   
   nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: left;
   }
   
   nav li {
@@ -226,5 +252,33 @@ img {
     }
     
   }
+
+  .carousel-item {
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 80vh;
+}
+
+.main-slider .carousel-item .item-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.carousel-item .item-content {
+    text-align: right;
+}
+
+.carousel-item .item-content .title {
+    font-size: 35px;
+    text-shadow: 0 0 black;
+    line-height: 30px;
+    margin-bottom: 15px;
+}
 
   

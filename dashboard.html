@@ -99,6 +99,7 @@
             <li><a href="profile.html">PROFILE</a></li>
         </ul>
 
+        <logreg>
         <ul class="nav pull-sm-right">
           <li class="nav-item">
               <a class="nav-link login-btn" data-toggle="modal" href="#loginModal">Login</a>
@@ -107,7 +108,7 @@
               <a class="nav-link" href="#regModal" data-toggle="modal">Register</a>
           </li>
       </ul>
-
+  
       <div class="login-modal">
         <div class="modal fade" id="loginModal">
             <div class="modal-dialog" role="document">
@@ -224,30 +225,77 @@
             </div>
         </div>
       </div>
+    </logreg>
       <!--Modal End-->
-
     </nav>
 
+
     <main>    
-        <div class="container">
-            <div class="bg1" data-aos="fade-left" data-aos-duration="9000" data-aos-once="false" style="opacity: 0.8">
-                <img align="left" src="img/La Trinidad1.jpg" >
+      <section class="main-slider">
+        <div class="slider-wrap">
+            <div class="slider-container">
+    <!--            data-interval="true"-->
+                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" style="background-image: url(img/slide1.jpg);">
+                            <!-- <img src="./img/slide-1.jpeg" class="d-block w-100" alt="..."> -->
+                            <div class="item-content">
+                                <div class="title">Travelling is fun and it offer many unique experience.</div>
+                                <!-- <div class="subtitle">This is subtitle</div> -->
+                                <div class="para">
+                                    No matter even if you live in a vibrant city or have a very active social life,
+                                    travelling can help you to be more satisfied
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item " style="background-image: url(img/slide2.jpg);">
+                            <!-- <img src="./img/slide-2.jpeg" class="d-block w-100" alt="..."> -->
+                            <div class="item-content">
+                                <div class="title">Visiting different places all around the world</div>
+                                <!-- <div class="subtitle">This is subtitle</div> -->
+                                <div class="para">
+                                    You want to travel but due to their busy routines they fail to find time for travelling.
+                                    Slogans for travel are the best way to motivate.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item" style="background-image: url(img/slide3.jpg);">
+                            <!-- <img src="./img/slide-3.jpeg" class="d-block w-100" alt="..."> -->
+                            <div class="item-content">
+                                <div class="title">Travel is the only thing you buy that makes you rich</div>
+                                <!-- <div class="subtitle">This is subtitle</div> -->
+                                <div class="para">
+                                    Go where you feel the most alive, Life is either a daring adventure or NOTHING The world
+                                    is yours
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item" style="background-image: url(img/slide4.jpg);">
+                            <!-- <img src="./img/slide-3.jpeg" class="d-block w-100" alt="..."> -->
+                            <div class="item-content">
+                                <div class="title">Travel is the only thing you buy that makes you rich</div>
+                                <!-- <div class="subtitle">This is subtitle</div> -->
+                                <div class="para">
+                                    Go where you feel the most alive, Life is either a daring adventure or NOTHING The world
+                                    is yours
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
             </div>
-
-            <div class="bg2" data-aos="fade-left" data-aos-duration="9000" data-aos-once="false" style="opacity: 0.8">
-               <img src="img/La Trinidad2.jpg">
-              </div>
-            
-            <div class="bg3" data-aos="fade-left" data-aos-duration="9000" data-aos-once="false" style="opacity: 0.8">
-                <img src="img/La Trinidad2.jpg">
-            </div>
-
         </div>
+    </section> 
     </main>
    
-
-
-
 
     <footer>
         <p>&copy; 2023 Everything La Trinidad</p>
