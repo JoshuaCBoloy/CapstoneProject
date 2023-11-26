@@ -64,6 +64,7 @@ body, h1, h2, h3, p {
   nav a:hover {
     color: #332f2f;
   }
+
   
 /* La Trinidad Restaurants */
 resto {
@@ -73,15 +74,15 @@ resto {
   justify-content: center;
 }
 
-/* Number1 */
-resto .number1 {
+/* Dampa Express */
+resto .dampa {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin: 10px;
-  min-width: 300px;
-  max-width: 400px;
+  width: 300px;
+  height: 450px;
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -91,28 +92,28 @@ resto .number1 {
   background-image: url(cardcolor.png)
 }
 
-resto .number1:hover {
+resto .dampa:hover {
   transform: translateY(-5px);
 }
 
-resto .number1 h2 {
+resto .dampa h2 {
   color: #000000;
   font-size: 24px;
 }
 
-resto .number1 p {
+resto .dampa p {
   color: #666;
 }
 
-/* Number2 */
-resto .number2 {
+/* Love Mattet Bistro */
+resto .mattet {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin: 10px;
-  min-width: 300px;
-  max-width: 400px;
+  width: 300px;
+  height: 450px;
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -122,28 +123,28 @@ resto .number2 {
   background-image: url(cardcolor.png)
 }
 
-resto .number2:hover {
+resto .mattet:hover {
   transform: translateY(-5px);
 }
 
-resto .number2 h2 {
+resto .mattet h2 {
   color: #000000;
   font-size: 24px;
 }
 
-resto .number2 p {
+resto .mattet p {
   color: #666;
 }
 
-/* Number3 */
-resto .number3 {
+/* Gardener's Bistro */
+resto .gardeners {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin: 10px;
-  min-width: 300px;
-  max-width: 400px;
+  width: 300px;
+  height: 450px;
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -153,19 +154,50 @@ resto .number3 {
   background-image: url(cardcolor.png)
 }
 
-resto .number3:hover {
+resto .gardeners:hover {
   transform: translateY(-5px);
 }
 
-resto .number3 h2 {
+resto .gardeners h2 {
   color: #000000;
   font-size: 24px;
 }
 
-resto .number3 p {
+resto .gardeners p {
   color: #666;
 }
-  
+
+/* Ayatori Japanese Cuisine */
+resto .ayatori {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  width: 300px;
+  height: 450px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  transition: transform 0.2s;
+  text-decoration: none;
+  background-image: url(cardcolor.png)
+}
+
+resto .ayatori:hover {
+  transform: translateY(-5px);
+}
+
+resto .ayatori h2 {
+  color: #000000;
+  font-size: 24px;
+}
+
+resto .ayatori p {
+  color: #666;
+}
+
   
   .btn {
     background-color: #33cc99;
