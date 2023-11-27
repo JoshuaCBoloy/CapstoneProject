@@ -23,7 +23,7 @@ tours {
     display: flex;
     transition: transform 0.2s;
     text-decoration: none;
-    background-image: url(img/restaurants.jpg)
+    background-image: url(img/restaurants.jpg);
   }
   
   tours .restaurants:hover {
@@ -56,7 +56,7 @@ tours {
     display: flex;
     transition: transform 0.2s;
     text-decoration: none;
-    background-image: url(img/hotels.jpg) 
+    background-image: url(img/hotels.jpg);
   }
 
   #hotels {
@@ -94,7 +94,7 @@ tours {
     display: flex;
     transition: transform 0.2s;
     text-decoration: none;
-    background-image: url(img/cafe.jpg)
+    background-image: url(img/cafe.jpg);
   }
   
   tours .cafe:hover {
@@ -123,7 +123,7 @@ tours {
     display: flex;
     transition: transform 0.2s;
     text-decoration: none;
-    background-image: url(img/touristspots.jpg)
+    background-image: url(img/touristspots.jpg);
   }
   
   tours .touristspots:hover {

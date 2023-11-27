@@ -65,6 +65,46 @@ body, h1, h2, h3, p {
     color: #332f2f;
   }
   
+/* Booking */
+booking {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Restaurants */
+booking .tourguide {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  min-width: 300px;
+  max-width: 400px;
+  width: 200px;
+  height: 350px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  transition: transform 0.2s;
+  text-decoration: none;
+  background-image: url(img/restaurants.jpg);
+}
+
+booking .tourguide:hover {
+  transform: translateY(-5px);
+}
+
+booking .tourguide h2 {
+  color: #000000;
+  font-size: 24px;
+}
+
+booking .tourguide p {
+  color: #666;
+}
   
   main {
     padding: 20px;

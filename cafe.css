@@ -88,7 +88,7 @@ body, h1, h2, h3, p {
     display: flex;
     transition: transform 0.2s;
     text-decoration: none;
-    background-image: url(img/cardcolor.png)
+    background-image: url(img/cardcolor.png);
   }
   
   cafe .kai:hover {
@@ -98,45 +98,6 @@ body, h1, h2, h3, p {
   cafe .kai h2 {
     color: #000000;
     font-size: 24px;
-  }
-  
-<<<<<<< HEAD
-  cafe .number1 p {
-    color: #666;
-  }
-  
-  /* Number2 */
-  cafe .number2 {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 10px;
-    min-width: 300px;
-    max-width: 400px;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    transition: transform 0.2s;
-    text-decoration: none;
-    background-image: url(img/cardcolor.png)
-  }
-  
-  cafe .number2:hover {
-    transform: translateY(-5px);
-  }
-  
-  cafe .number2 h2 {
-    color: #000000;
-    font-size: 24px;
-  }
-  
-  cafe .number2 p {
-=======
-  cafe .kai p {
->>>>>>> 18224548be2c400e6ec8e407181969ebd89460b2
-    color: #666;
   }
 
   /* Sinner or Saint Cafe */
@@ -154,19 +115,19 @@ body, h1, h2, h3, p {
     display: flex;
     transition: transform 0.2s;
     text-decoration: none;
-    background-image: url(img/cardcolor.png)
+    background-image: url(img/cardcolor.png);
   }
   
-  cafe .kai:hover {
+  cafe .sinnersaint:hover {
     transform: translateY(-5px);
   }
   
-  cafe .kai h2 {
+  cafe .sinnersaint h2 {
     color: #000000;
     font-size: 24px;
   }
   
-  cafe .kai p {
+  cafe .sinnersaint p {
     color: #666;
   }
   
@@ -186,7 +147,7 @@ body, h1, h2, h3, p {
     display: flex;
     transition: transform 0.2s;
     text-decoration: none;
-    background-image: url(cardcolor.png)
+    background-image: url(img/cardcolor.png);
   }
   
   cafe .fiika:hover {
@@ -218,7 +179,7 @@ body, h1, h2, h3, p {
     display: flex;
     transition: transform 0.2s;
     text-decoration: none;
-    background-image: url(cardcolor.png)
+    background-image: url(img/cardcolor.png);
   }
   
   cafe .halfcup:hover {

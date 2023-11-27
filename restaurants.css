@@ -89,7 +89,7 @@ resto .dampa {
   display: flex;
   transition: transform 0.2s;
   text-decoration: none;
-  background-image: url(cardcolor.png)
+  background-image: url(img/cardcolor.png);
 }
 
 resto .dampa:hover {
@@ -120,7 +120,7 @@ resto .mattet {
   display: flex;
   transition: transform 0.2s;
   text-decoration: none;
-  background-image: url(cardcolor.png)
+  background-image: url(img/cardcolor.png);
 }
 
 resto .mattet:hover {
@@ -151,7 +151,7 @@ resto .gardeners {
   display: flex;
   transition: transform 0.2s;
   text-decoration: none;
-  background-image: url(cardcolor.png)
+  background-image: url(img/cardcolor.png);
 }
 
 resto .gardeners:hover {
@@ -182,7 +182,7 @@ resto .ayatori {
   display: flex;
   transition: transform 0.2s;
   text-decoration: none;
-  background-image: url(cardcolor.png)
+  background-image: url(img/cardcolor.png);
 }
 
 resto .ayatori:hover {
