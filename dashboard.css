@@ -289,7 +289,7 @@ img {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  padding-top: 1rem;
+  padding-top: 0rem;
 }
 
 .upcoming-events .image{
@@ -297,8 +297,7 @@ img {
 }
 
 .upcoming-events .image img{
-  width: 550px;
-  border-radius: 10% 10% 10% 10%;
+  width: 600px;
 }
 
 .upcoming-events .content{
