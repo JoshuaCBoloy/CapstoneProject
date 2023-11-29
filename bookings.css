@@ -267,61 +267,50 @@ tourguide .tourguide4 p {
   }
   
  
-/* PRODUCTS */
-.product {
+/* Tour Guide */
+.tourguide {
   position: relative;
   overflow: hidden;
   padding: 20px;
 }
 
-.product-category {
+.tourguide-category {
   padding: 0 10vw;
   font-size: 30px;
-  font-weight: 500;
+  font-weight: 700;
   margin-bottom: 40px;
   text-transform: capitalize;
 }
 
-.product-container {
+.tourguide-container {
   padding: 0 10vw;
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
 }
 
-.product-container::-webkit-scrollbar {
+.tourguide-container::-webkit-scrollbar {
   display: none;
 }
 
-.product-card {
+.tourguide-card {
   flex: 0 0 auto;
   width: 250px;
   height: 450px;
   margin-right: 40px;
 }
 
-.product-image {
+.tourguide-image {
   position: relative;
   width: 100%;
   height: 350px;
   overflow: hidden;
 }
 
-.product-thumb {
+.tourguide-thumb {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.discount-tag {
-  position: absolute;
-  background: #fff;
-  padding: 5px;
-  border-radius: 5px;
-  color: #ff7d7d;
-  right: 10px;
-  top: 10px;
-  text-transform: capitalize;
 }
 
 .card-btn {
@@ -341,7 +330,7 @@ tourguide .tourguide4 p {
   opacity: 0;
 }
 
-.product-card:hover .card-btn {
+.tourguide-card:hover .card-btn {
   opacity: 1;
 }
 
@@ -350,17 +339,13 @@ tourguide .tourguide4 p {
   color: #fff;
 }
 
-.product-info {
+.tourguide-info {
   width: 100%;
   height: 100px;
   padding-top: 10px;
 }
 
-.product-brand {
-  text-transform: uppercase;
-}
-
-.product-short-description {
+.tourguide-short-description {
   width: 100%;
   height: 20px;
   line-height: 20px;
@@ -368,17 +353,6 @@ tourguide .tourguide4 p {
   opacity: 0.5;
   text-transform: capitalize;
   margin: 5px 0;
-}
-
-.price {
-  font-weight: 900;
-  font-size: 20px;
-}
-
-.actual-price {
-  margin-left: 20px;
-  opacity: 0.5;
-  text-decoration: line-through;
 }
 
 .pre-btn,
