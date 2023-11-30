@@ -8,7 +8,7 @@
 
 body{
   min-width: 100vh;
-  background: url(img/yangbew2.jpg) no-repeat;
+  background: url(img/yangbew1.jpg) no-repeat;
   background-size: cover;
   background-position: center
 }
@@ -25,11 +25,18 @@ header{
   z-index: 1000;
 }
 
-header .logo{
-  font-weight: bolder;
-  font-size: 25px;
-  color: #333;
+
+header img{
+  width: 150px;
+  height: auto;
+  margin-right: 10px;
+  padding-top: 10px;
 }
+
+header .logo-link{
+  display: inline-block;
+}
+
 
 header .navbar ul{
   list-style: none;
