@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  background: #f9f9f9;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 100px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 100;
+}
+
+
+header .logo img{
+  width: 150px;
+  height: auto;
+  margin-right: 60px;
+}
+
+header .navbar ul{
+  list-style: none;
+}
+
+header .navbar ul li{
+  position: relative;
+  float: left;
+}
+
+header .navbar ul li a{
+  text-decoration: none;
+  font-size: 23px;
+  padding: 6px 15px;
+  color: #359281;
+  display: block;
+  margin: 0 10px;
+  font-weight: 600;
+}
+
+header .navbar ul li a:hover{
+  background: #359281;
+  color: #fff;
+}
+
+header .navbar ul li ul{
+  position: absolute;
+  left: 0;
+  width: 200px;
+  background: #fff;
+  display: none;
+}
+
+header .navbar ul li ul li{
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+header .navbar ul li ul li ul{
+  left: 200px;
+  top:0
+}
+
+header .navbar ul li:focus-within > ul,
+header .navbar ul li:hover > ul{
+  display: initial;
+}
+
+#menu-bar{
+  display: none;
+}
+
+header label{
+  font-size: 20px;
+  color:#333;
+  cursor: pointer;
+  display: none;
+}
+
+
+
+
+
+
+@media(max-width:991px){
+  header{
+      padding: 20px;
+  }
+  header label{
+    display: initial;
+  }
+
+  header .navbar{
+    position: absolute;
+    top:100%; left:0; right: 0;
+    background: #fff;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    display: none;
+  }
+
+  header .navbar ul li{
+    width: 100%;
+  }
+
+  header .navbar ul li ul{
+    position: relative;
+    width: 100%;
+  }
+
+  header .navbar ul li ul li{
+    background: #eee;
+  }
+
+  header .navbar ul li ul li il{
+    width: 100%;
+    left: 0;
+  }
+
+
+  #menu-bar:checked ~ .navbar{
+    display: initial;
+  }
+}
+
+/* Everything La Trinidad Text */
+.parallax {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#text {
+  position: absolute;
+  font-size: 5em;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+}
+/* Everything La Trinidad Text */
+
+/* Parallax Images */
+.parallax img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+/* Parallax Images */
+
+/* Contents*/
+.sec {
+  position: relative;
+  background: #003329;
+  padding: 100px;
+}
+
+.sec h2{
+  font-size: 3em;
+  color:#fff;
+  margin-bottom: 10px;
+
+}
+
+.sec p{
+  font-size: 1em;
+  color: #fff;
+  font-weight: 300;
+}
+
+/* Contents*/
