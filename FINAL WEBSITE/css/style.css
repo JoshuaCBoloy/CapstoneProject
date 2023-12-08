@@ -80,6 +80,14 @@ section {
 
 /* header section start */
 
+header2 {
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 5px 5px -5px #333;
+    justify-content: center;
+  }
+
 .header {
     position: -webkit-sticky;
     position: sticky;
@@ -155,6 +163,70 @@ section {
 }
 
 /* header section end */
+
+/* bootstrap reset start */
+textarea:focus, 
+textarea.form-control:focus, 
+select.form-control:focus,
+input.form-control:focus, 
+input[type=text]:focus, 
+input[type=password]:focus, 
+input[type=email]:focus, 
+input[type=number]:focus, 
+[type=text].form-control:focus, 
+[type=password].form-control:focus, 
+[type=email].form-control:focus, 
+[type=tel].form-control:focus, 
+[contenteditable].form-control:focus {
+  box-shadow: inherit;
+  border-color: transparent;
+}
+
+.image-on-top {
+    position: absolute;
+    padding: 20px;
+    top: 0;
+    left: 0;
+    width: 1800;
+    height: 200;
+    z-index: 1; /* Ensure the image is on top of the slideshow */
+}
+
+/* bootstrap reset end */
+
+/* fading animation start */
+.fade-header {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  @-webkit-keyframes fade {
+    from {
+      opacity: .4
+    }
+    to {
+      opacity: 1
+    }
+  }
+  @keyframes fade {
+    from {
+      opacity: .4
+    }
+    to {
+      opacity: 1
+    }
+  }
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 300px) {
+    .prev,
+    .next,
+    .text {
+      font-size: 11px
+    }
+  }
+
+/* fading animation end */
 
 @-webkit-keyframes fadeUp {
     0% {
@@ -242,6 +314,7 @@ section {
     display: none;
     margin: 2%;
     border-radius: 3rem;
+    text-align: left;
 }
 
 .shopping-cart-container.active {
