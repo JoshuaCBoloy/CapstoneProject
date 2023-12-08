@@ -37,13 +37,11 @@ ul {
   list-style: none;
 }
 
-
-
 /* Header */
 .header {
   background-image: url(img/restaurants-bg.jpg);
   width: 100%;
-  height: 110vh;
+  height: 17.5vh;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -87,7 +85,7 @@ ul {
   position: absolute;
   left: 0;
   width: 200px;
-  background: #fff;
+  background: #f0f0f0;
   display: none;
 }
 
@@ -148,7 +146,6 @@ ul {
 }
 
 /*  Header Content */
-
 .container-header-content {
   width: 100%;
   height: 100vh;
@@ -159,3 +156,128 @@ ul {
   text-align: center; 
 }
 
+/* Restaurants */
+.restaurant {
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.restaurant-category {
+  padding: 0 10vw;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-transform: capitalize;
+}
+
+.restaurant-container {
+  padding: 0 10vw;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.restaurant-container::-webkit-scrollbar {
+  display: none;
+}
+
+.restaurant-card {
+  flex: 0 0 auto;
+  width: 250px;
+  height: 450px;
+  margin-right: 40px;
+}
+
+.restaurant-image {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+}
+
+.restaurant-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  width: 90%;
+  text-transform: capitalize;
+  border: none;
+  outline: none;
+  background: #fff;
+  border-radius: 5px;
+  transition: 0.5s;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.restaurant-card:hover .card-btn {
+  opacity: 1;
+}
+
+.card-btn:hover {
+  background: #ff7d7d;
+  color: #fff;
+}
+
+.restaurant-info {
+  width: 100%;
+  height: 100px;
+  padding-top: 10px;
+}
+
+.restaurant-short-description {
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  overflow: hidden;
+  opacity: 0.5;
+  text-transform: capitalize;
+  margin: 5px 0;
+}
+
+.pre-btn,
+.nxt-btn {
+  border: none;
+  width: 10vw;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  cursor: pointer;
+  z-index: 8;
+}
+
+.pre-btn {
+  left: 0;
+  transform: rotate(180deg);
+}
+
+.nxt-btn {
+  right: 0;
+}
+
+.pre-btn img,
+.nxt-btn img {
+  opacity: 0.2;
+}
+
+.pre-btn:hover img,
+.nxt-btn:hover img {
+  opacity: 1;
+}
+
+.restaurant-thumb:hover {
+  transform: translateY(-5px);
+}
