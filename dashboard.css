@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
 
 :root {
   --color-primary: #e1144b;
@@ -246,12 +246,13 @@ ul {
 
 /* Trending CSS  */
 .trending{
-    margin-top: 5rem;
+    margin-top: 10rem;
   }
 
 .trending-main-title{
   font-weight: 800;
   margin-left: 20rem;
+  font-size: 3rem;
 
 }
 
@@ -266,7 +267,6 @@ ul {
 }
 
 .trending-card {
-  margin-top: 1.5rem;
   padding: 2rem;
   background-color: var(--color-white-2);
   box-shadow: 0.5rem 0.5rem 0.5rem 1rem #7f7f7f49;
@@ -279,6 +279,7 @@ ul {
 }
 
 .trending-header {
+  margin-top: 0.8rem;
   display: flex;
   justify-content:  space-between;
   align-items: center;
@@ -288,6 +289,10 @@ ul {
 .trending-type {
   font-size: 1.4rem;
   color: var(--color-text);
+}
+
+.trending-title {
+  font-size: 1.7rem;
 }
 
 .trending-icon > svg {
@@ -335,3 +340,4 @@ ul {
   height: 2rem;
 }
 
+/* best sellers */
