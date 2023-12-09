@@ -80,14 +80,6 @@ section {
 
 /* header section start */
 
-.header2 {
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    box-shadow: 0 5px 5px -5px #333;
-    justify-content: center;
-  }
-
 .header {
     position: -webkit-sticky;
     position: sticky;
@@ -127,7 +119,6 @@ section {
     margin: 0 1rem;
     color: #383347;
     transition: all .4s ease-out;
-    padding: 2rem;
 }
 
 .header .navbar a:hover {
@@ -163,70 +154,6 @@ section {
 }
 
 /* header section end */
-
-/* bootstrap reset start */
-textarea:focus, 
-textarea.form-control:focus, 
-select.form-control:focus,
-input.form-control:focus, 
-input[type=text]:focus, 
-input[type=password]:focus, 
-input[type=email]:focus, 
-input[type=number]:focus, 
-[type=text].form-control:focus, 
-[type=password].form-control:focus, 
-[type=email].form-control:focus, 
-[type=tel].form-control:focus, 
-[contenteditable].form-control:focus {
-  box-shadow: inherit;
-  border-color: transparent;
-}
-
-.image-on-top {
-    position: absolute;
-    padding: 20px;
-    top: 0;
-    left: 0;
-    width: 1800;
-    height: 200;
-    z-index: 1; /* Ensure the image is on top of the slideshow */
-}
-
-/* bootstrap reset end */
-
-/* fading animation start */
-.fade-header {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
-  }
-  @-webkit-keyframes fade {
-    from {
-      opacity: .4
-    }
-    to {
-      opacity: 1
-    }
-  }
-  @keyframes fade {
-    from {
-      opacity: .4
-    }
-    to {
-      opacity: 1
-    }
-  }
-  /* On smaller screens, decrease text size */
-  @media only screen and (max-width: 300px) {
-    .prev,
-    .next,
-    .text {
-      font-size: 11px
-    }
-  }
-
-/* fading animation end */
 
 @-webkit-keyframes fadeUp {
     0% {
@@ -314,7 +241,6 @@ input[type=number]:focus,
     display: none;
     margin: 2%;
     border-radius: 3rem;
-    text-align: left;
 }
 
 .shopping-cart-container.active {
@@ -626,7 +552,7 @@ input[type=number]:focus,
 
 .category .box:hover {
     transform: translateY(-4px);
-    background: #b2b1b6;
+    background: #d8d5e2;
 }
 
 .category .box img {
@@ -664,9 +590,7 @@ input[type=number]:focus,
 }
 
 .about .image img {
-    width: 70%;
-    height: auto;
-    border-radius: 15%;
+    width: 100%;
 }
 
 .about .content {
@@ -737,7 +661,7 @@ input[type=number]:focus,
 
 /* popular section start */
 
-.popular .box-container {
+.cafe .box-container {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
@@ -748,7 +672,7 @@ input[type=number]:focus,
     border-radius: 3rem;
 }
 
-.popular .box-container .box {
+.cafe .box-container .box {
     border-radius: 2rem;
     position: relative;
     background: #edecf2;
@@ -757,16 +681,11 @@ input[type=number]:focus,
     transition: all 0.3s ease-out;
 }
 
-.popular .box-container .box img{
-    border-radius: 3rem;
+.cafe .box-container .box:hover img {
+    transform: translateY(-3px);
 }
 
-.popular .box-container .box:hover img {
-    transform: translateY(-2px);
-    
-}
-
-.popular .box-container .box .wishlist-icon {
+.cafe .box-container .box .wishlist-icon {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
@@ -775,51 +694,51 @@ input[type=number]:focus,
     cursor: pointer;
 }
 
-.popular .box-container .box .wishlist-icon:hover {
+.cafe .box-container .box .wishlist-icon:hover {
     color: red;
 }
 
-.popular .box-container .box .image {
+.cafe .box-container .box .image {
     margin: 1rem 0;
 }
 
-.popular .box-container .box .image img {
+.cafe .box-container .box .image img {
     height: 15rem;
 }
 
-.popular .box-container .box .content h3 {
+.cafe .box-container .box .content h3 {
     font-size: 2rem;
     color: #130f40;
 }
 
-.popular .box-container .box .content .stars {
+.cafe .box-container .box .content .stars {
     padding: 1rem 0;
     font-size: 1.7rem;
 }
 
-.popular .box-container .box .content .stars i {
-    color: #9b9b9b;
+.cafe .box-container .box .content .stars i {
+    color: #afacac;
     font-size: 35px;
     cursor: pointer;
     transition: color 0.2s ease;
 }
 
-.popular .box-container .box .content .stars i.active {
+.cafe .box-container .box .content .stars i.active {
     color: #ff9c1a;
 }
 
-.popular .box-container .box .content .price {
+.cafe .box-container .box .content .price {
     font-size: 2rem;
     color: #130f40;
 }
 
-.popular .box-container .box .content .price span {
+.cafe .box-container .box .content .price span {
     font-size: 1.5rem;
     color: #494262;
     text-decoration: line-through;
 }
 
-.popular .box-container .box .btn {
+.cafe .box-container .box .btn {
     width: 100%;
     border-radius: 1.3rem;
 }
@@ -828,7 +747,7 @@ input[type=number]:focus,
 
 /* banner section start */
 
-.banner .row-banner {
+.spots .row-banner {
     background: url(../image/row-banner.png) no-repeat;
     height: 45rem;
     background-size: cover;
@@ -838,7 +757,7 @@ input[type=number]:focus,
     margin-bottom: 2rem;
 }
 
-.banner .row-banner .content {
+.spots .row-banner .content {
     position: absolute;
     top: 50%;
     left: 7%;
@@ -846,35 +765,35 @@ input[type=number]:focus,
     transform: translateY(-50%);
 }
 
-.banner .row-banner .content span {
+.spots .row-banner .content span {
     font-family: 'Satisfy', cursive;
     font-size: 4rem;
     color: #b2601c;
 }
 
-.banner .row-banner .content h3 {
+.spots .row-banner .content h3 {
     font-size: 6rem;
     color: #733f1b;
     text-transform: uppercase;
 }
 
-.banner .row-banner .content p {
+.spots .row-banner .content p {
     font-size: 2rem;
     padding-bottom: 1rem;
     color: #b2601c;
 }
 
-.banner .row-banner .btn {
+.spots .row-banner .btn {
     color: #fbf2d9;
     border-radius: 1.2rem;
     background: linear-gradient(135deg, #b2601c, #e5952a);
 }
 
-.banner .row-banner .btn:hover {
+.spots .row-banner .btn:hover {
     background: linear-gradient(135deg, #e5952a, #b2601c);
 }
 
-.banner .grid-banner {
+.spots .grid-banner {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: (minmax(30rem, 1fr))[auto-fit];
@@ -882,61 +801,61 @@ input[type=number]:focus,
     gap: 1.5rem;
 }
 
-.banner .grid-banner .grid {
+.spots .grid-banner .grid {
     position: relative;
     border-radius: 3rem;
     overflow: hidden;
     height: 45rem;
 }
 
-.banner .grid-banner .grid:hover img {
+.spots .grid-banner .grid:hover img {
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
 }
 
-.banner .grid-banner .grid img {
+.spots .grid-banner .grid img {
     height: 100%;
     width: 100%;
     -o-object-fit: cover;
     object-fit: cover;
 }
 
-.banner .grid-banner .grid .content {
+.spots .grid-banner .grid .content {
     position: absolute;
     top: 2rem;
     padding: 0 3rem;
 }
 
-.banner .grid-banner .grid .content.center {
+.spots .grid-banner .grid .content.center {
     text-align: center;
     width: 100%;
 }
 
-.banner .grid-banner .grid .content.center span {
+.spots .grid-banner .grid .content.center span {
     color: #f6f7f6;
 }
 
-.banner .grid-banner .grid .content.center h3 {
+.spots .grid-banner .grid .content.center h3 {
     color: #fff;
 }
 
-.banner .grid-banner .grid .content span {
+.spots .grid-banner .grid .content span {
     font-size: 2.5rem;
     color: #fff;
 }
 
-.banner .grid-banner .grid .content h3 {
+.spots .grid-banner .grid .content h3 {
     font-size: 3rem;
     color: #fff;
     padding-top: .5rem;
 }
 
-.banner .grid-banner .grid .btn {
+.spots .grid-banner .grid .btn {
     border-radius: 1.3rem;
     background: linear-gradient(135deg, #0f0b0c, #412e32);
 }
 
-.banner .grid-banner .grid .btn:hover {
+.spots .grid-banner .grid .btn:hover {
     background: linear-gradient(135deg, #412e32, #0f0b0c);
 }
 
@@ -944,7 +863,7 @@ input[type=number]:focus,
 
 /* menu section start */
 
-.menu .box-container {
+.restaurants .box-container {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: (minmax(30rem, 1fr))[auto-fit];
@@ -952,7 +871,7 @@ input[type=number]:focus,
     gap: 1.5rem;
 }
 
-.menu .box-container .box {
+.restaurants .box-container .box {
     border-radius: 2rem;
     background: #f7f6f9;
     padding: 2rem;
@@ -966,22 +885,22 @@ input[type=number]:focus,
     transition: all 0.3s ease-out;
 }
 
-.menu .box-container .box:hover {
+.restaurants .box-container .box:hover {
     transform: translateY(-3px);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
-.menu .box-container .box img {
+.restaurants .box-container .box img {
     height: 10rem;
 }
 
-.menu .box-container .box .content h3 {
+.restaurants .box-container .box .content h3 {
     font-size: 2rem;
     color: #130f40;
     padding-bottom: .5rem;
 }
 
-.menu .box-container .box .content .price {
+.restaurants .box-container .box .content .price {
     font-size: 1.8rem;
     color: #6e6592;
 }
@@ -990,7 +909,7 @@ input[type=number]:focus,
 
 /* order section start */
 
-.order .icons-container {
+.hotels .icons-container {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: (minmax(30rem, 1fr))[auto-fit];
@@ -999,30 +918,30 @@ input[type=number]:focus,
     margin-bottom: 2rem;
 }
 
-.order .icons-container .icons {
+.hotels .icons-container .icons {
     border-radius: 2rem;
     padding: 2rem;
     text-align: center;
     background: #f7f6f9;
 }
 
-.order .icons-container .icons img {
+.hotels .icons-container .icons img {
     height: 10rem;
 }
 
-.order .icons-container .icons h3 {
+.hotels .icons-container .icons h3 {
     font-size: 2rem;
     color: #130f40;
     margin-top: .5rem;
 }
 
-.order form {
+.hotels form {
     background: #f7f6f9;
     padding: 2.3rem;
     border-radius: 2rem;
 }
 
-.order form .flex {
+.hotels form .flex {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1033,18 +952,18 @@ input[type=number]:focus,
     justify-content: space-between;
 }
 
-.order form .flex .inputBox {
+.hotels form .flex .inputBox {
     width: 49%;
     padding: .7rem 0;
 }
 
-.order form .flex span {
+.hotels form .flex span {
     font-size: 1.7rem;
     color: #494262;
 }
 
-.order form .flex input,
-.order form .flex textarea {
+.hotels form .flex input,
+.hotels form .flex textarea {
     width: 100%;
     margin-top: .5rem;
     padding: 1rem 1.2rem;
@@ -1054,12 +973,12 @@ input[type=number]:focus,
     color: #130f40;
 }
 
-.order form .flex textarea {
+.hotels form .flex textarea {
     height: 20rem;
     resize: none;
 }
 
-.order form .flex .map {
+.hotels form .flex .map {
     height: 100%;
     width: 100%;
     border-radius: .5rem;

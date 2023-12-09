@@ -51,7 +51,8 @@ document.querySelector('.home').onmouseleave = () => {
 
 
 
- // Select all elements with the "stars" class and store them in a NodeList called "starContainers"
+
+// Select all elements with the "stars" class and store them in a NodeList called "starContainers"
 const starContainers = document.querySelectorAll(".stars");
 
 // Loop through the "starContainers" NodeList
@@ -79,4 +80,3 @@ starContainers.forEach((container) => {
     });
   });
 });
-
