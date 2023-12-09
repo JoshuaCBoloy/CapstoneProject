@@ -1,0 +1,72 @@
+
+/* Booking */
+book {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+book .bookings {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  min-width: 300px;
+  max-width: 400px;
+  text-align: center;
+  transition: transform 0.2s;
+  text-decoration: none;
+  background-image: url(cardcolor.png)
+}
+
+book .bookings:hover {
+  transform: translateY(-5px);
+}
+
+book .bookings h2 {
+  color: #333;
+  font-size: 24px;
+}
+
+book .bookings p {
+  color: #666;
+}
+
+
+/* Profile */
+prof {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+prof .profile {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  min-width: 300px;
+  max-width: 400px;
+  text-align: center;
+  transition: transform 0.2s;
+  background-image: url(cardcolor.png)
+}
+
+prof .profile:hover {
+  transform: translateY(-5px);
+}
+
+prof .profile h2 {
+  color: #333;
+  font-size: 24px;
+}
+
+prof .profile p {
+  color: #666;
+}
+
+
