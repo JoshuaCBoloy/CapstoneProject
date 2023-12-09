@@ -80,7 +80,7 @@ section {
 
 /* header section start */
 
-header2 {
+.header2 {
     color: #fff;
     text-align: center;
     padding: 10px;
@@ -626,7 +626,7 @@ input[type=number]:focus,
 
 .category .box:hover {
     transform: translateY(-4px);
-    background: #d8d5e2;
+    background: #b2b1b6;
 }
 
 .category .box img {
@@ -798,7 +798,7 @@ input[type=number]:focus,
 }
 
 .popular .box-container .box .content .stars i {
-    color: #e6e6e6;
+    color: #9b9b9b;
     font-size: 35px;
     cursor: pointer;
     transition: color 0.2s ease;
