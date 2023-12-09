@@ -20,6 +20,82 @@
 
 <body>
 
+    <header2>
+        <div class="slideshow-container">
+            <img class="image-on-top" src="image/headertitle.png" style="width:100%" style="height:100%">
+      
+            <div class="mySlides fade-header">
+              <img src="image/s1.png" style="width:100%" style="height:100%">
+            </div>
+      
+            <div class="mySlides fade-header">
+              <img src="image/s2.png" style="width:100%" style="height:100%">
+            </div>
+      
+            <div class="mySlides fade-header"> 
+              <img src="image/s3.png" style="width:100%" style="height:100%">
+            </div>
+      
+            <div class="mySlides fade-header"> 
+                <img src="image/s4.png" style="width:100%" style="height:100%">
+              </div>
+      
+            <div class="mySlides fade-header"> 
+                <img src="image/s5.png" style="width:100%" style="height:100%">
+              </div>
+        
+           
+          <br>
+          <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+      
+          </div>
+          <script>
+            let slideIndex = 0;
+            let timeoutId = null;
+            const slides = document.getElementsByClassName("mySlides");
+            const dots = document.getElementsByClassName("dot");
+            
+            showSlides();
+            function currentSlide(index) {
+                 slideIndex = index;
+                 showSlides();
+            }
+           function plusSlides(step) {
+              
+              if(step < 0) {
+                  slideIndex -= 2;
+                  
+                  if(slideIndex < 0) {
+                    slideIndex = slides.length - 1;
+                  }
+              }
+              
+              showSlides();
+           }
+            function showSlides() {
+              for(let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+                dots[i].classList.remove('active');
+              }
+              slideIndex++;
+              if(slideIndex > slides.length) {
+                slideIndex = 1
+              }
+              slides[slideIndex - 1].style.display = "block";
+              dots[slideIndex - 1].classList.add('active');
+               if(timeoutId) {
+                  clearTimeout(timeoutId);
+               }
+              timeoutId = setTimeout(showSlides, 4000); // Change image every 4 seconds
+            }
+          </script>
+      </header2>
+
     <!-- header section starts  -->
 
     <header class="header">
@@ -66,90 +142,122 @@
 
         <div class="products-container">
 
-            <h3 class="title">your products</h3>
+            <h3 class="title">Tour Guide Booking</h3>
 
             <div class="box-container">
 
-                <div class="box">
+                <div class="box" alt="Image Button">
                     <i class="ri-close-line close-icon"></i>
-                    <img src="image/menu-1.png" alt="">
+                    <img src="image/icon-male.png">
                     <div class="content">
-                        <h3>delicious food</h3>
-                        <span> quantity : </span>
-                        <input type="number" name="" min="1" value="1" id="">
+                        <h3>Tour Guide 1</h3>
                         <br>
-                        <span> price : </span>
-                        <span class="price"> $40.00</span>
+                        <span> Full Name : </span>
+                        <span class="price"> Jay Cruz</span>
+                        <br>
+                        <span> Email : </span>
+                        <span class="price"> jay1@gmail.com</span>
+                        <br>
+                        <span> Phone Number : </span>
+                        <span class="price"> 09101550506</span>
                     </div>
                 </div>
 
                 <div class="box">
                     <i class="ri-close-line close-icon"></i>
-                    <img src="image/menu-2.png" alt="">
+                    <img src="image/icon-female.png" alt="Image Button">
                     <div class="content">
-                        <h3>delicious food</h3>
-                        <span> quantity : </span>
-                        <input type="number" name="" min="1" value="1" id="">
+                        <h3>Tour Guide 2</h3>
                         <br>
-                        <span> price : </span>
-                        <span class="price"> $32.00</span>
+                        <span> Full Name : </span>
+                        <span class="price"> Mae Yu</span>
+                        <br>
+                        <span> Email : </span>
+                        <span class="price"> mae2@gmail.com</span>
+                        <br>
+                        <span> Phone Number : </span>
+                        <span class="price"> 09102550506</span>
                     </div>
                 </div>
 
                 <div class="box">
                     <i class="ri-close-line close-icon"></i>
-                    <img src="image/menu-3.png" alt="">
+                    <img src="image/icon-female.png" alt="Image Button">
                     <div class="content">
-                        <h3>delicious food</h3>
-                        <span> quantity : </span>
-                        <input type="number" name="" min="1" value="1" id="">
+                        <h3>Tour Guide 3</h3>
                         <br>
-                        <span> price : </span>
-                        <span class="price"> $25.00</span>
+                        <span> Full Name : </span>
+                        <span class="price"> Jane Kay Lang</span>
+                        <br>
+                        <span> Email : </span>
+                        <span class="price"> janekay3@gmail.com</span>
+                        <br>
+                        <span> Phone Number : </span>
+                        <span class="price"> 09103550506</span>
                     </div>
                 </div>
 
                 <div class="box">
                     <i class="ri-close-line close-icon"></i>
-                    <img src="image/menu-4.png" alt="">
+                    <img src="image/icon-male.png" alt="Image Button">
                     <div class="content">
-                        <h3>delicious food</h3>
-                        <span> quantity : </span>
-                        <input type="number" name="" min="1" value="1" id="">
+                        <h3>Tour Guide 4</h3>
                         <br>
-                        <span> price : </span>
-                        <span class="price"> $19.00</span>
+                        <span> Full Name : </span>
+                        <span class="price"> Juan Tiu</span>
+                        <br>
+                        <span> Email : </span>
+                        <span class="price"> juan4@gmail.com</span>
+                        <br>
+                        <span> Phone Number : </span>
+                        <span class="price"> 09104550506</span>
                     </div>
                 </div>
 
                 <div class="box">
                     <i class="ri-close-line close-icon"></i>
-                    <img src="image/menu-5.png" alt="">
+                    <img src="image/icon-female.png" alt="Image Button">
                     <div class="content">
-                        <h3>delicious food</h3>
-                        <span> quantity : </span>
-                        <input type="number" name="" min="1" value="1" id="">
+                        <h3>Tour Guide 5</h3>
                         <br>
-                        <span> price : </span>
-                        <span class="price"> $38.00</span>
+                        <span> Full Name : </span>
+                        <span class="price"> Mary Go</span>
+                        <br>
+                        <span> Email : </span>
+                        <span class="price"> mary5@gmail.com</span>
+                        <br>
+                        <span> Phone Number : </span>
+                        <span class="price"> 09105550506</span>
                     </div>
                 </div>
 
+                <div class="box">
+                    <i class="ri-close-line close-icon"></i>
+                    <img src="image/icon-male.png" alt="Image Button">
+                    <div class="content">
+                        <h3>Tour Guide 6</h3>
+                        <br>
+                        <span> Full Name : </span>
+                        <span class="price"> Johny Signs</span>
+                        <br>
+                        <span> Email : </span>
+                        <span class="price"> johny6@gmail.com</span>
+                        <br>
+                        <span> Phone Number : </span>
+                        <span class="price"> 09106550506</span>
+                    </div>
+                </div>
             </div>
-
         </div>
 
         <div class="cart-total">
-
-            <h3 class="title"> cart total </h3>
-
+            <h3 class="title"> Confirmation </h3>
             <div class="box">
-                <h3 class="subtitle">subtitle: <span>$200</span> </h3>
-                <h3 class="total"> total : <span>$200</span> </h3>
+                <h3 class="subtitle">Booking Details : <span><br>---<br>---<br>---<br></span> </h3>
+                <h3 class="total"> Schedule : <span><br>---<br>---<br>---<br></span> </h3>
 
-                <a href="#" class="btn">proceed to checkout</a>
+                <a href="#" class="btn"><h2>Book Now</h2></a>
             </div>
-
         </div>
 
     </section>
