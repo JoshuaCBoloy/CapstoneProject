@@ -42,6 +42,7 @@ section {
     padding: 2rem 9%;
 }
 
+
 /* reusable css start */
 
 .heading {
@@ -79,8 +80,6 @@ section {
 
 
 /* header section start */
-
-
 
 .header {
     position: -webkit-sticky;
@@ -157,104 +156,6 @@ section {
 
 /* header section end */
 
-/* bootstrap reset start */
-textarea:focus, 
-textarea.form-control:focus, 
-select.form-control:focus,
-input.form-control:focus, 
-input[type=text]:focus, 
-input[type=password]:focus, 
-input[type=email]:focus, 
-input[type=number]:focus, 
-[type=text].form-control:focus, 
-[type=password].form-control:focus, 
-[type=email].form-control:focus, 
-[type=tel].form-control:focus, 
-[contenteditable].form-control:focus {
-  box-shadow: inherit;
-  border-color: transparent;
-}
-
-
-
-/* bootstrap reset end */
-
-/* header section start */
-
-
-
-.header {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: #f7f6f9;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    padding: 2rem 9%;
-    border-radius: 0 0 2rem 2rem;
-}
-
-.header .logo {
-    display: flex;
-    align-items: center;
-    font-size: 1.7rem;
-    font-weight: bolder;
-    color: #130f40;
-}
-
-.header .logo i {
-    padding-right: .5rem;
-    color: #494262;
-}
-
-.header .navbar a {
-    font-size: 1.7rem;
-    margin: 0 1rem;
-    color: #383347;
-    transition: all .4s ease-out;
-}
-
-.header .navbar a:hover {
-    color: #52389b;
-}
-
-.header .icons {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-.header .icons div {
-    height: 4.5rem;
-    width: 4.5rem;
-    line-height: 4.5rem;
-    font-size: 2rem;
-    background: #edecf2;
-    color: #130f40;
-    border-radius: 50%;
-    margin-left: .3rem;
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.4s ease-out;
-}
-
-.header .icons div:hover {
-    background: #d8d5e2;
-}
-
-#menu-btn {
-    display: none;
-}
 
 /* news section start */
 
@@ -319,6 +220,7 @@ input[type=number]:focus,
     width: 80vw;
 }
 
+<<<<<<< HEAD
 
 /* news section end */
 
@@ -364,3 +266,6 @@ input[type=number]:focus,
     line-height: 2;
     padding: 1rem 0;
 }
+=======
+/* news section end */
+>>>>>>> 8f94bba7e2aeb69b8817cce3fb624c8c5dd57e81
