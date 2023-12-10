@@ -78,7 +78,6 @@ section {
 
 /* reusable css end */
 
-
 /* header section start */
 
 .header {
@@ -164,13 +163,13 @@ section {
     top: 9.5rem;
     left: 0;
     right: 0;
+    bottom: auto;
     z-index: 1000;
     height: calc(100vh - 8.5rem);
     background: #f7f6f9;
     overflow-y: scroll;
     padding-bottom: 8rem;
-    margin: 2%;
-    border-radius: 3rem;
+    border-radius: 2rem;
 }
 
 .tourguide-booking-container.active {
@@ -298,4 +297,81 @@ section {
     color: #52389b;
 }
 
-/* tour guide booking section end */
+/* sign-up section start */
+
+.sign-up .icons-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(30rem, 1fr))[auto-fit];
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.sign-up .icons-container .icons {
+    border-radius: 2rem;
+    padding: 2rem;
+    text-align: center;
+    background: #f7f6f9;
+}
+
+.sign-up .icons-container .icons img {
+    height: 10rem;
+}
+
+.sign-up .icons-container .icons h3 {
+    font-size: 2rem;
+    color: #130f40;
+    margin-top: .5rem;
+}
+
+.sign-up form {
+    background: #f7f6f9;
+    padding: 2.3rem;
+    border-radius: 2rem;
+}
+
+.sign-up form .flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.sign-up form .flex .inputBox {
+    width: 49%;
+    padding: .7rem 0;
+}
+
+.sign-up form .flex span {
+    font-size: 1.7rem;
+    color: #494262;
+}
+
+.sign-up form .flex input,
+.sign-up form .flex textarea {
+    width: 100%;
+    margin-top: .5rem;
+    padding: 1rem 1.2rem;
+    border-radius: .5rem;
+    font-size: 1.6rem;
+    text-transform: none;
+    color: #130f40;
+}
+
+.sign-up form .flex textarea {
+    height: 20rem;
+    resize: none;
+}
+
+.sign-up form .flex .map {
+    height: 100%;
+    width: 100%;
+    border-radius: .5rem;
+}
+
+/* sign-up section end */
