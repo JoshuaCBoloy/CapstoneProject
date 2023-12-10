@@ -52,6 +52,7 @@ document.querySelector('.home').onmouseleave = () => {
 
 
 
+
 // Select all elements with the "stars" class and store them in a NodeList called "starContainers"
 const starContainers = document.querySelectorAll(".stars");
 

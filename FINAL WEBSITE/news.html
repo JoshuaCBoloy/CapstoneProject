@@ -42,3 +42,40 @@
         </div>
 
     </header>
+    <!-- news section starts  -->
+
+    <section class="news" id="news">
+
+        <div class="content">
+            <span>La Trinidad Newsfeed</span>
+            <h3>Stay updated with the latest happenings around La Trinidad!</h3>
+            <p>Check out the Facebook page! You will be redirected to La Trinidad's Facebook page, click the button below!</p>
+            <a href="https://www.facebook.com/lgulatrinidad" class="btn">Check it out!</a>
+        </div>
+    
+        <div class="image">
+            <img src="image/news-image.png" alt="" class="news-img">
+            <img src="image/news-parallax-img.png" alt="" class="news-parallax-img">
+        </div>
+    
+    </section>
+
+    <!-- news section ends  -->
+
+    <!-- js script  -->
+    <script>
+        document.querySelector('.news').onmousemove = (e) => {
+            let x = (window.innerWidth - e.pageX * 2) / 90;
+            let y = (window.innerHeight - e.pageY * 2) / 90;
+
+            document.querySelector('.news .news-parallax-img').style.transform = `translateX(${y}px) translateY(${x}px)`;
+        }
+
+        document.querySelector('.news').onmouseleave = () => {
+            document.querySelector('.news .news-parallax-img').style.transform = `translateX(0px) translateY(0px)`;
+        }
+    </script>
+    <!-- end of js script  -->
+    
+</body>
+</html>
