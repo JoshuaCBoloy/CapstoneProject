@@ -271,5 +271,9 @@ section {
     padding: 1rem 0;
 }
 
+.newsfeed .heading p{
+    font-size: 1.5rem;
+}
+
 /* news section end */
 
