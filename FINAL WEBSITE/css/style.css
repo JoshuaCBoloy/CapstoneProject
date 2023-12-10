@@ -80,13 +80,7 @@ section {
 
 /* header section start */
 
-.header2 {
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    box-shadow: 0 5px 5px -5px #333;
-    justify-content: center;
-  }
+
 
 .header {
     position: -webkit-sticky;
