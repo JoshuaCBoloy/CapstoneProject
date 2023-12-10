@@ -51,7 +51,7 @@ section {
 }
 
 .heading span {
-    font-family: 'Satisfy', cursive;
+    font-family: 'Satisfy';
     font-size: 3rem;
     color: #52389b;
 }
@@ -59,6 +59,10 @@ section {
 .heading h3 {
     font-size: 3rem;
     color: #130f40;
+}
+.heading h2{
+    font-size: 2rem;
+    color: #52389b;
 }
 
 .btn {
@@ -220,7 +224,7 @@ section {
     width: 80vw;
 }
 
-<<<<<<< HEAD
+
 
 /* news section end */
 
@@ -266,6 +270,6 @@ section {
     line-height: 2;
     padding: 1rem 0;
 }
-=======
+
 /* news section end */
->>>>>>> 8f94bba7e2aeb69b8817cce3fb624c8c5dd57e81
+
