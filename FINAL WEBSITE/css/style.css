@@ -864,9 +864,9 @@ section {
 
 /* order section end */
 
-/* blog section start */
+/* restaurants section start */
 
-.blogs .box-container {
+.restaurant .box-container {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: (minmax(30rem, 1fr))[auto-fit];
@@ -874,28 +874,28 @@ section {
     gap: 1.5rem;
 }
 
-.blogs .box-container .box {
+.restaurant .box-container .box {
     border-radius: 3rem;
     overflow: hidden;
 }
 
-.blogs .box-container .box:hover .image h3 {
+.restaurant .box-container .box:hover .image h3 {
     left: 1.5rem;
 }
 
-.blogs .box-container .box:hover .image h3 {
+.restaurant .box-container .box:hover .image h3 {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
 }
 
-.blogs .box-container .box .image {
+.restaurant .box-container .box .image {
     position: relative;
     height: 25rem;
     overflow: hidden;
     width: 100%;
 }
 
-.blogs .box-container .box .image h3 {
+.restaurant .box-container .box .image h3 {
     position: absolute;
     z-index: 10;
     top: 1rem;
@@ -907,59 +907,59 @@ section {
     font-size: 1.5rem;
 }
 
-.blogs .box-container .box .image h3 i {
+.restaurant .box-container .box .image h3 i {
     padding-right: .5rem;
     color: #52389b;
 }
 
-.blogs .box-container .box .image img {
+.restaurant .box-container .box .image img {
     height: 100%;
     width: 100%;
     -o-object-fit: cover;
     object-fit: cover;
 }
 
-.blogs .box-container .box .content {
+.restaurant .box-container .box .content {
     padding: 2rem 1.5rem;
     background: #f7f6f9;
 }
 
-.blogs .box-container .box .content .tags {
+.restaurant .box-container .box .content .tags {
     padding-bottom: 1rem;
 }
 
-.blogs .box-container .box .content .tags a {
+.restaurant .box-container .box .content .tags a {
     font-size: 1.5rem;
     color: #494262;
     padding-right: .5rem;
 }
 
-.blogs .box-container .box .content .tags a:hover {
+.restaurant .box-container .box .content .tags a:hover {
     color: #52389b;
 }
 
-.blogs .box-container .box .content .tags a i {
+.restaurant .box-container .box .content .tags a i {
     color: #494262;
     padding-right: .5rem;
 }
 
-.blogs .box-container .box .content h3 {
+.restaurant .box-container .box .content h3 {
     font-size: 2rem;
     color: #130f40;
 }
 
-.blogs .box-container .box .content p {
+.restaurant .box-container .box .content p {
     font-size: 1.4rem;
     color: #635985;
     padding: 1rem 0;
     line-height: 2;
 }
 
-.blogs .box-container .box .brn {
+.restaurant .box-container .box .brn {
     border-radius: 1.2rem;
 }
 
-/* blog section end */
+/* restaurants section end */
 
 /* footer section start */
 
