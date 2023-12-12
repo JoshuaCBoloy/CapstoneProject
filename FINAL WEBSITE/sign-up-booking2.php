@@ -14,6 +14,8 @@
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/sign-up-booking.css">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
     <title>Everything La Trinidad</title>
 </head>
 
@@ -27,7 +29,7 @@
 <nav class="navbar">
     <a href="index.html">home</a>
     <a href="index.html#about">about</a>
-    <a href="user-booking.html">booking</a>
+    <a href="choose-tourguide.html">booking</a>
     <a href="services.html">services</a>
     <a href="news.html">news</a>
 </nav>
@@ -44,7 +46,7 @@
 
 <section class="sign-up" id="sign-up">
             <div class="heading">
-                <span>Tour Guide Booking</span>
+                <span>Tour Guide Booking 2</span>
                 <h3>Sign up</h3>
             </div>
 

@@ -296,3 +296,31 @@ section {
 .tourguide-booking-container .cart-total .box h3 span {
     color: #52389b;
 }
+
+.card-btn1 {
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+    border: none;
+    outline: none;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.card-btn1:hover {
+    background: white;
+}
+
+.card-btn2 {
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+    border: none;
+    outline: none;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.card-btn2:hover {
+    background: white;
+}
