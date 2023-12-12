@@ -10,6 +10,7 @@
     outline: none;
     border: none;
     text-decoration: none;
+    text-transform: capitalize;
     -webkit-transition: .3s linear;
     transition: .3s linear;
 }
@@ -40,7 +41,6 @@ html::-webkit-scrollbar-thumb {
 section {
     padding: 2rem 9%;
 }
-
 
 /* reusable css start */
 
@@ -76,6 +76,7 @@ section {
 }
 
 /* reusable css end */
+
 
 /* header section start */
 
@@ -122,6 +123,14 @@ section {
 
 .header .navbar a:hover {
     color: #52389b;
+}
+
+.header .btn-warning {
+    color: white;
+    background-color: #ff9800;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+
 }
 
 .header .icons {
