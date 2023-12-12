@@ -1,10 +1,3 @@
-<?php
-session_start();
-if (isset($_SESSION["user"])) {
-   header("Location: php-booking.php");
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +5,6 @@ if (isset($_SESSION["user"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
@@ -20,41 +12,39 @@ if (isset($_SESSION["user"])) {
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/booking.css">
+    <link rel="stylesheet" href="css/css-booking.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
     <title>Everything La Trinidad</title>
 </head>
 
 <body>
-
     <!-- header section starts  -->
 
-    <header class="header">
+<header class="header">
 
-        <a href="index.html" class="logo"> <i class="ri-store-2-line"></i> Everything La Trinidad </a>
+<a href="index.html" class="logo"> <i class="ri-store-2-line"></i> Everything La Trinidad </a>
 
-        <nav class="navbar">
-            <a href="index.html">home</a>
-            <a href="index.html#about">about</a>
-            <a href="user-booking.html">booking</a>
-            <a href="services.html">services</a>
-            <a href="news.html">news</a>
-        </nav>
+<nav class="navbar">
+    <a href="index.html">home</a>
+    <a href="index.html#about">about</a>
+    <a href="user-booking.html">booking</a>
+    <a href="services.html">services</a>
+    <a href="news.html">news</a>
+</nav>
 
-        <div class="icons">
-            <div id="menu-btn" class="ri-menu-line"></div>
-            <div id="search-btn" class="ri-search-line"></div>
-            <div id="cart-btn" class="ri-shopping-cart-line"></div>
-            <div id="login-btn" class="ri-user-line"></div>
-        </div>
+<div class="icons">
+    <div id="menu-btn" class="ri-menu-line"></div>
+    <div id="search-btn" class="ri-search-line"></div>
+    <div id="cart-btn" class="ri-shopping-cart-line"></div>
+    <div id="login-btn" class="ri-user-line"></div>
+</div>
 
-    </header>
-    <!-- header section ends -->
+</header>
+<!-- header section ends -->
 
-
-    <!-- tour guide booking section starts -->
-    <section class="booking" id="booking">
-        <section class="sign-up" id="sign-up">
+<section class="sign-up" id="sign-up">
             <div class="heading">
                 <span>Tour Guide Booking</span>
                 <h3>Sign up</h3>
@@ -62,60 +52,63 @@ if (isset($_SESSION["user"])) {
 
             <?php
             if (isset($_POST["submit"])) {
-                $firstName = $_POST["firstname"];
-                $lastName = $_POST["lastname"];
+                $firstName = $_POST["first_name"];
+                $lastName = $_POST["last_name"];
                 $email = $_POST["email"];
                 $phoneNumber = $_POST["phone_number"];
                 $numberPeople = $_POST["number_people"];
                 $tourDays = $_POST["tour_days"];
-                
+                $any = $_POST["any"];
+
                 $errors = array();
 
-                if (empty($firstName) OR empty($lastName) OR empty($email) OR empty($phoneNumber) OR empty($numberPeople) OR empty($tourDays)) {
+                if (empty($firstName) OR empty($lastName) OR empty($email) OR empty($phoneNumber) OR empty($numberPeople) OR empty($tourDays) OR empty($any)) {
                     array_push($errors, "All fields are required");
                 }
                 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                     array_push($errors, "Email is not valid");
                 }
-                if (is_numeric($phoneNumber) OR ($numberPeople) OR ($tourDays)) {
-                    array_push($errors, "Input not valid");
+                if (!is_numeric($phoneNumber)) {
+                    array_push($errors, "Phone Number Input not valid");
                 }
-                require_once "booking-database.php";
-                $sql = "SELECT * FROM users WHERE email = '$email'";
-                $result = mysqli_query($conn, $sql);
-                $rowCount = mysqli_num_rows($result);
-                if ($rowCount>0) {
-                    array_push($errors, "Email already used!");
+                if (!is_numeric($numberPeople)) {
+                    array_push($errors, "Number of People Input not valid");
                 }
+                if (!is_numeric($tourDays)) {
+                    array_push($errors, "Days of Tour Input not valid");
+                }
+
                 if (count($errors)>0) {
-                    foreach ($errors as $error) {
+                    foreach($errors as $error) {
                         echo "<div class='alert alert-danger'>$error</div>";
                     }
                 }else {
-                    $sql = "INSERT INTO users (first_name, last_name, email, phone_number, number_people, tour_days) VALUES ( ?, ?, ?, ?, ?, ? )";
+                    require_once "booking-database.php";
+                    $sql = "INSERT INTO users (first_name, last_name, email, phone_number, number_people, tour_days, any) VALUES ( ?, ?, ?, ?, ?, ?, ? )";
                     $stmt = mysqli_stmt_init($conn);
                     $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
                     if ($prepareStmt) {
-                        mysqli_stmt_bind_param($stmt, "sssiii", $firstName, $lastName, $email, $phoneNumber, $numberPeople, $tourDays);
+                        mysqli_stmt_bind_param($stmt, "sssiiis", $firstName, $lastName, $email, $phoneNumber, $numberPeople, $tourDays, $any);
                         mysqli_stmt_execute($stmt);
-                        echo "<div class='alert alert-success'>Your tour guide book is sent successfully. Wait for response.</div>";
+                        echo "<div class='alert alert-success'>Your tour guide booking is sent successfully. Wait for any response.</div>";
                     }else {
                         die("Something went wrong");
                     }
                 }
+
             }
             ?>
 
 
-            <form action="sign-up.php" method="post">
+            <form action="php-booking.php" method="post">
                 <div class="flex">
                     <div class="inputBox">
-                        <span>first name:</span>
-                        <input type="text" class="form-control" name="firstname" placeholder="First Name:">
+                        <span>First Name:</span>
+                        <input type="text" class="form-control" name="first_name" placeholder="First Name:">
                     </div>
                     <div class="inputBox">
-                        <span>last name:</span>
-                        <input type="text" class="form-control" name="lastname" placeholder="Last Name:">
+                        <span>Last Name:</span>
+                        <input type="text" class="form-control" name="last_name" placeholder="Last Name:">
                     </div>
                 </div>
 
@@ -123,11 +116,11 @@ if (isset($_SESSION["user"])) {
     
                 <div class="flex">
                     <div class="inputBox">
-                        <span>email:</span>
+                        <span>Email:</span>
                         <input type="email" class="form-control" name="email" placeholder="Your Email:">
                     </div>
                     <div class="inputBox">
-                        <span>phone number:</span>
+                        <span>Phone Number:</span>
                         <input type="number" class="form-control" name="phone_number" placeholder="Your Number:">
                     </div>
                 </div>
@@ -136,7 +129,7 @@ if (isset($_SESSION["user"])) {
     
                 <div class="flex">
                     <div class="inputBox">
-                        <span>how many people are in your group?</span>
+                        <span>How many people are in your group?</span>
                         <input type="number" class="form-control" name="number_people" placeholder="Number of People:">
                     </div>
                     <div class="inputBox">
@@ -149,7 +142,7 @@ if (isset($_SESSION["user"])) {
      
                 <div class="flex">
                     <div class="inputBox">
-                        <textarea type="text" class="form-control" name="anything" placeholder="Anything else we should know?" cols="30" rows="10"></textarea>
+                        <textarea type="text" class="form-control" name="any" placeholder="Anything else we should know?" cols="30" rows="10"></textarea>
                     </div>
                     <div class="inputBox">
                         <iframe class="map"
@@ -167,14 +160,6 @@ if (isset($_SESSION["user"])) {
             </form>
 
         </section>
-
-    </section>
-
-    <!-- tour guide booking section ends -->
-    
-
-    <!-- custom js file link  -->
-    <script src="js/script.js"></script>
-
+        
 </body>
 </html>
