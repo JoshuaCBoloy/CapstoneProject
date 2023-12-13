@@ -24,7 +24,8 @@
                 <th>Number of People</th>
                 <th>Days of Tour</th>
                 <th>Additional Information</th>
-                <th>Response</th>
+                <th>Booking Status</th>
+                <th>
             </tr>
             </thead>
             <tbody>
@@ -44,8 +45,12 @@
                     <td><?php echo $row['tour_days'];?></td>
                     <td><?php echo $row['any'];?></td>
                     <td>
-                        <a href="#" class="accept">Accept</a>
-                        <a href="#" class="decline">Decline</a>
+                    <select onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['id'] ?>')">  
+                                <option value="">Update Status</option>  
+                                <option value="1">Pending</option>  
+                                <option value="2">Accept</option>  
+                                <option value="3">Reject</option>  
+                           </select>
                 </td>
                 </tr>
 

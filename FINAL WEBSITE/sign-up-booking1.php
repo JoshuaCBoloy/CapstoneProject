@@ -163,6 +163,11 @@
                     <input type="submit" class="btn btn-primary" name="submit" value="Book Now">
                 </div>
 
+                <br>
+                <br>
+                <br>
+                <div><h2>Booking Status:<h2></div>
+
             </form>
 
         </section>
