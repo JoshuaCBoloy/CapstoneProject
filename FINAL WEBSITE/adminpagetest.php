@@ -1,3 +1,13 @@
+<?php
+if (isset($_GET['id']) && isset($_GET['response_status'])) {
+    $id=$_GET['id'];
+    $response_status=$_GET['response_status'];
+    mysqli_query($con, "update users set response_status='$response_status' where id='$id'");
+    header("location: tour_guide_booking.php");
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +35,7 @@
                 <th>Days of Tour</th>
                 <th>Additional Information</th>
                 <th>Booking Status</th>
-                <th>
+                <th>Response</th>
             </tr>
             </thead>
             <tbody>
@@ -44,6 +54,14 @@
                     <td><?php echo $row['number_people'];?></td>
                     <td><?php echo $row['tour_days'];?></td>
                     <td><?php echo $row['any'];?></td>
+                    <td><?php 
+                    if ($row['response_status']==1) {
+                        echo "Pending";
+                    } if ($row['response_status']==2) {
+                        echo "Accept";
+                    } if ($row['response_status']==3) {
+                        echo "Decline";
+                    }?>
                     <td>
                     <select onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['id'] ?>')">  
                                 <option value="">Update Status</option>  
@@ -60,6 +78,12 @@
             </tbody>
         </table>
     </div>
+    <script type="text/javascript">
+        function status_update(value,id) {
+            let url = "http://localhost/adminpagetest.php";
+            window.location.href= url+"?id="+id+"&reponse_status="+value;
+        }
+    </script>
 
 </body>
 </html>

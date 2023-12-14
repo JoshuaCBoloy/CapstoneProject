@@ -1,3 +1,23 @@
+<?php
+$con = mysqli_connect("localhost", "root", "", "tour_guide_booking");
+if (mysqli_connect_errno()) {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    exit();
+}
+
+if (isset($_GET['id']) && isset($_GET['response_status'])) {
+    $id = $_GET['id'];
+    $response_status = $_GET['response_status'];
+
+    $stmt = mysqli_prepare($con, "UPDATE users SET response_status = ? WHERE id = ?");
+    mysqli_stmt_bind_param($stmt, "ii", $response_status, $id);
+    mysqli_stmt_execute($stmt);
+
+    header("location: tour_guide_booking.php");
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,13 +95,13 @@
                     array_push($errors, "Email is not valid");
                 }
                 if (!is_numeric($phoneNumber)) {
-                    array_push($errors, "Phone Number Input not valid");
+                    array_push($errors);
                 }
                 if (!is_numeric($numberPeople)) {
-                    array_push($errors, "Number of People Input not valid");
+                    array_push($errors);
                 }
                 if (!is_numeric($tourDays)) {
-                    array_push($errors, "Days of Tour Input not valid");
+                    array_push($errors);
                 }
 
                 if (count($errors)>0) {
@@ -166,8 +186,19 @@
                 <br>
                 <br>
                 <br>
-                <div><h2>Booking Status:<h2></div>
-
+            </form>
+            <form action="">
+            <h2>Booking Status:</h2>
+            <p> <?php
+            if ($row['response_status'] == 1) {
+                echo "Pending Request";
+            } elseif ($row['response_status'] == 2) {
+                echo "Accepted";
+            } elseif ($row['response_status'] == 3) {
+                echo "Declined";
+            }
+            ?>
+            </p>
             </form>
 
         </section>
