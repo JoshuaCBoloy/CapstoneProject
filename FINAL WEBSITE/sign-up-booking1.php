@@ -1,19 +1,11 @@
 <?php
 $con = mysqli_connect("localhost", "root", "", "tour_guide_booking");
-if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    exit();
-}
-
-if (isset($_GET['id']) && isset($_GET['response_status'])) {
-    $id = $_GET['id'];
-    $response_status = $_GET['response_status'];
-
-    $stmt = mysqli_prepare($con, "UPDATE users SET response_status = ? WHERE id = ?");
-    mysqli_stmt_bind_param($stmt, "ii", $response_status, $id);
-    mysqli_stmt_execute($stmt);
-
-    header("location: tour_guide_booking.php");
+$sql = mysqli_query($con, "select * from users");
+if (isset($_GET['id']) && isset($_GET['status'])) {
+    $id=$_GET['id'];
+    $status=$_GET['status'];
+    mysqli_query($con, "update users set status='$status' where id='$id'");
+    header("location: adminpagetest.php");
     die();
 }
 ?>
@@ -147,7 +139,7 @@ if (isset($_GET['id']) && isset($_GET['response_status'])) {
                     </div>
                     <div class="inputBox">
                         <span>Phone Number:</span>
-                        <input type="number" class="form-control" name="phone_number" placeholder="Your Number:">
+                        <input type="tel" class="form-control" name="phone_number" pattern="[0-9]{11}" placeholder="Your Number:">
                     </div>
                 </div>
 
@@ -186,22 +178,62 @@ if (isset($_GET['id']) && isset($_GET['response_status'])) {
                 <br>
                 <br>
                 <br>
-            </form>
-            <form action="">
-            <h2>Booking Status:</h2>
-            <p> <?php
-            if ($row['response_status'] == 1) {
-                echo "Pending Request";
-            } elseif ($row['response_status'] == 2) {
-                echo "Accepted";
-            } elseif ($row['response_status'] == 3) {
-                echo "Declined";
-            }
-            ?>
-            </p>
-            </form>
 
-        </section>
+        <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Number of People</th>
+                <th>Days of Tour</th>
+                <th>Additional Information</th>
+                <th>Booking Status</th>
+            </tr>
+            </thead>
+            <tbody>
+                <?php
+                require_once "conn.php";
+                $sql = "SELECT * FROM users";
+                $query = $con->query($sql);
+                while($row = $query->fetch_assoc()){
+
+                ?>
+                <tr>
+                    <td><?php echo $row['first_name'];?></td>
+                    <td><?php echo $row['last_name'];?></td>
+                    <td><?php echo $row['email'];?></td>
+                    <td><?php echo $row['phone_number'];?></td>
+                    <td><?php echo $row['number_people'];?></td>
+                    <td><?php echo $row['tour_days'];?></td>
+                    <td><?php echo $row['any'];?></td>
+                    <td><?php 
+                    if ($row['status']==1) {
+                        echo "Pending";
+                    } if ($row['status']==2) {
+                        echo "Accepted";
+                    } if ($row['status']==3) {
+                        echo "Declined";
+                    } ?> </td>
+                </tr>
+
+                <?php
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
+</form>
+            </section>
+        <script type="text/javascript">  
+        function status_update(value,id){  
+           //alert(id);  
+           let url = "http://localhost/CapstoneProject/FINAL%20WEBSITE/adminpagetest.php";  
+           window.location.href= url+"?id="+id+"&status="+value;  
+      }  
+ </script>
         
 </body>
 </html>

@@ -1,9 +1,11 @@
 <?php
-if (isset($_GET['id']) && isset($_GET['response_status'])) {
+$con = mysqli_connect("localhost", "root", "", "tour_guide_booking");
+$sql = mysqli_query($con, "select * from users");
+if (isset($_GET['id']) && isset($_GET['status'])) {
     $id=$_GET['id'];
-    $response_status=$_GET['response_status'];
-    mysqli_query($con, "update users set response_status='$response_status' where id='$id'");
-    header("location: tour_guide_booking.php");
+    $status=$_GET['status'];
+    mysqli_query($con, "update users set status='$status' where id='$id'");
+    header("location: adminpagetest.php");
     die();
 }
 ?>
@@ -42,7 +44,7 @@ if (isset($_GET['id']) && isset($_GET['response_status'])) {
                 <?php
                 require_once "conn.php";
                 $sql = "SELECT * FROM users";
-                $query = $conn->query($sql);
+                $query = $con->query($sql);
                 while($row = $query->fetch_assoc()){
 
                 ?>
@@ -55,11 +57,11 @@ if (isset($_GET['id']) && isset($_GET['response_status'])) {
                     <td><?php echo $row['tour_days'];?></td>
                     <td><?php echo $row['any'];?></td>
                     <td><?php 
-                    if ($row['response_status']==1) {
+                    if ($row['status']==1) {
                         echo "Pending";
-                    } if ($row['response_status']==2) {
+                    } if ($row['status']==2) {
                         echo "Accept";
-                    } if ($row['response_status']==3) {
+                    } if ($row['status']==3) {
                         echo "Decline";
                     }?>
                     <td>
@@ -80,8 +82,8 @@ if (isset($_GET['id']) && isset($_GET['response_status'])) {
     </div>
     <script type="text/javascript">
         function status_update(value,id) {
-            let url = "http://localhost/adminpagetest.php";
-            window.location.href= url+"?id="+id+"&reponse_status="+value;
+            let url = "http://localhost/CapstoneProject/FINAL%20WEBSITE/adminpagetest.php";
+            window.location.href= url+"?id="+id+"&status="+value;
         }
     </script>
 
