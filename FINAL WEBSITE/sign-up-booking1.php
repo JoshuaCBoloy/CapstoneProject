@@ -1,3 +1,18 @@
+<<<<<<< HEAD
+=======
+<?php
+$con = mysqli_connect("localhost", "root", "", "tour_guide_booking");
+$sql = mysqli_query($con, "select * from users");
+if (isset($_GET['id']) && isset($_GET['status'])) {
+    $id=$_GET['id'];
+    $status=$_GET['status'];
+    mysqli_query($con, "update users set status='$status' where id='$id'");
+    header("location: adminpagetest.php");
+    die();
+}
+?>
+>>>>>>> b9a90fb33eedf2d047212e52104aa01954918902
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,13 +90,13 @@
                     array_push($errors, "Email is not valid");
                 }
                 if (!is_numeric($phoneNumber)) {
-                    array_push($errors, "Phone Number Input not valid");
+                    array_push($errors);
                 }
                 if (!is_numeric($numberPeople)) {
-                    array_push($errors, "Number of People Input not valid");
+                    array_push($errors);
                 }
                 if (!is_numeric($tourDays)) {
-                    array_push($errors, "Days of Tour Input not valid");
+                    array_push($errors);
                 }
 
                 if (count($errors)>0) {
@@ -127,7 +142,7 @@
                     </div>
                     <div class="inputBox">
                         <span>Phone Number:</span>
-                        <input type="number" class="form-control" name="phone_number" placeholder="Your Number:">
+                        <input type="tel" class="form-control" name="phone_number" pattern="[0-9]{11}" placeholder="Your Number:">
                     </div>
                 </div>
 
@@ -162,15 +177,93 @@
                 <div>
                     <input type="submit" class="btn btn-primary" name="submit" value="Book Now">
                 </div>
-
-                <br>
-                <br>
-                <br>
-                <div><h2>Booking Status:<h2></div>
-
+<<<<<<< HEAD
             </form>
+            <?php
+            if (isset($_GET['id']) && isset($_GET['status'])) {
+                $id = $_GET['id'];
+                $status = $_GET['status'];
+                mysqli_query($con, "update sign-up-booking1 set status='$status' where id='id'");
+                header("location: adminpagetest.php");
+                die();
+            }
+            ?>
+=======
+>>>>>>> b9a90fb33eedf2d047212e52104aa01954918902
 
-        </section>
+                <br>
+                <br>
+                <br>
+<<<<<<< HEAD
+                <form action="adminpagetest.php">
+                <p><b><h3>Booking Status:</h3></b><?php  
+                           if ($row['status']==1) {  
+                                echo "Pending Request";  
+                           }if ($row['status']==2) {  
+                                echo "Acccepted";  
+                           }if ($row['status']==3) {  
+                                echo "Denied";  
+                           }  
+                           ?></p>
+                </form>
+=======
+
+        <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Number of People</th>
+                <th>Days of Tour</th>
+                <th>Additional Information</th>
+                <th>Booking Status</th>
+            </tr>
+            </thead>
+            <tbody>
+                <?php
+                require_once "conn.php";
+                $sql = "SELECT * FROM users";
+                $query = $con->query($sql);
+                while($row = $query->fetch_assoc()){
+>>>>>>> b9a90fb33eedf2d047212e52104aa01954918902
+
+                ?>
+                <tr>
+                    <td><?php echo $row['first_name'];?></td>
+                    <td><?php echo $row['last_name'];?></td>
+                    <td><?php echo $row['email'];?></td>
+                    <td><?php echo $row['phone_number'];?></td>
+                    <td><?php echo $row['number_people'];?></td>
+                    <td><?php echo $row['tour_days'];?></td>
+                    <td><?php echo $row['any'];?></td>
+                    <td><?php 
+                    if ($row['status']==1) {
+                        echo "Pending";
+                    } if ($row['status']==2) {
+                        echo "Accepted";
+                    } if ($row['status']==3) {
+                        echo "Declined";
+                    } ?> </td>
+                </tr>
+
+                <?php
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
+</form>
+            </section>
+        <script type="text/javascript">  
+        function status_update(value,id){  
+           //alert(id);  
+           let url = "http://localhost/CapstoneProject/FINAL%20WEBSITE/adminpagetest.php";  
+           window.location.href= url+"?id="+id+"&status="+value;  
+      }  
+ </script>
         
 </body>
 </html>
