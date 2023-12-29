@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -162,13 +163,31 @@
                 <div>
                     <input type="submit" class="btn btn-primary" name="submit" value="Book Now">
                 </div>
-
-                <br>
-                <br>
-                <br>
-                <div><h2>Booking Status:<h2></div>
-
             </form>
+            <?php
+            if (isset($_GET['id']) && isset($_GET['status'])) {
+                $id = $_GET['id'];
+                $status = $_GET['status'];
+                mysqli_query($con, "update sign-up-booking1 set status='$status' where id='id'");
+                header("location: adminpagetest.php");
+                die();
+            }
+            ?>
+
+                <br>
+                <br>
+                <br>
+                <form action="adminpagetest.php">
+                <p><b><h3>Booking Status:</h3></b><?php  
+                           if ($row['status']==1) {  
+                                echo "Pending Request";  
+                           }if ($row['status']==2) {  
+                                echo "Acccepted";  
+                           }if ($row['status']==3) {  
+                                echo "Denied";  
+                           }  
+                           ?></p>
+                </form>
 
         </section>
         

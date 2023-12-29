@@ -1,3 +1,9 @@
+<?php
+$con = mysqli_connect('localhost', 'root', '', 'tour_guide_booking');
+$sql = mysqli_query($con, "select * from sign-up-booking1");
+$row = mysqli_fetch_assoc($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +31,7 @@
                 <th>Days of Tour</th>
                 <th>Additional Information</th>
                 <th>Booking Status</th>
-                <th>
+                <th>Responose</th>
             </tr>
             </thead>
             <tbody>
@@ -45,6 +51,17 @@
                     <td><?php echo $row['tour_days'];?></td>
                     <td><?php echo $row['any'];?></td>
                     <td>
+                        <?php
+                        if ($row['status']==1) {
+                            echo "Pending";
+                        } if ($row['status']==2) {
+                            echo "Accept";
+                        } if ($row['status']==3) {
+                            echo "Decline";
+                        }
+                        ?>
+                    </td>
+                    <td>
                     <select onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['id'] ?>')">  
                                 <option value="">Update Status</option>  
                                 <option value="1">Pending</option>  
@@ -60,6 +77,12 @@
             </tbody>
         </table>
     </div>
+    <script type="text/javascript">
+        function status_update(value,id) {
+            let url = "http://localhost/adminpagetest.php";
+            window.location.href= url+"id="+id+"&status="+value;
+        }
+        </script>
 
 </body>
 </html>
