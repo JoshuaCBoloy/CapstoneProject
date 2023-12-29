@@ -1,7 +1,19 @@
 <?php
+<<<<<<< HEAD
 $con = mysqli_connect('localhost', 'root', '', 'tour_guide_booking');
 $sql = mysqli_query($con, "select * from sign-up-booking1");
 $row = mysqli_fetch_assoc($sql);
+=======
+$con = mysqli_connect("localhost", "root", "", "tour_guide_booking");
+$sql = mysqli_query($con, "select * from users");
+if (isset($_GET['id']) && isset($_GET['status'])) {
+    $id=$_GET['id'];
+    $status=$_GET['status'];
+    mysqli_query($con, "update users set status='$status' where id='$id'");
+    header("location: adminpagetest.php");
+    die();
+}
+>>>>>>> b9a90fb33eedf2d047212e52104aa01954918902
 ?>
 
 <!DOCTYPE html>
@@ -31,14 +43,18 @@ $row = mysqli_fetch_assoc($sql);
                 <th>Days of Tour</th>
                 <th>Additional Information</th>
                 <th>Booking Status</th>
+<<<<<<< HEAD
                 <th>Responose</th>
+=======
+                <th>Response</th>
+>>>>>>> b9a90fb33eedf2d047212e52104aa01954918902
             </tr>
             </thead>
             <tbody>
                 <?php
                 require_once "conn.php";
                 $sql = "SELECT * FROM users";
-                $query = $conn->query($sql);
+                $query = $con->query($sql);
                 while($row = $query->fetch_assoc()){
 
                 ?>
@@ -50,6 +66,14 @@ $row = mysqli_fetch_assoc($sql);
                     <td><?php echo $row['number_people'];?></td>
                     <td><?php echo $row['tour_days'];?></td>
                     <td><?php echo $row['any'];?></td>
+                    <td><?php 
+                    if ($row['status']==1) {
+                        echo "Pending";
+                    } if ($row['status']==2) {
+                        echo "Accept";
+                    } if ($row['status']==3) {
+                        echo "Decline";
+                    }?>
                     <td>
                         <?php
                         if ($row['status']==1) {
@@ -79,10 +103,17 @@ $row = mysqli_fetch_assoc($sql);
     </div>
     <script type="text/javascript">
         function status_update(value,id) {
+<<<<<<< HEAD
             let url = "http://localhost/adminpagetest.php";
             window.location.href= url+"id="+id+"&status="+value;
         }
         </script>
+=======
+            let url = "http://localhost/CapstoneProject/FINAL%20WEBSITE/adminpagetest.php";
+            window.location.href= url+"?id="+id+"&status="+value;
+        }
+    </script>
+>>>>>>> b9a90fb33eedf2d047212e52104aa01954918902
 
 </body>
 </html>
