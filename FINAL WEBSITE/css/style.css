@@ -220,98 +220,6 @@ section {
 /* search form section end */
 
 
-/* login section start */
-
-.login-form-container {
-    position: fixed;
-    top: 8.5rem;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    height: calc(100vh - 8.5rem);
-    background: #f7f6f9;
-    padding: 0 2rem;
-    display: none;
-    margin: 2%;
-    border-radius: 3rem;
-}
-
-.login-form-container.active {
-    display: block;
-}
-
-.login-form-container form {
-    margin: 2rem auto;
-    max-width: 40rem;
-    border: 0.1rem solid rgba(0, 0, 0, 0.2);
-    padding: 2rem;
-    border-radius: 2rem;
-    -webkit-animation: fadeUp .4s linear;
-    animation: fadeUp .4s linear;
-}
-
-.login-form-container form:hover {
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-}
-
-.login-form-container form h3 {
-    padding-bottom: 1rem;
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    color: #130f40;
-}
-
-.login-form-container form .box {
-    margin: .7rem 0;
-    border-radius: .5rem;
-    background: #edecf2;
-    padding: 1rem 1.2rem;
-    font-size: 1.6rem;
-    color: #130f40;
-    text-transform: none;
-    width: 100%;
-}
-
-.login-form-container form .remember {
-    padding: 1rem 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    gap: .5rem;
-}
-
-.login-form-container form .remember label {
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #6e6592;
-}
-
-.login-form-container form .btn {
-    margin: 1rem 0;
-    width: 100%;
-    text-align: center;
-}
-
-.login-form-container form p {
-    padding-top: 1rem;
-    font-size: 1.5rem;
-    color: #6e6592;
-}
-
-.login-form-container form p a {
-    color: #494262;
-}
-
-.login-form-container form p a:hover {
-    color: #130f40;
-    text-decoration: underline;
-}
-
-/* login section end */
-
 /* home section start */
 
 .home {
@@ -589,26 +497,6 @@ section {
     border-radius: 1.3rem;
 }
 
-.kai {
-    position: relative;
-    width: 100%;
-    height: 350px;
-    overflow: hidden;
-    border-radius: 5%;
-    display: flex;
-    object-fit: contain;
-}
-
-.ssc {
-    position: relative;
-    width: 100%;
-    height: 350px;
-    overflow: hidden;
-    border-radius: 5%;
-    display: flex;
-    object-fit: contain;
-}
-
 .cafe-image {
     position: relative;
     width: 100%;
@@ -739,51 +627,6 @@ section {
 
 /* spots section end */
 
-/* restaurant section start */
-
-.restaurants .box-container {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (minmax(30rem, 1fr))[auto-fit];
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    gap: 1.5rem;
-}
-
-.restaurants .box-container .box {
-    border-radius: 2rem;
-    background: #f7f6f9;
-    padding: 2rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    gap: 1.5rem;
-    transition: all 0.3s ease-out;
-}
-
-.restaurants .box-container .box:hover {
-    transform: translateY(-3px);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-}
-
-.restaurants .box-container .box img {
-    height: 10rem;
-}
-
-.restaurants .box-container .box .content h3 {
-    font-size: 2rem;
-    color: #130f40;
-    padding-bottom: .5rem;
-}
-
-.restaurants .box-container .box .content .price {
-    font-size: 1.8rem;
-    color: #6e6592;
-}
-
-/* restaurant section end */
 
 /* order section start */
 
