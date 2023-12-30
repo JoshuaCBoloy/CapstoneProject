@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION["user"])) {
-   header("Location: index.php");
+   header("Location: index.html");
 }
 ?>
 
@@ -12,10 +12,12 @@ if (isset($_SESSION["user"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/database.css">
+	<link rel="stylesheet" type="text/css" href="css/new-style.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
 </head>
 <body>
+    <img  class="wave" src="image/wave.png">
     <div class="container">
         <?php
         if (isset($_POST["login"])) {
@@ -39,18 +41,43 @@ if (isset($_SESSION["user"])) {
             }
         }
         ?>
-      <form action="login.php" method="post">
-        <div class="form-group">
-            <input type="email" placeholder="Enter Email:" name="email" class="form-control">
+        
+        <div class="img">
+            <img src="image/bg.svg">
         </div>
-        <div class="form-group">
-            <input type="password" placeholder="Enter Password:" name="password" class="form-control">
+        <div class="login-content">
+            <form action="login.php" method="post">
+                <img src="image/avatar.svg">
+                <h2  class="title">Log In</h2>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Email Address</h5>
+                        <input type="email" class="input" name="email">
+                    </div>
+                </div>
+                
+                <div class="input-div pass">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Password</h5>
+                        <input type="password" class="input" name="password">
+                    </div>
+                </div>
+                
+            	<a href="registration.php">Don't have an account yet? Register Now</a>
+
+                <div class="form-btn">
+                    <input type="submit" class="btn btn-primary" value="Login" name="login">
+                </div>
+            </form>
         </div>
-        <div class="form-btn">
-            <input type="submit" value="Login" name="login" class="btn btn-primary">
-        </div>
-      </form>
-     <div><p>Not registered yet <a href="registration.php">Register Here</a></p></div>
-    </div>
+
+    <script type="text/javascript" src="js/main.js"></script>
+
 </body>
 </html>

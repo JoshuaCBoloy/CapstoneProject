@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION["user"])) {
-   header("Location: index.php");
+   header("Location: login.php");
 }
 ?>
 
@@ -12,10 +12,12 @@ if (isset($_SESSION["user"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/database.css">
+	<link rel="stylesheet" type="text/css" href="css/new-style.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
 </head>
 <body>
+    <img  class="wave" src="image/wave.png">
     <div class="container">
         <?php
         if (isset($_POST["submit"])) {
@@ -40,6 +42,7 @@ if (isset($_SESSION["user"])) {
            if ($password!==$passwordRepeat) {
             array_push($errors,"Password does not match");
            }
+           
            require_once "database.php";
            $sql = "SELECT * FROM users WHERE email = '$email'";
            $result = mysqli_query($conn, $sql);
@@ -59,7 +62,6 @@ if (isset($_SESSION["user"])) {
             if ($prepareStmt) {
                 mysqli_stmt_bind_param($stmt,"sss",$fullName, $email, $passwordHash);
                 mysqli_stmt_execute($stmt);
-                echo "<div class='alert alert-success'>You are registered successfully.</div>";
             }else{
                 die("Something went wrong");
             }
@@ -68,26 +70,64 @@ if (isset($_SESSION["user"])) {
 
         }
         ?>
-        <form action="registration.php" method="post">
-            <div class="form-group">
-                <input type="text" class="form-control" name="fullname" placeholder="Full Name:">
-            </div>
-            <div class="form-group">
-                <input type="email" class="form-control" name="email" placeholder="Email:">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Password:">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" name="repeat_password" placeholder="Repeat Password:">
-            </div>
-            <div class="form-btn">
-                <input type="submit" class="btn btn-primary" value="Register" name="submit">
-            </div>
-        </form>
-        <div>
-        <div><p>Already Registered <a href="login.php">Login Here</a></p></div>
-      </div>
+        
+        <div class="img">
+            <img src="image/bg.svg">
+        </div>
+        <div class="login-content">
+            <form action="registration.php" method="post">
+                <img src="image/avatar.svg">
+                <h2  class="title">Register Now!</h2>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Full Name</h5>
+                        <input type="text" class="input" name="fullname">
+                    </div>
+                </div>
+                
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Email Address</h5>
+                        <input type="email" class="input" name="email">
+                    </div>
+                </div>
+                
+                <div class="input-div pass">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Password</h5>
+                        <input type="password" class="input" name="password">
+                    </div>
+                </div>
+                
+                <div class="input-div pass">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Confirm Password</h5>
+                        <input type="password" class="input" name="repeat_password">
+                    </div>
+                </div>
+                
+                <a href="login.php">Already Registered? Login Here</a>
+
+                <div class="form-btn">
+                    <input type="submit" class="btn btn-primary" value="Register" name="submit">
+                </div>
+            </form>
+        </div>
     </div>
+
+    <script type="text/javascript" src="js/main.js"></script>
+
 </body>
 </html>
