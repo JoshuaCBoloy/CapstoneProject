@@ -153,6 +153,14 @@ section {
     display: none;
 }
 
+.header .btn-warning {
+    color: white;
+    background-color: #ff9800;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+
+}
+
 /* header section end */
 
 

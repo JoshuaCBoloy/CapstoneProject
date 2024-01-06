@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-=======
-<?php
-$con = mysqli_connect("localhost", "root", "", "tour_guide_booking");
-$sql = mysqli_query($con, "select * from users");
-if (isset($_GET['id']) && isset($_GET['status'])) {
-    $id=$_GET['id'];
-    $status=$_GET['status'];
-    mysqli_query($con, "update users set status='$status' where id='$id'");
-    header("location: adminpagetest.php");
-    die();
-}
-?>
->>>>>>> b9a90fb33eedf2d047212e52104aa01954918902
 
 <!DOCTYPE html>
 <html lang="en">
@@ -177,7 +163,6 @@ if (isset($_GET['id']) && isset($_GET['status'])) {
                 <div>
                     <input type="submit" class="btn btn-primary" name="submit" value="Book Now">
                 </div>
-<<<<<<< HEAD
             </form>
             <?php
             if (isset($_GET['id']) && isset($_GET['status'])) {
@@ -188,13 +173,10 @@ if (isset($_GET['id']) && isset($_GET['status'])) {
                 die();
             }
             ?>
-=======
->>>>>>> b9a90fb33eedf2d047212e52104aa01954918902
 
                 <br>
                 <br>
                 <br>
-<<<<<<< HEAD
                 <form action="adminpagetest.php">
                 <p><b><h3>Booking Status:</h3></b><?php  
                            if ($row['status']==1) {  
@@ -206,29 +188,6 @@ if (isset($_GET['id']) && isset($_GET['status'])) {
                            }  
                            ?></p>
                 </form>
-=======
-
-        <div>
-        <table class="table">
-            <thead>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Phone Number</th>
-                <th>Number of People</th>
-                <th>Days of Tour</th>
-                <th>Additional Information</th>
-                <th>Booking Status</th>
-            </tr>
-            </thead>
-            <tbody>
-                <?php
-                require_once "conn.php";
-                $sql = "SELECT * FROM users";
-                $query = $con->query($sql);
-                while($row = $query->fetch_assoc()){
->>>>>>> b9a90fb33eedf2d047212e52104aa01954918902
 
                 ?>
                 <tr>
