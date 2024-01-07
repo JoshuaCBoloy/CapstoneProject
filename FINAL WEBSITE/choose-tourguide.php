@@ -57,7 +57,7 @@
                 <div class="box" alt="Image Button">
                     <img src="image/icon-male.png">
                     <div class="content">
-                        <h3>Tour Guide 1</h3>
+                        <h3>Tour Guide Package</h3>
                         <br>
                         <span> Full Name : </span>
                         <span class="info"> Jay Cruz</span>
@@ -68,13 +68,13 @@
                         <span> Phone Number : </span>
                         <span class="info"> 09101550506</span>
                     </div>
-                    <button class="card-btn1"><a href="sign-up-booking1.php">Book Now</a></button>
+                    <button class="card-btn1"><a href="sign-up-booking.php">Book Now</a></button>
                 </div>
 
                 <div class="box" alt="Image Button">
                     <img src="image/icon-female.png">
                     <div class="content">
-                        <h3>Tour Guide 2</h3>
+                        <h3>Tour Guide Package</h3>
                         <br>
                         <span> Full Name : </span>
                         <span class="info"> Mae Yu</span>
@@ -85,10 +85,72 @@
                         <span> Phone Number : </span>
                         <span class="info"> 09102550506</span>
                     </div>
-                    <button class="card-btn2"><a href="sign-up-booking2.php">Book Now</a></button>
+                    <button class="card-btn1"><a href="sign-up-booking.php">Book Now</a></button>
                 </div>
             </div>
         </div>
+    </div>
+
+    <?php
+    if (isset($_GET['id']) && isset($_GET['status'])) {
+        $id = $_GET['id'];
+        $status = $_GET['status'];
+        mysqli_query($con, "update choose-tourguide set status='$status' where id='$id'");
+        header("location: adminpagetest.php");
+        die();
+    ?>
+
+        <br>
+        <br>
+        <br>
+        <form action="adminpagetest.php">
+        <p><b><h3>Booking Status:</h3></b><?php  
+                   if ($row['status']==1) {  
+                        echo "Pending Request";  
+                   }if ($row['status']==2) {  
+                        echo "Acccepted";  
+                   }if ($row['status']==3) {  
+                        echo "Denied";  
+                   }  
+                   ?></p>
+        </form>
+
+        ?>
+        <tr>
+            <td><?php echo $row['first_name'];?></td>
+            <td><?php echo $row['last_name'];?></td>
+            <td><?php echo $row['email'];?></td>
+            <td><?php echo $row['phone_number'];?></td>
+            <td><?php echo $row['number_people'];?></td>
+            <td><?php echo $row['tour_days'];?></td>
+            <td><?php echo $row['any'];?></td>
+            <td><?php 
+            if ($row['status']==1) {
+                echo "Pending";
+            } if ($row['status']==2) {
+                echo "Accepted";
+            } if ($row['status']==3) {
+                echo "Declined";
+            } ?> </td>
+        </tr>
+
+        <?php
+        }
+        ?>
+    </tbody>
+</table>
+</div>
+</form>
+    </section>
+<script type="text/javascript">  
+function status_update(value,id){  
+   //alert(id);  
+   let url = "http://localhost/CapstoneProject/FINAL%20WEBSITE/adminpagetest.php";  
+   window.location.replace= url+"?id="+id+"&status="+value;  
+}  
+</script>
+
+    
 
     <!-- tour guide booking section ends -->
 

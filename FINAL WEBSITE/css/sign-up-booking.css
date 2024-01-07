@@ -10,7 +10,6 @@
     outline: none;
     border: none;
     text-decoration: none;
-    text-transform: capitalize;
     -webkit-transition: .3s linear;
     transition: .3s linear;
 }
@@ -242,3 +241,24 @@ section {
 }
 
 /* sign-up section end */
+
+.success h2{
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    color: #008000;
+}
+
+.required h2{
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    color: #FF0000;
+}
+
+.valid h2{
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    color: #FF0000;
+}

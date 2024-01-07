@@ -15,8 +15,6 @@
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/sign-up-booking.css">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
     <title>Everything La Trinidad</title>
 </head>
 
@@ -30,7 +28,7 @@
 <nav class="navbar">
     <a href="index.html">home</a>
     <a href="index.html#about">about</a>
-    <a href="choose-tourguide.html">booking</a>
+    <a href="choose-tourguide.php">booking</a>
     <a href="services.html">services</a>
     <a href="news.html">news</a>
 </nav>
@@ -53,7 +51,7 @@
 
 <section class="sign-up" id="sign-up">
             <div class="heading">
-                <span>Tour Guide Booking 1</span>
+                <span>Tour Guide Booking</span>
                 <h3>Sign up</h3>
             </div>
 
@@ -70,10 +68,10 @@
                 $errors = array();
 
                 if (empty($firstName) OR empty($lastName) OR empty($email) OR empty($phoneNumber) OR empty($numberPeople) OR empty($tourDays) OR empty($any)) {
-                    array_push($errors, "All fields are required");
+                    array_push($errors, "<div class='required'><h2>All fields are required</h2></div>");
                 }
                 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    array_push($errors, "Email is not valid");
+                    array_push($errors, "<div class='valid'><h2>Email is not valid</h2></div>");
                 }
                 if (!is_numeric($phoneNumber)) {
                     array_push($errors);
@@ -97,7 +95,7 @@
                     if ($prepareStmt) {
                         mysqli_stmt_bind_param($stmt, "sssiiis", $firstName, $lastName, $email, $phoneNumber, $numberPeople, $tourDays, $any);
                         mysqli_stmt_execute($stmt);
-                        echo "<div class='alert alert-success'>Your tour guide booking is sent successfully. Wait for any response.</div>";
+                        echo "<div class='success'><h2>Your tour guide booking is sent successfully.</h2></div>";
                     }else {
                         die("Something went wrong");
                     }
@@ -106,8 +104,9 @@
             }
             ?>
 
+            <br>
 
-            <form action="sign-up-booking1.php" method="post">
+            <form action="sign-up-booking.php" method="post">
                 <div class="flex">
                     <div class="inputBox">
                         <span>First Name:</span>
@@ -128,7 +127,7 @@
                     </div>
                     <div class="inputBox">
                         <span>Phone Number:</span>
-                        <input type="tel" class="form-control" name="phone_number" pattern="[0-9]{11}" placeholder="Your Number:">
+                        <input type="number" class="form-control" name="phone_number" pattern="[0-9]{11}" placeholder="Your Number:">
                     </div>
                 </div>
 
@@ -164,65 +163,6 @@
                     <input type="submit" class="btn btn-primary" name="submit" value="Book Now">
                 </div>
             </form>
-            <?php
-            if (isset($_GET['id']) && isset($_GET['status'])) {
-                $id = $_GET['id'];
-                $status = $_GET['status'];
-                mysqli_query($con, "update sign-up-booking1 set status='$status' where id='id'");
-                header("location: adminpagetest.php");
-                die();
-            }
-            ?>
-
-                <br>
-                <br>
-                <br>
-                <form action="adminpagetest.php">
-                <p><b><h3>Booking Status:</h3></b><?php  
-                           if ($row['status']==1) {  
-                                echo "Pending Request";  
-                           }if ($row['status']==2) {  
-                                echo "Acccepted";  
-                           }if ($row['status']==3) {  
-                                echo "Denied";  
-                           }  
-                           ?></p>
-                </form>
-
-                ?>
-                <tr>
-                    <td><?php echo $row['first_name'];?></td>
-                    <td><?php echo $row['last_name'];?></td>
-                    <td><?php echo $row['email'];?></td>
-                    <td><?php echo $row['phone_number'];?></td>
-                    <td><?php echo $row['number_people'];?></td>
-                    <td><?php echo $row['tour_days'];?></td>
-                    <td><?php echo $row['any'];?></td>
-                    <td><?php 
-                    if ($row['status']==1) {
-                        echo "Pending";
-                    } if ($row['status']==2) {
-                        echo "Accepted";
-                    } if ($row['status']==3) {
-                        echo "Declined";
-                    } ?> </td>
-                </tr>
-
-                <?php
-                }
-                ?>
-            </tbody>
-        </table>
-    </div>
-</form>
-            </section>
-        <script type="text/javascript">  
-        function status_update(value,id){  
-           //alert(id);  
-           let url = "http://localhost/CapstoneProject/FINAL%20WEBSITE/adminpagetest.php";  
-           window.location.href= url+"?id="+id+"&status="+value;  
-      }  
- </script>
-        
+ 
 </body>
 </html>

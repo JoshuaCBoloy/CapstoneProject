@@ -30,7 +30,7 @@
         <nav class="navbar">
             <a href="#home">home</a>
             <a href="#about">about</a>
-            <a href="choose-tourguide.html">booking</a>
+            <a href="choose-tourguide.php">booking</a>
             <a href="services.html">services</a>
             <a href="news.html">news</a>
             <a href="logout.php" class="btn-warning">Logout</a>
@@ -78,6 +78,20 @@
         </div>
 
     </section>
+
+        <!-- custom js file link  -->
+        <script>
+            document.querySelector('.home').onmousemove = (e) => {
+                let x = (window.innerWidth - e.pageX * 2) / 90;
+                let y = (window.innerHeight - e.pageX * 2) / 90;
+            
+                document.querySelector('.home .home-parallax-img').style.transform = `translateX(${y}px) translateY(${x}px)`;
+            }
+            
+            document.querySelector('.home').onmouseleave = () => {
+                document.querySelector('.home .home-parallax-img').style.transform = `translateX(0px) translateY(0px)`;
+            }
+            </script>
 
     <!-- home section ends  -->
 
@@ -391,10 +405,5 @@
 
     <!-- footer section ends -->
 
-
-    <!-- custom js file link  -->
-    <script src="js/script.js"></script>
-
 </body>
-
 </html>

@@ -294,7 +294,7 @@ section {
 
 .about .content span {
     font-family: 'Satisfy', cursive;
-    font-size: 3rem;
+    font-size: 10rem;
     color: #52389b;
 }
 
@@ -312,7 +312,7 @@ section {
 }
 
 .about .operating-hours {
-    font-size: 2rem;
+    font-size: 3rem;
     color: #130f40;
     padding-bottom: .5rem;
 }

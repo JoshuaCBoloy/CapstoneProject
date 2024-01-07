@@ -1,6 +1,6 @@
 <?php
 $con = mysqli_connect('localhost', 'root', '', 'tour_guide_booking');
-$sql = mysqli_query($con, "select * from sign-up-booking1");
+$sql = mysqli_query($con, "select * from users");
 $row = mysqli_fetch_assoc($sql);
 ?>
 
@@ -87,8 +87,8 @@ $row = mysqli_fetch_assoc($sql);
     </div>
     <script type="text/javascript">
         function status_update(value,id) {
-            let url = "http://localhost/adminpagetest.php";
-            window.location.href= url+"id="+id+"&status="+value;
+            let url = "http://localhost/CapstoneProject/FINAL%20WEBSITE/adminpagetest.php";
+            window.location.replace= url+"id="+id+"&status="+value;
         }
         </script>
 
