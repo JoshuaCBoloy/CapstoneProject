@@ -32,6 +32,7 @@
             <a href="choose-tourguide.html">booking</a>
             <a href="services.html">services</a>
             <a href="news.html">news</a>
+            <a href="maps.html">maps</a>
             <a href="logout.php" class="btn-warning">Logout</a>
         </nav>
 

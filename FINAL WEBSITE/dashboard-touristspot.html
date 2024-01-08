@@ -415,6 +415,35 @@
     </section>
 
     <!-- about section ends -->
+    <script>
+        const starContainers = document.querySelectorAll(".stars");
+
+// Loop through the "starContainers" NodeList
+starContainers.forEach((container) => {
+  // Select stars within the current container
+  const stars = container.querySelectorAll("i");
+
+  // Loop through the stars NodeList
+  stars.forEach((star, index1) => {
+    // Add an event listener that runs a function when the "click" event is triggered
+    star.addEventListener("click", () => {
+      // Toggle the "active" class on the clicked star
+      star.classList.toggle("active");
+
+      // Loop through the stars NodeList again
+      stars.forEach((star, index2) => {
+        // Add the "active" class to the clicked star and any stars with a lower index
+        if (index1 >= index2) {
+          star.classList.add("active");
+        } else {
+          // Remove the "active" class from stars with a higher index
+          star.classList.remove("active");
+        }
+      });
+    });
+  });
+});
+    </script>
 
 </body>
 </html>
