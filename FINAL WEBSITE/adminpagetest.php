@@ -73,7 +73,7 @@ if (isset($_GET['id']) && isset($_GET['status'])) {
     </div>
     <script type="text/javascript">
         function status_update(value,id) {
-            let url = "http://localhost:8081/CapstoneProject/FINAL%20WEBSITE/adminpagetest.php";
+            let url = "http://localhost/CapstoneProject/FINAL%20WEBSITE/adminpagetest.php";
             window.location.href= url+"?id="+id+"&status="+value;
         }
         </script>
