@@ -59,17 +59,6 @@ $row = mysqli_fetch_assoc($sql);
                         echo "Decline";
                     }?>
                     <td>
-                        <?php
-                        if ($row['status']==1) {
-                            echo "Pending";
-                        } if ($row['status']==2) {
-                            echo "Accept";
-                        } if ($row['status']==3) {
-                            echo "Decline";
-                        }
-                        ?>
-                    </td>
-                    <td>
                     <select onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['id'] ?>')">  
                                 <option value="">Update Status</option>  
                                 <option value="1">Pending</option>  
@@ -88,7 +77,7 @@ $row = mysqli_fetch_assoc($sql);
     <script type="text/javascript">
         function status_update(value,id) {
             let url = "http://localhost/CapstoneProject/FINAL%20WEBSITE/adminpagetest.php";
-            window.location.replace= url+"id="+id+"&status="+value;
+            window.location.replace= url+"?id="+id+"&status="+value;
         }
         </script>
 

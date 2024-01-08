@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
@@ -19,35 +19,34 @@
 </head>
 
 <body>
+
+   
     <!-- header section starts  -->
 
-<header class="header">
+    <header class="header">
 
-<a href="index.html" class="logo"> <i class="ri-store-2-line"></i> Everything La Trinidad </a>
+        <a href="index.html" class="logo"> <i class="ri-map-pin-fill"></i> Everything La Trinidad </a>
 
-<nav class="navbar">
-    <a href="index.html">home</a>
-    <a href="index.html#about">about</a>
-    <a href="choose-tourguide.php">booking</a>
-    <a href="services.html">services</a>
-    <a href="news.html">news</a>
-</nav>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="choose-tourguide.php">Booking</a>
+            <a href="services.html">Services</a>
+            <a href="news.html">News</a>
+            <a href="maps.html">Maps</a>
+            <a href="logout.php" class="btn-warning">Logout</a>
+        </nav>
 
-<div class="icons">
-    <div id="menu-btn" class="ri-menu-line"></div>
-    <div id="search-btn" class="ri-search-line"></div>
-    <div id="cart-btn" class="ri-shopping-cart-line"></div>
-    <div id="login-btn" class="ri-user-line"></div>
-</div>
+        <div class="icons">
+            <div id="search-btn" class="ri-search-line"></div>
+            <div id="login-btn" class="ri-user-line"></div>
+            <div id="notif-btn" class="ri-notification-2-line"></i>
+        </div>
 
-<style>
-    .header {
-        text-decoration: none;
-    }
-    </style>
+    </header>
 
-</header>
-<!-- header section ends -->
+    <!-- header section ends  -->
+
 
 <section class="sign-up" id="sign-up">
             <div class="heading">
