@@ -40,6 +40,11 @@
         <div class="icons">
             <div id="search-btn" class="ri-search-line"></div>
             <div id="login-btn" class="ri-user-line"></div>
+            <script>
+                document.querySelector('#login-btn').onclick = () => {
+                    window.location.href = 'profile.php';
+                }
+            </script>
             <div id="notif-btn" class="ri-notification-2-line"></i>
         </div>
 

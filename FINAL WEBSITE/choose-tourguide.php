@@ -46,6 +46,11 @@ $row = mysqli_fetch_assoc($sql);
         <div class="icons">
             <div id="search-btn" class="ri-search-line"></div>
             <div id="login-btn" class="ri-user-line"></div>
+            <script>
+                document.querySelector('#login-btn').onclick = () => {
+                    window.location.href = 'profile.php';
+                }
+            </script>
             <div id="notif-btn" class="ri-notification-2-line"></i>
         </div>
 
@@ -65,19 +70,17 @@ $row = mysqli_fetch_assoc($sql);
 
     </section>
 
-
-
     <!-- tour guide booking section starts -->
     <section class="booking" id="booking">
     <div class="tourguide-booking-container">
         <div class="booking-container">
-            <h3 class="title">Tour Guide Booking</h3>
+            <h3 class="title">Tour Guide Booking Packages</h3>
             <div class="tourguide-container">
 
                 <div class="box" alt="Image Button">
                     <img src="image/icon-male.png">
                     <div class="content">
-                        <h3>Tour Guide Package</h3>
+                        <h3>Tour Guide Package 1</h3>
                         <br>
                         <span> Full Name : </span>
                         <span class="info"> Jay Cruz</span>
@@ -94,7 +97,7 @@ $row = mysqli_fetch_assoc($sql);
                 <div class="box" alt="Image Button">
                     <img src="image/icon-female.png">
                     <div class="content">
-                        <h3>Tour Guide Package</h3>
+                        <h3>Tour Guide Package 2</h3>
                         <br>
                         <span> Full Name : </span>
                         <span class="info"> Mae Yu</span>
@@ -109,68 +112,7 @@ $row = mysqli_fetch_assoc($sql);
                 </div>
             </div>
         </div>
-
-        <?php
-            if (isset($_GET['id']) && isset($_GET['status'])) {
-                $id = $_GET['id'];
-                $status = $_GET['status'];
-                mysqli_query($con, "update sign-up-booking1 set status='$status' where id='id'");
-                header("location: choose-tourguide.php");
-                die();
-            }
-            ?>
-
-                <br>
-                <br>
-                <br>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
-                    <th>Number of People</th>
-                    <th>Days of Tour</th>
-                    <th>Additional Information</th>
-                    <th>Booking Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><?php echo $row['first_name'];?></td>
-                    <td><?php echo $row['last_name'];?></td>
-                    <td><?php echo $row['email'];?></td>
-                    <td><?php echo $row['phone_number'];?></td>
-                    <td><?php echo $row['number_people'];?></td>
-                    <td><?php echo $row['tour_days'];?></td>
-                    <td><?php echo $row['any'];?></td>
-                    <td><?php 
-                    if ($row['status']==1) {
-                        echo "Pending";
-                    } if ($row['status']==2) {
-                        echo "Accepted";
-                    } if ($row['status']==3) {
-                        echo "Declined";
-                    } ?> </td>
-                </tr>
-
-                <?php
-                
-                ?>
-            </tbody>
-    </div>
-    </section>
     
-    <script type="text/javascript">  
-    function status_update(value,id){  
-        //alert(id);  
-        let url = "http://localhost:8081/CapstoneProject/FINAL%20WEBSITE/choose-tourguide.php";  
-        window.location.replace= url+"?id="+id+"&status="+value;
-        }
-    </script>
-    
-
     <!-- tour guide booking section ends -->
 
 </body>

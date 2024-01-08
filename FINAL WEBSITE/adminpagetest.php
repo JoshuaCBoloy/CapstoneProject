@@ -1,7 +1,14 @@
 <?php
 $con = mysqli_connect('localhost', 'root', '', 'tour_guide_booking');
 $sql = mysqli_query($con, "select * from users");
-$row = mysqli_fetch_assoc($sql);
+
+if (isset($_GET['id']) && isset($_GET['status'])) {
+    $id = $_GET['id'];
+    $status = $_GET['status'];
+    mysqli_query($con, "update users set status='$status' where id='$id'");
+    header("location: adminpagetest.php");
+    die();
+}
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +28,6 @@ $row = mysqli_fetch_assoc($sql);
     <h2>Tour Guide Booking Details</h2>
     <div>
         <table class="table">
-            <thead>
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
@@ -33,15 +39,9 @@ $row = mysqli_fetch_assoc($sql);
                 <th>Booking Status</th>
                 <th>Response</th>
             </tr>
-            </thead>
-            <tbody>
-                <?php
-                require_once "conn.php";
-                $sql = "SELECT * FROM users";
-                $query = $con->query($sql);
-                while($row = $query->fetch_assoc()){
-
-                ?>
+            <?php
+            if (mysqli_num_rows($sql)>0) {
+                while ($row=mysqli_fetch_assoc($sql)) { ?>
                 <tr>
                     <td><?php echo $row['first_name'];?></td>
                     <td><?php echo $row['last_name'];?></td>
@@ -59,25 +59,22 @@ $row = mysqli_fetch_assoc($sql);
                         echo "Decline";
                     }?>
                     <td>
-                    <select onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['id'] ?>')">  
-                                <option value="">Update Status</option>  
-                                <option value="1">Pending</option>  
+                    <select onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['id'] ?>')">    
+                                <option value="1">Update Status</option>  
                                 <option value="2">Accept</option>  
-                                <option value="3">Reject</option>  
+                                <option value="3">Decline</option>  
                            </select>
                 </td>
                 </tr>
-
-                <?php
+                <?php }
                 }
                 ?>
-            </tbody>
         </table>
     </div>
     <script type="text/javascript">
         function status_update(value,id) {
-            let url = "http://localhost/CapstoneProject/FINAL%20WEBSITE/adminpagetest.php";
-            window.location.replace= url+"?id="+id+"&status="+value;
+            let url = "http://localhost:8081/CapstoneProject/FINAL%20WEBSITE/adminpagetest.php";
+            window.location.href= url+"?id="+id+"&status="+value;
         }
         </script>
 
