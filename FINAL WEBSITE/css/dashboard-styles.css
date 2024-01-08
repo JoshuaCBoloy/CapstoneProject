@@ -294,15 +294,10 @@ section {
 
 .about .content span {
     font-family: 'Satisfy', cursive;
-    font-size: 10rem;
+    font-size: 3rem;
     color: #52389b;
 }
 
-.about .content .title {
-    font-size: 3rem;
-    padding-top: .5rem;
-    color: #130f40;
-}
 
 .about .content p {
     padding: 1rem 0;
@@ -320,6 +315,22 @@ section {
 .about .operating-hours {
     font-size: 1.8rem;
     color: #6e6592;
+}
+
+.stars {
+    padding: 1rem 0;
+    font-size: 1.7rem;
+}
+
+.stars i {
+    color: #afacac;
+    font-size: 35px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.stars i.active {
+    color: #ff9c1a;
 }
 
 /* about section end */
