@@ -482,6 +482,7 @@ input[type=number]:focus,
     color: #494262;
     line-height: 2;
     padding: 1rem 0;
+    
 }
 
 .services .content ul {
@@ -496,6 +497,13 @@ input[type=number]:focus,
     line-height: 2;
     padding: 1rem 0;
 }
+
+.services .content img {
+    height: 50%;
+    width: 50%;
+    border-radius: 2rem;
+}
+
 
 .services .image {
     -webkit-box-flex: 1;
@@ -550,3 +558,84 @@ input[type=number]:focus,
 }
 
 /* category section end */
+
+/* about section start */
+
+.about {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 2rem;
+    background: #f7f6f9;
+    border-radius: 3rem;
+    margin: 2%;
+}
+
+.about .image {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 40rem;
+    flex: 1 1 40rem;
+    display: flex;
+}
+
+.about .image img {
+    width: 100%;
+    border-radius: 3rem;
+    display: flex;
+}
+
+.about .content {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 40rem;
+    flex: 1 1 40rem;
+}
+
+.about .content span {
+    font-family: 'Satisfy', cursive;
+    font-size: 3rem;
+    color: #52389b;
+}
+
+
+.about .content p {
+    padding: 1rem 0;
+    line-height: 2;
+    font-size: 1.4rem;
+    color: #494262;
+}
+
+.about .operating-hours {
+    font-size: 3rem;
+    color: #130f40;
+    padding-bottom: .5rem;
+}
+
+.about .operating-hours {
+    font-size: 1.8rem;
+    color: #6e6592;
+}
+
+.stars {
+    padding: 1rem 0;
+    font-size: 1.7rem;
+}
+
+.stars i {
+    color: #afacac;
+    font-size: 35px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.stars i.active {
+    color: #ff9c1a;
+}
+
+/* about section end */
+
+
