@@ -43,7 +43,7 @@ if (isset($_SESSION["user"])) {
         ?>
         
         <div class="img">
-            <img src="image/bg.svg">
+            <img src="image/ELT.png">
         </div>
         <div class="login-content">
             <form action="login.php" method="post">
