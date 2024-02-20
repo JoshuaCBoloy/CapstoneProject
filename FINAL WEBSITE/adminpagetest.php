@@ -54,9 +54,9 @@ if (isset($_GET['id']) && isset($_GET['status'])) {
                     if ($row['status']==1) {
                         echo "Pending";
                     } if ($row['status']==2) {
-                        echo "Accept";
+                        echo "Accepted";
                     } if ($row['status']==3) {
-                        echo "Decline";
+                        echo "Declined";
                     }?>
                     <td>
                     <select onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['id'] ?>')">    
@@ -73,7 +73,7 @@ if (isset($_GET['id']) && isset($_GET['status'])) {
     </div>
     <script type="text/javascript">
         function status_update(value,id) {
-            let url = "http://localhost/CapstoneProject/FINAL%20WEBSITE/adminpagetest.php";
+            let url = "http://localhost:8081/CapstoneProject/FINAL%20WEBSITE/adminpagetest.php";
             window.location.href= url+"?id="+id+"&status="+value;
         }
         </script>

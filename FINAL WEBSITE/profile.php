@@ -99,9 +99,9 @@ if (isset($_GET['id']) && isset($_GET['status'])) {
                     if ($row['status']==1) {
                         echo "Pending";
                     } if ($row['status']==2) {
-                        echo "Accept";
+                        echo "Accepted";
                     } if ($row['status']==3) {
-                        echo "Decline";
+                        echo "Declined";
                     }?><h3></td>
                 </tr>
 
