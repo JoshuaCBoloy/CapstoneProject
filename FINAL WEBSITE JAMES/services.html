@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- remix icon cdn link  -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/servicess.css">
+
+    <title>Everything La Trinidad</title>
+</head>
+
+<body>
+
+   
+    <!-- header section starts  -->
+
+    <header class="header">
+
+        <a href="index.html" class="logo"> <i class="ri-map-pin-fill"></i> Everything La Trinidad </a>
+
+        <nav class="navbar">
+            <a href="index.html">home</a>
+            <a href="index.html#about">about</a>
+            <a href="Logged-in-Page/LIP-login.php">booking</a>
+            <a href="services.html">services</a>
+            <a href="news.html">news</a>
+            <a href="maps.html">maps</a>
+            <a href="chatbox.php">chat</a>
+            <a href="Logged-in-Page/LIP-login.php" class="btn-warning">Login</a>
+        </nav>
+
+        <div class="icons">
+            <div id="search-btn" class="ri-search-line"></div>
+            <div id="login-btn" class="ri-user-line"></div>
+            <script>
+                document.querySelector('#login-btn').onclick = () => {
+                    window.location.href = 'Logged-in-Page/LIP-login.php';
+                }
+            </script>
+            <div id="notif-btn" class="ri-notification-2-line"></i>
+        </div>
+
+    </header>
+
+    <!-- header section ends  -->
+
+    <section class="services" id="services">
+
+        <div class="content">
+            <span>La Trinidad services</span>
+            <h3>Avail these Services!</h3>
+            <p>Emergency? Contact numbers? Recreation? It's all up here!</p>
+        </div>
+    
+        <div class="image">
+            <img src="image/services-img.png" alt="" class="services-img">
+            <img src="image/services-parallax-img.png" alt="" class="services-parallax-img">
+        </div>
+    
+    </section>
+    <!--end of services section-->
+
+    <!-- js script  -->
+    <script>
+        document.querySelector('.services').onmousemove = (e) => {
+            let x = (window.innerWidth - e.pageX * 2) / 90;
+            let y = (window.innerHeight - e.pageY * 2) / 90;
+
+            document.querySelector('.services .services-parallax-img').style.transform = `translateX(${y}px) translateY(${x}px)`;
+        }
+
+        document.querySelector('.services').onmouseleave = () => {
+            document.querySelector('.services .services-parallax-img').style.transform = `translateX(0px) translateY(0px)`;
+        }
+    </script>
+    <!-- end of js script  -->
+
+    <!-- category section starts  -->
+ 
+    <section class="category">
+        <a href="#hospitals" class="box">
+            <img src="image/hospital.png" alt="">
+            <h3>Hospitals</h3>
+        </a>
+
+        <a href="#police" class="box">
+            <img src="image/police-station.png" alt="">
+            <h3>Police Stations</h3>
+        </a>
+
+        <a href="#fire" class="box">
+            <img src="image/fire-station.png" alt="">
+            <h3>Fire Department</h3>
+        </a>
+
+       
+    </section>
+
+    <!-- category section ends -->
+
+    <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+<!--Hospital Category-->
+<div class="heading" id="hospitals"> 
+    <h3>Hospitals</h3>
+</div>
+<section class="about">
+    <div class="image">
+        <img src="image/CHDG.jpg" alt="">
+    </div>
+
+    <div class="content">
+        <span>Cordillera Hospital of the Divine Grace (CHDG):</span>
+        <p>(074) 620 5692</p>
+        <div class="operating-hours">
+            <h2>Location:
+                <p>FH3F+2QM, La Trinidad, 2601 Benguet</p>
+            </h2>
+            <h1>Operating Hours:</h1>
+            <p>
+                &nbsp;&nbsp;&nbsp;Monday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Tuesday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Wednesday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Thursday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Friday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Saturday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Sunday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+            </p>
+
+        </div>
+    </div>
+</section>
+
+        
+        <section class="about">
+            <div class="image">
+                <img src="image/BEGH.jpg" alt="">
+            </div>
+        
+            <div class="content">
+                <span>Benguet General Hospital(BeGH)</span>
+                <p>(074) 422 4724</p>
+                <div class="operating-hours">
+                    <h2>Location:
+                        <p>FH2Q+8M2, Halsema Highway, La Trinidad, 2601 Benguet</p>
+                    </h2>
+                    <h1>Operating Hours:</h1>
+                    <p>
+                        &nbsp;&nbsp;&nbsp;Monday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                        &nbsp;&nbsp;&nbsp;Tuesday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                        &nbsp;&nbsp;&nbsp;Wednesday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                        &nbsp;&nbsp;&nbsp;Thursday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                        &nbsp;&nbsp;&nbsp;Friday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                        &nbsp;&nbsp;&nbsp;Saturday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                        &nbsp;&nbsp;&nbsp;Sunday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                    </p>
+        
+                </div>
+            </div>
+        </section>
+        
+        <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+<!--End of Hospital Catgory-->
+
+
+<!--Police Catgory-->
+<div class="heading" id="police"> 
+    <h3>Police Station</h3>
+</div>
+
+<section class="about">
+    <div class="image">
+        <img src="image/PCP2.jpg" alt="">
+    </div>
+
+    <div class="content">
+        <span>PCP2(Km.6 Outpost)</span>
+        <p>09569171435</p>
+        <div class="operating-hours">
+            <h2>Location:
+                <p>Km. 6 Police Outpost, FH4Q+4Q8, La Trinidad, Benguet</p>
+            </h2>
+            <h1>Operating Hours:</h1>
+            <p>
+                &nbsp;&nbsp;&nbsp;Monday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Tuesday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Wednesday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Thursday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Friday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Saturday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Sunday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+            </p>
+
+        </div>
+    </div>
+</section>
+
+<section class="about">
+    <div class="image">
+        <img src="image/PCP1.jpg" alt="">
+    </div>
+
+    <div class="content">
+        <span>PCP1(Pinespark)</span>
+        <p>09101833392</p>
+        <div class="operating-hours">
+            <h2>Location:
+                <p>FH2Q+2WV, Pico, La Trinidad, Benguet</p>
+            </h2>
+            <h1>Operating Hours:</h1>
+            <p>
+                &nbsp;&nbsp;&nbsp;Monday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Tuesday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Wednesday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Thursday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Friday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Saturday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Sunday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+            </p>
+
+        </div>
+    </div>
+</section>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!--End of Police Catgory-->
+
+<!--Fire Dept-->
+<div class="heading" id="fire"> 
+    <h3>Fire Stations</h3>
+</div>
+
+<section class="about">
+    <div class="image">
+        <img src="image/balilistation.jpg" alt="">
+    </div>
+
+    <div class="content">
+        <span>BFP CAR La Trinidad Fire Station </span>
+        <p>09103207446</p>
+        <div class="operating-hours">
+            <h2>Location:
+                <p>Cabanao, Balili 2601 La Trinidad, Philippines</p>
+            </h2>
+            <h1>Operating Hours:</h1>
+            <p>
+                &nbsp;&nbsp;&nbsp;Monday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Tuesday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Wednesday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Thursday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Friday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Saturday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+                &nbsp;&nbsp;&nbsp;Sunday:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 AM - 8:00 PM
+            </p>
+        </div>
+    </div>
+</section>
+<!--End of Fire Station Catgory-->

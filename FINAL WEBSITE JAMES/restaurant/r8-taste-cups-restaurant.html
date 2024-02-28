@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- remix icon cdn link  -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/dashboard-cafe.css">
+
+    <title>Everything La Trinidad</title>
+</head>
+
+<body>
+
+    <!-- header section starts  -->
+
+    <header class="header">
+
+        <a href="index.html" class="logo"> <i class="ri-map-pin-fill"></i> Everything La Trinidad </a>
+
+        <nav class="navbar">
+            <a href="http://localhost:8081/CapstoneProject/FINAL%20WEBSITE/index.html">home</a>
+            <a href="http://localhost:8081/CapstoneProject/FINAL%20WEBSITE/index.html#about">about</a>
+            <a href="http://localhost:8081/CapstoneProject/FINAL%20WEBSITE/Logged-in-Page/LIP-login.php">booking</a>
+            <a href="http://localhost:8081/CapstoneProject/FINAL%20WEBSITE/services.html">services</a>
+            <a href="http://localhost:8081/CapstoneProject/FINAL%20WEBSITE/news.html">news</a>
+            <a href="http://localhost:8081/CapstoneProject/FINAL%20WEBSITE/maps.html">maps</a>
+            <a href="chatbox.php">chat</a>
+            <a href="http://localhost:8081/CapstoneProject/FINAL%20WEBSITE/Logged-in-Page/LIP-login.php" class="btn-warning">Login</a>
+        </nav>
+
+        <div class="icons">
+            <div id="search-btn" class="ri-search-line"></div>
+            <div id="login-btn" class="ri-user-line"></div>
+            <script>
+                document.querySelector('#login-btn').onclick = () => {
+                    window.location.href = 'profile.php';
+                }
+            </script>
+            <div id="notif-btn" class="ri-notification-2-line"></i>
+        </div>
+
+    </header>
+
+    <!-- header section ends  -->
+
+
+    <!-- search-form start -->
+
+    <section class="search-form-container">
+
+        <form action="">
+            <input type="search" placeholder="search here..." id="search-box">
+            <label for="search-box" class="ri-search-line"></label>
+        </form>
+
+    </section>
+
+    <!-- search-form end -->  
+
+    <section class="about" id="taste-and-cups">
+        <div class="image">
+            <img src="image/r8.jpg" alt="">
+            <img src="image/r8.jpg" alt="">
+        </div>
+
+        <div class="content">
+            <br>
+            <br>
+            <span>Taste & Cups By Joanna C</span>
+            <p>Indulge your senses at Taste & Cups By Joanna C, a culinary sanctuary where each dish is crafted with a touch of artistry and a dash of passion. With its chic decor and an eclectic menu that harmonizes flavors and aesthetics, this restaurant invites patrons to embark on a gastronomic journey that tantalizes both the palate and the eyes.
+            </p>
+
+            <br>
+            <br>
+            <br>
+
+            <div class="operating-hours">
+                <h2>Rate Us!</h2>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div> 
+
+                <br>
+                <br>
+                <br>
+
+                <h2>Location:
+                    <p>Longlong, Puguis, Pico-Lamtang Rd, La Trinidad</p>
+                </h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1352.9127198449244!2d120.56907176818083!3d16.4443665066149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3391a375061e1777%3A0x506d55cec80b401e!2sTaste%20and%20Cups%20by%20Joanna%20C.!5e0!3m2!1sen!2sph!4v1706790191876!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                <br>
+                <br>
+                <br>
+
+                <h1>Operating Hours:</h1>
+                <p><b>Monday - Thursday | 10:00 AM - 8:00 PM<br>
+                Friday - Sunday | 9:00 AM - 8:30 PM</b>
+                </p>
+
+                <br>
+                <br>
+                <br>
+
+                <h2>Menu</h2>
+                <div class="menu">
+                    <img src="image/r8.jpg" alt="">
+                    <img src="image/r8.jpg" alt="">
+                </div>
+    
+                <br>
+                <br>
+                <br>
+                
+                <h2>Events & Schedules</h2>
+                <div class="event">
+                    <img src="image/r8.jpg" alt="">
+                    <img src="image/r8.jpg" alt="">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+            <!-- category section starts  -->
+
+            <section class="category">
+                <a href="r1-dampa-restaurant.html" class="box">
+                    <img src="image/r1.jpg" alt="">
+                    <br>
+                    <h3>Dampa Express</h3>
+                </a>
+        
+                <a href="r2-love-mattet-restaurant.html" class="box">
+                    <img src="image/r2.jpg" alt="">
+                    <h3>Love Mattet Bistro</h3>
+                </a>
+        
+                <a href="r3-gardeners-restaurant.html" class="box">
+                    <img src="image/r3.jpg" alt="">
+                    <h3>Gardener's Basket-Norfolk Lounge</h3>
+                </a>
+        
+                <a href="r4-ayatori-restaurant.html" class="box">
+                    <img src="image/r4.jpg" alt="">
+                    <h3>Ayatori Japanese Cuisine</h3>
+                </a>
+                <a href="r5-kaleis-restaurant.html" class="box">
+                    <img src="image/r5.jpg" alt="">
+                    <h3>Kalei's Grill</h3>
+                </a>
+        
+                <a href="r6-calajo-restaurant.html" class="box">
+                    <img src="image/r6.jpg" alt="">
+                    <h3>Calajo Restaurant</h3>
+                </a>
+        
+                <a href="r7-the-cabin-restaurant.html" class="box">
+                    <img src="image/r7.jpg" alt="">
+                    <h3>The Cabin</h3>
+                </a>
+        
+                <a href="r8-taste-cups-restaurant.html#taste-and-cups" class="box">
+                    <img src="image/r8.jpg" alt="">
+                    <h3>Taste & Cups By Joanna C</h3>
+                </a>
+        
+            </section>
+        
+            <!-- category section ends -->
+
+    <script>
+        const starContainers = document.querySelectorAll(".stars");
+
+// Loop through the "starContainers" NodeList
+starContainers.forEach((container) => {
+  // Select stars within the current container
+  const stars = container.querySelectorAll("i");
+
+  // Loop through the stars NodeList
+  stars.forEach((star, index1) => {
+    // Add an event listener that runs a function when the "click" event is triggered
+    star.addEventListener("click", () => {
+      // Toggle the "active" class on the clicked star
+      star.classList.toggle("active");
+
+      // Loop through the stars NodeList again
+      stars.forEach((star, index2) => {
+        // Add the "active" class to the clicked star and any stars with a lower index
+        if (index1 >= index2) {
+          star.classList.add("active");
+        } else {
+          // Remove the "active" class from stars with a higher index
+          star.classList.remove("active");
+        }
+      });
+    });
+  });
+});
+    </script>
+
+    <!-- about section ends -->
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
