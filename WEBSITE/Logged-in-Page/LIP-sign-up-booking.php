@@ -34,6 +34,7 @@
             <a href="LIP-services.html">Services</a>
             <a href="LIP-news.html">News</a>
             <a href="LIP-maps.html">Maps</a>
+            <a href="chatbox.php">chat</a>
             <a href="LIP-logout.php" class="btn-warning">Logout</a>
         </nav>
 
