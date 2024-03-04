@@ -66,6 +66,7 @@ if (isset($_GET['id']) && isset($_GET['status'])) {
     <!-- header section ends  -->
 
         <!-- about section starts  -->
+        
 
         <section class="about" id="about">
             <div class="content">

@@ -28,13 +28,13 @@
         <a href="index.html" class="logo"> <i class="ri-map-pin-fill"></i> Everything La Trinidad </a>
 
         <nav class="navbar">
-            <a href="LIP-index.html">Home</a>
-            <a href="LIP-index.html#about">About</a>
-            <a href="LIP-sign-up-booking.php">Booking</a>
-            <a href="LIP-services.html">Services</a>
-            <a href="LIP-news.html">News</a>
-            <a href="LIP-maps.html">Maps</a>
-            <a href="chatbox.php">chat</a>
+            <a href="LIP-index.html">home</a>
+            <a href="LIP-index.html#about">about</a>
+            <a href="LIP-sign-up-booking.php">booking</a>
+            <a href="LIP-services.html">services</a>
+            <a href="LIP-news.html">news</a>
+            <a href="LIP-maps.html">maps</a>
+            <a href="http://localhost:8081/CapstoneProject/WEBSITE/chatapplogin.php">chat</a>
             <a href="LIP-logout.php" class="btn-warning">Logout</a>
         </nav>
 
