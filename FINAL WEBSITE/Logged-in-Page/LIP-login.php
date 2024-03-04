@@ -70,7 +70,7 @@ if (isset($_SESSION["user"])) {
                 </div>
                 
             	<a href="LIP-registration.php">Don't have an account yet? Register Now</a>
-                <a href="http://localhost:8081/CapstoneProject/FINAL%20WEBSITE/index.html">Go to website</a>
+                <a href="http://localhost/CapstoneProject/FINAL%20WEBSITE/index.html">Go to website</a>
 
                 <div class="form-btn">
                     <input type="submit" class="btn btn-primary" value="Login" name="login">
