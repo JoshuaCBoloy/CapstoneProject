@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- remix icon cdn link  -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/news.css">
+
+    <title>Everything La Trinidad</title>
+</head>
+
+<body>
+
+   
+    <!-- header section starts  -->
+
+    <header class="header">
+
+        <a href="index.html" class="logo"> <i class="ri-map-pin-fill"></i> Everything La Trinidad </a>
+
+        <nav class="navbar">
+            <a href="index.html">home</a>
+            <a href="index.html#about">about</a>
+            <a href="Logged-in-Page/LIP-login.php">booking</a>
+            <a href="services.html">services</a>
+            <a href="news.html">news</a>
+            <a href="maps.html">maps</a>
+            <a href="chatapplogin.php">chat</a>
+            <a href="Logged-in-Page/LIP-login.php" class="btn-warning">Login</a>
+        </nav>
+
+        <div class="icons">
+            <div id="search-btn" class="ri-search-line"></div>
+            <div id="login-btn" class="ri-user-line"></div>
+            <script>
+                document.querySelector('#login-btn').onclick = () => {
+                    window.location.href = 'Logged-in-Page/LIP-login.php';
+                }
+            </script>
+            <div id="notif-btn" class="ri-notification-2-line"></i>
+        </div>
+
+    </header>
+
+    <!-- header section ends  -->
+
+
+    <!-- news section starts  -->
+
+    <section class="news" id="news">
+
+        <div class="content">
+            <span>La Trinidad Newsfeed</span>
+            <h3>Stay updated with the latest happenings around La Trinidad!</h3>
+            <p>Check out the Facebook page! You will be redirected to La Trinidad's Facebook page, click the button below!</p>
+            <a href="https://www.facebook.com/lgulatrinidad" class="btn">Check it out!</a>
+        </div>
+    
+        <div class="image">
+            <img src="image/news-image.png" alt="" class="news-img">
+            <img src="image/news-parallax-img.png" alt="" class="news-parallax-img">
+        </div>
+    
+    </section>
+
+    <!-- news section ends  -->
+
+    <!-- js script  -->
+    <script>
+        document.querySelector('.news').onmousemove = (e) => {
+            let x = (window.innerWidth - e.pageX * 2) / 90;
+            let y = (window.innerHeight - e.pageY * 2) / 90;
+
+            document.querySelector('.news .news-parallax-img').style.transform = `translateX(${y}px) translateY(${x}px)`;
+        }
+
+        document.querySelector('.news').onmouseleave = () => {
+            document.querySelector('.news .news-parallax-img').style.transform = `translateX(0px) translateY(0px)`;
+        }
+    </script>
+    <!-- end of js script  -->
+
+    <section class="newsfeed" id="newsfeed">
+
+        <div class="heading"> 
+            <h3>What's up La Trinidad?</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo similique, nesciunt repudiandae rerum minus molestias at aut nostrum repellendus illum itaque quae sunt vero dolores libero obcaecati recusandae possimus saepe voluptatum perferendis incidunt eaque animi voluptas? Ea ullam cupiditate molestiae. Praesentium natus tempore accusantium, sequi numquam maxime? Atque, expedita fugit!</p>
+        </div>
+    </section>
+
+    <section class="news" id="news">   
+        <div class="nf-content">
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flgulatrinidad%2Fposts%2Fpfbid0vQgjubEU5V9HCWFVAjt8j7zGoGNV6XKMeEUuSRwHWewLq2QzXwdV6Jx2wb11fnM3l&show_text=false&width=500" width="500" height="498" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        </div>
+        
+        <div class="nf-content">
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flgulatrinidad%2Fposts%2Fpfbid02GoS17ienAG8ZaTr1tYN9UbfJ91ibdwPu8CGQxqZNh1rD6L8iaFtB94ZrSc7Q4d7sl&show_text=false&width=500" width="500" height="498" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>     
+        </div>
+    
+    </section>
+
+
+
+</body>
+</html>
