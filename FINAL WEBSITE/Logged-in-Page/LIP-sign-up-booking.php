@@ -34,7 +34,8 @@
             <a href="LIP-services.html">Services</a>
             <a href="LIP-news.html">News</a>
             <a href="LIP-maps.html">Maps</a>
-            <a href="LIP-logout.php" class="btn-warning">Logout</a>
+            <a href="http://localhost/CapstoneProject/FINAL%20WEBSITE/chatapplogin.php">chat</a>
+            <a href="http://localhost/CapstoneProject/FINAL%20WEBSITE/Logged-in-Page/LIP-login.php" class="btn-warning">Logout</a>
         </nav>
 
         <div class="icons">
