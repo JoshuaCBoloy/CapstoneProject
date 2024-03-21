@@ -35,6 +35,7 @@ if (isset($_GET['id']) && isset($_GET['status'])) {
                 <th>Phone Number</th>
                 <th>Number of People</th>
                 <th>Days of Tour</th>
+                <th>Date of Tour</th>
                 <th>Additional Information</th>
                 <th>Booking Status</th>
                 <th>Response</th>
@@ -49,6 +50,7 @@ if (isset($_GET['id']) && isset($_GET['status'])) {
                     <td><?php echo $row['phone_number'];?></td>
                     <td><?php echo $row['number_people'];?></td>
                     <td><?php echo $row['tour_days'];?></td>
+                    <td><?php echo $row[''];?></td>
                     <td><?php echo $row['any'];?></td>
                     <td><?php 
                     if ($row['status']==1) {

@@ -43,7 +43,7 @@ if (isset($_GET['id']) && isset($_GET['status'])) {
         <nav class="navbar">
             <a href="LIP-index.html">Home</a>
             <a href="LIP-index.html#about">About</a>
-            <a href="LIP-choose-tourguide.php">Booking</a>
+            <a href="LIP-sign-up-booking.php">Booking</a>
             <a href="LIP-services.html">Services</a>
             <a href="LIP-news.html">News</a>
             <a href="LIP-maps.html">Maps</a>

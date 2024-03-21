@@ -23,6 +23,7 @@
                 <th>Phone Number</th>
                 <th>Number of People</th>
                 <th>Days of Tour</th>
+                <th>Date of Tour</th>
                 <th>Additional Information</th>
                 <th>Response</th>
             </tr>

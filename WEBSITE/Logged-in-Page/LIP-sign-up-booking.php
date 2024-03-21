@@ -28,13 +28,13 @@
         <a href="index.html" class="logo"> <i class="ri-map-pin-fill"></i> Everything La Trinidad </a>
 
         <nav class="navbar">
-            <a href="LIP-index.html">home</a>
-            <a href="LIP-index.html#about">about</a>
-            <a href="LIP-sign-up-booking.php">booking</a>
-            <a href="LIP-services.html">services</a>
-            <a href="LIP-news.html">news</a>
-            <a href="LIP-maps.html">maps</a>
-            <a href="http://localhost:8081/CapstoneProject/WEBSITE/chatapplogin.php">chat</a>
+            <a href="LIP-index.html">Home</a>
+            <a href="LIP-index.html#about">About</a>
+            <a href="LIP-sign-up-booking.php">Booking</a>
+            <a href="LIP-services.html">Services</a>
+            <a href="LIP-news.html">News</a>
+            <a href="LIP-maps.html">Maps</a>
+            <a href="http://localhost:8081/CapstoneProject/WEBSITE/chatapplogin.php">Chat</a>
             <a href="LIP-logout.php" class="btn-warning">Logout</a>
         </nav>
 
@@ -68,11 +68,13 @@
                 $phoneNumber = $_POST["phone_number"];
                 $numberPeople = $_POST["number_people"];
                 $tourDays = $_POST["tour_days"];
+                $startDate = date('Y-m-d', strtotime($_POST["start_date"]));
+                $endDate = date('Y-m-d', strtotime($_POST["end_date"]));
                 $any = $_POST["any"];
 
                 $errors = array();
 
-                if (empty($firstName) OR empty($lastName) OR empty($email) OR empty($phoneNumber) OR empty($numberPeople) OR empty($tourDays) OR empty($any)) {
+                if (empty($firstName) OR empty($lastName) OR empty($email) OR empty($phoneNumber) OR empty($numberPeople) OR empty($tourDays) OR empty($startDate) OR empty($endDate)) {
                     array_push($errors, "<div class='required'><h2>All fields are required</h2></div>");
                 }
                 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -94,11 +96,11 @@
                     }
                 }else {
                     require_once "LIP-booking-database.php";
-                    $sql = "INSERT INTO users (first_name, last_name, email, phone_number, number_people, tour_days, any) VALUES ( ?, ?, ?, ?, ?, ?, ? )";
+                    $sql = "INSERT INTO users (first_name, last_name, email, phone_number, number_people, tour_days, start_date, end_date, any) VALUES ( ?, ?, ?, ?, ?, ?, ? ,?, ?)";
                     $stmt = mysqli_stmt_init($conn);
                     $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
                     if ($prepareStmt) {
-                        mysqli_stmt_bind_param($stmt, "sssiiis", $firstName, $lastName, $email, $phoneNumber, $numberPeople, $tourDays, $any);
+                        mysqli_stmt_bind_param($stmt, "sssiiidds", $firstName, $lastName, $email, $phoneNumber, $numberPeople, $tourDays, $startDate, $endDate, $any);
                         mysqli_stmt_execute($stmt);
                         echo "<div class='success'><h2>Your tour guide booking is sent successfully.</h2></div>";
                     }else {
@@ -132,7 +134,7 @@
                     </div>
                     <div class="inputBox">
                         <span>Phone Number:</span>
-                        <input type="tel" class="form-control" name="phone_number" pattern="[0-9]{11}" placeholder="Your Number:">
+                        <input type="int" class="form-control" name="phone_number" pattern="[0-9]{11}" placeholder="Your Number:">
                     </div>
                 </div>
 
@@ -146,6 +148,19 @@
                     <div class="inputBox">
                         <span>How long will you be toured?</span>
                         <input type="number" class="form-control" name="tour_days" placeholder="Days of Tour:">
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="flex">
+                    <div class="inputBox">
+                        <span>Starting date to be toured</span>
+                        <input type="date" class="form-control" name="start_date">
+                    </div>
+                    <div class="inputBox">
+                        <span>End date to be toured</span>
+                        <input type="date" class="form-control" name="end_date">
                     </div>
                 </div>
 
