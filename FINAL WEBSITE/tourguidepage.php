@@ -6,15 +6,7 @@ if (isset($_GET['id']) && isset($_GET['status'])) {
     $id = $_GET['id'];
     $status = $_GET['status'];
     mysqli_query($con, "update users set status='$status' where id='$id'");
-    header("location: adminpagetest.php");
-    die();
-}  
-
-if (isset($_GET['id']) && isset($_GET['new_status'])) {
-    $id = $_GET['id'];
-    $status = $_GET['new_status'];
-    mysqli_query($con, "update users set new_status='$new_status' where id='$id'");
-    header("location: adminpagetest.php");
+    header("location: tourguidepage.php");
     die();
 }
 ?>
@@ -29,7 +21,7 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
     <!-- Add your CSS and other head elements here -->
     <link rel="stylesheet" href="css/admin.css">
 
-    <title>Admin Page - Tour Guide Bookings</title>
+    <title>Tourguide Page - Tour Guide Bookings</title>
 </head>
 
 <body>
@@ -47,9 +39,7 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
                 <th>End Date</th>
                 <th>Additional Information</th>
                 <th>Booking Status</th>
-                <th>Response</th>
                 <th>Tourguide Status</th>
-                <th>Tourguide</th>
             </tr>
             <?php
             if (mysqli_num_rows($sql)>0) {
@@ -72,13 +62,6 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
                     } if ($row['status']==3) {
                         echo "Declined";
                     }?>
-                    <td>
-                    <select onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['id'] ?>')">    
-                                <option value="1">Update Status</option>  
-                                <option value="2">Accept</option>  
-                                <option value="3">Decline</option>  
-                           </select>
-                    </td>
                     <td><?php 
                     if ($row['new_status']==4) {
                         echo "Pending";
@@ -87,13 +70,6 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
                     } if ($row['new_status']==6) {
                         echo "Tourguide 2";
                     }?>
-                    <td>
-                    <select onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['id'] ?>')">    
-                                <option value="4">Update Status</option>  
-                                <option value="5">Tourguide 1</option>  
-                                <option value="6">Tourguide 2</option>  
-                           </select>
-                    </td>
                 </tr>
                 <?php }
                 }

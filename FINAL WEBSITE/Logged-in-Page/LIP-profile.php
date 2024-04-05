@@ -5,7 +5,7 @@ $sql = mysqli_query($con, "select * from users");
 if (isset($_GET['id']) && isset($_GET['status'])) {
     $id = $_GET['id'];
     $status = $_GET['status'];
-    mysqli_query($con, "update users set status='$status' where id='$id'");
+    mysqli_query($con, "update users set status='$status', new_status='$status' where id='$id'");
     header("location: LIP-adminpagetest.php");
     die();
 }
@@ -79,8 +79,11 @@ if (isset($_GET['id']) && isset($_GET['status'])) {
                 <th><h2>Phone Number</h2></th>
                 <th><h2>Number of People</h2></th>
                 <th><h2>Days of Tour</h2></th>
+                <th><h2>Starting Date</h2></th>
+                <th><h2>End Date</h2></th>
                 <th><h2>Additional Information</h2></th>
                 <th><h2>Booking Status</h2></th>
+                <th><h2>Tourguide</h2></th>
             </tr>
             </thead>
             <tbody>
@@ -94,6 +97,8 @@ if (isset($_GET['id']) && isset($_GET['status'])) {
                     <td><h3><?php echo $row['phone_number'];?></h3></td>
                     <td><h3><?php echo $row['number_people'];?></h3></td>
                     <td><h3><?php echo $row['tour_days'];?><h3></td>
+                    <td><h3><?php echo $row['start_date'];?></h3></td>
+                    <td><h3><?php echo $row['end_date'];?><h3></td>
                     <td><h3><?php echo $row['any'];?><h3></td>
                     <td><h3><?php 
                     if ($row['status']==1) {
@@ -103,8 +108,15 @@ if (isset($_GET['id']) && isset($_GET['status'])) {
                     } if ($row['status']==3) {
                         echo "Declined";
                     }?><h3></td>
+                    <td><h3><?php 
+                    if ($row['status']==4) {
+                        echo "Pending";
+                    } if ($row['status']==5) {
+                        echo "Tourguide 1";
+                    } if ($row['status']==6) {
+                        echo "Tourguide 2";
+                    }?><h3></td>
                 </tr>
-
                 <?php }
                 }
                 ?>

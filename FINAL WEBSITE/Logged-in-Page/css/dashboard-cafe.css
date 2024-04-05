@@ -289,6 +289,7 @@ section {
     display: flex;
     min-width: 500px;
     max-width: 605px;
+    align-content: center;
 }
 
 .menu img {

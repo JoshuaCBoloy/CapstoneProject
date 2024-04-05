@@ -269,48 +269,49 @@ section {
     margin: 2%;
 }
 
-.about .image {
+.image .cafe-image img {
     display: flex;
-    min-width: 500px;
-    max-width: 605px;
-}
-
-.about .image img {
-    width: 100%;
-    height: 500px;
+    align-items: center;
     border-radius: 3rem;
-    display: flex;
-    margin: 1.2%;
-    justify-content: space-evenly;
-    flex-direction: row;
+    height: 900px;
+    width: 1300px;
+    max-height: 100%;
+    max-width: 100%;
 }
 
-.menu {
-    display: flex;
-    min-width: 500px;
-    max-width: 605px;
+.menu .text {
+    padding: 1rem 0;
+    line-height: 2;
+    font-size: 1.8rem;
+    color: #494262;
+    text-align: center;
 }
 
 .menu img {
-    width: 100%;
-    height: 500px;
-    border-radius: 1rem;
     display: flex;
-    margin: 1.2%;
+    align-items: center;
+    border-radius: 3rem;
+    height: 300px;
+    width: 300px;
+    max-height: 100%;
+    max-width: 100%;
 }
 
-.event {
-    display: flex;
-    min-width: 500px;
-    max-width: 605px;
+.event .text {
+    padding: 1rem 0;
+    line-height: 2;
+    font-size: 1.8rem;
+    color: #494262;
 }
 
 .event img {
-    width: 100%;
-    height: 500px;
-    border-radius: 1rem;
     display: flex;
-    margin: 1.2%;
+    align-items: center;
+    border-radius: 3rem;
+    height: 900px;
+    width: 1300px;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .about .content span {
