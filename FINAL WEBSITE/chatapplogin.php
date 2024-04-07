@@ -6,6 +6,7 @@
 ?>
 
 <?php include_once "header.php"; ?>
+<link rel="shortcut icon" type="image/x-icon" href="image/ELT.png" />
 <body>
   <div class="wrapper">
     <section class="form login">

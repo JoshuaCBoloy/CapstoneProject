@@ -44,6 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	<link rel="stylesheet" type="text/css" href="css/new-style.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="image/ELT.png" />
+
 </head>
 <body>
 
@@ -78,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
                 
             	<a href="registration.php">Don't have an account yet? Register Now</a>
-                <a href="http://localhost/CapstoneProject/FINAL%20WEBSITE/LIP-index.html">Go to website</a>
+                <a href="http://localhost/CapstoneProject/FINAL%20WEBSITE/index.html">Go to website</a>
 
                 <a href="LIP-forgot-password.php">Forgot Password?</a>
 
