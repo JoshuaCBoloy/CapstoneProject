@@ -135,7 +135,7 @@
                     </div>
                     <div class="inputBox">
                         <span>Phone Number:</span>
-                        <input type="int" class="form-control" name="phone_number" pattern="[0-9]{11}" placeholder="Your Number:">
+                        <input type="text" class="form-control" name="phone_number" pattern="[0-9]{11}" placeholder="Your Number:">
                     </div>
                 </div>
 
