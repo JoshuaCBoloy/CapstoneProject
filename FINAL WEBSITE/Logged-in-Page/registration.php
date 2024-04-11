@@ -7,7 +7,8 @@
     <title>Registration Form</title>
     <link rel="stylesheet" type="text/css" href="css/new-style.css" />
     <link rel="shortcut icon" type="image/x-icon" href="image/ELT.png" />
-
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
+    <script src="/js/validate.js" defer></script>
     <link
       href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap"
       rel="stylesheet"
@@ -42,7 +43,7 @@
             </div>
             <div class="div">
               <h5>Email Address</h5>
-              <input type="email" class="input" name="email" />
+              <input type="email" class="input" name="email"/>
               <div class="error-message"></div>
             </div>
           </div>
@@ -53,7 +54,7 @@
             </div>
             <div class="div">
               <h5>Password</h5>
-              <input type="password" class="input" name="password" />
+              <input type="password" class="input" name="password"/>
               <div class="error-message"></div>
             </div>
           </div>
@@ -64,7 +65,7 @@
             </div>
             <div class="div">
               <h5>Confirm Password</h5>
-              <input type="password" class="input" name="repeat_password" />
+              <input type="password" class="input" name="repeat_password"/>
               <div class="error-message"></div>
             </div>
           </div>
