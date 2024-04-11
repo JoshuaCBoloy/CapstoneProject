@@ -32,20 +32,28 @@
             <a href="http://localhost/CapstoneProject/FINAL%20WEBSITE/Logged-in-Page/LIP-login.php">booking</a>
             <a href="http://localhost/CapstoneProject/FINAL%20WEBSITE/services.html">services</a>
             <a href="http://localhost/CapstoneProject/FINAL%20WEBSITE/news.html">news</a>
-            <a href="http://localhost/CapstoneProject/FINAL%20WEBSITE/maps.html">maps</a>
-            <a href="http://localhost/CapstoneProject/FINAL%20WEBSITE/chatapplogin.php">chat</a>
             <a href="http://localhost/CapstoneProject/FINAL%20WEBSITE/Logged-in-Page/LIP-login.php" class="btn-warning">Login</a>
         </nav>
 
         <div class="icons">
-            <div id="search-btn" class="ri-search-line"></div>
+            <div id="chat-btn" class="ri-chat-3-line"></div>
+            <script>
+                document.querySelector('#chat-btn').onclick = () => {
+                    window.location.href = 'http://localhost/CapstoneProject/FINAL%20WEBSITE/Logged-in-Page/LIP-login.php';
+                }
+            </script>
             <div id="login-btn" class="ri-user-line"></div>
             <script>
                 document.querySelector('#login-btn').onclick = () => {
-                    window.location.href = 'profile.php';
+                    window.location.href = 'http://localhost/CapstoneProject/FINAL%20WEBSITE/Logged-in-Page/LIP-login.php';
                 }
             </script>
-            <div id="notif-btn" class="ri-notification-2-line"></i>
+            <div id="map-btn" class="ri-map-pin-line">
+            <script>
+                document.querySelector('#map-btn').onclick = () => {
+                    window.location.href = 'https://www.google.com/maps/place/La+Trinidad,+Benguet/@16.4787946,120.5665467,12300m/data=!3m1!1e3!4m6!3m5!1s0x3391a3aef768cde3:0x58d076983f455a79!8m2!3d16.4774284!4d120.5854674!16zL20vMDZtZnI3?entry=ttu';
+                }
+                </script>
         </div>
 
     </header>
@@ -65,11 +73,6 @@
     </section>
 
     <!-- search-form end -->  
-    <section class="image">
-        <div class="cafe-image">
-            <img src="image/c4.jpg" alt="">
-        </div>
-    </section>
 
     <section class="about" id="half-cup-cafe">
         <div class="content">
@@ -78,6 +81,13 @@
             <span>Half Cup Cafe</span>
             <p>Half Cup Cafe is a cozy spot that brings people together over good coffee and delicious bites. With a warm atmosphere and a menu featuring comforting treats, it's the perfect place to unwind and enjoy a half cup of joy in the heart of the community.
             </p>
+
+            <br>
+            <br>
+
+            <div class="cafe-image">
+                <img src="image/c4.jpg" alt="">
+            </div>
 
             <br>
             <br>
@@ -121,22 +131,23 @@
                 </b>
                 </p>
                 <br>
-            </div>
-        </div>
-    </section>
 
-    <section class="container">
-        <div class="text">
-            <h2>Menu</h2>
-        </div>
-        <div class="slider-wrapper">
-            <div class="slider">
-                <img id="slide-1" src="image/c4.jpg" alt="">
-                <img id="slide-2" src="image/c4.jpg" alt="">
-            </div>
-            <div class="slider-nav">
-                <a href="#slide-1"></a>
-                <a href="#slide-2"></a>
+                <div class="container">
+                    <div class="text">
+                        <h2>Menu</h2>
+                    </div>
+                    <div class="slider-wrapper">
+                        <div class="slider">
+                            <img id="slide-1" src="image/c4.jpg" alt="">
+                            <img id="slide-2" src="image/c4.jpg" alt="">
+                        </div>
+                        <div class="slider-nav">
+                            <a href="#slide-1"></a>
+                            <a href="#slide-2"></a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>

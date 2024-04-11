@@ -80,18 +80,18 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
                            </select>
                     </td>
                     <td><?php 
-                    if ($row['new_status']==4) {
+                    if ($row['new_status']==1) {
                         echo "Pending";
-                    } if ($row['new_status']==5) {
+                    } if ($row['new_status']==2) {
                         echo "Tourguide 1";
-                    } if ($row['new_status']==6) {
+                    } if ($row['new_status']==3) {
                         echo "Tourguide 2";
                     }?>
                     <td>
                     <select onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['id'] ?>')">    
-                                <option value="4">Update Status</option>  
-                                <option value="5">Tourguide 1</option>  
-                                <option value="6">Tourguide 2</option>  
+                                <option value="1">Update Status</option>  
+                                <option value="2">Tourguide 1</option>  
+                                <option value="3">Tourguide 2</option>  
                            </select>
                     </td>
                 </tr>
@@ -104,6 +104,11 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
         function status_update(value,id) {
             let url = "http://localhost:8081/CapstoneProject/FINAL%20WEBSITE/adminpagetest.php";
             window.location.href= url+"?id="+id+"&status="+value;
+        }
+
+        function status_update(value,id) {
+            let url = "http://localhost:8081/CapstoneProject/FINAL%20WEBSITE/adminpagetest.php";
+            window.location.href= url+"?id="+id+"&new_status="+value;
         }
         </script>
 

@@ -34,20 +34,28 @@
             <a href="Logged-in-Page/LIP-login.php">booking</a>
             <a href="services.html">services</a>
             <a href="news.html">news</a>
-            <a href="maps.html">maps</a>
-            <a href="chatapplogin.php">chat</a>
             <a href="Logged-in-Page/LIP-login.php" class="btn-warning">Login</a>
         </nav>
 
         <div class="icons">
-            <div id="search-btn" class="ri-search-line"></div>
+            <div id="chat-btn" class="ri-chat-3-line"></div>
+            <script>
+                document.querySelector('#chat-btn').onclick = () => {
+                    window.location.href = 'Logged-in-Page/LIP-login.php';
+                }
+            </script>
             <div id="login-btn" class="ri-user-line"></div>
             <script>
                 document.querySelector('#login-btn').onclick = () => {
                     window.location.href = 'Logged-in-Page/LIP-login.php';
                 }
             </script>
-            <div id="notif-btn" class="ri-notification-2-line"></i>
+            <div id="map-btn" class="ri-map-pin-line">
+            <script>
+                document.querySelector('#map-btn').onclick = () => {
+                    window.location.href = 'https://www.google.com/maps/place/La+Trinidad,+Benguet/@16.4787946,120.5665467,12300m/data=!3m1!1e3!4m6!3m5!1s0x3391a3aef768cde3:0x58d076983f455a79!8m2!3d16.4774284!4d120.5854674!16zL20vMDZtZnI3?entry=ttu';
+                }
+                </script>
         </div>
 
     </header>
