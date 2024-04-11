@@ -55,7 +55,7 @@ if (isset($_GET['id']) && isset($_GET['status'])) {
             <div id="login-btn" class="ri-user-line"></div>
             <script>
                 document.querySelector('#login-btn').onclick = () => {
-                    window.location.href = 'profile.php';
+                    window.location.href = 'http://localhost:8081/CapstoneProject/FINAL%20WEBSITE/Logged-in-Page/LIP-profile.php';
                 }
             </script>
             <div id="notif-btn" class="ri-notification-2-line"></i>
