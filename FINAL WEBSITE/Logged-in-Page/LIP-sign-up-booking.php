@@ -28,26 +28,35 @@
 
         <a href="index.html" class="logo"> <i class="ri-map-pin-fill"></i> Everything La Trinidad </a>
 
+
         <nav class="navbar">
-            <a href="LIP-index.html">Home</a>
-            <a href="LIP-index.html#about">About</a>
-            <a href="LIP-sign-up-booking.php">Booking</a>
-            <a href="LIP-services.html">Services</a>
-            <a href="LIP-news.html">News</a>
-            <a href="LIP-maps.html">Maps</a>
-            <a href="http://localhost/CapstoneProject/FINAL%20WEBSITE/chatapplogin.php">Chat</a>
-            <a href="http://localhost/CapstoneProject/FINAL%20WEBSITE/Logged-in-Page/LIP-login.php" class="btn-warning">Logout</a>
+            <a href="LIP-index.html">home</a>
+            <a href="LIP-index.html#about">about</a>
+            <a href="LIP-sign-up-booking.php">booking</a>
+            <a href="LIP-services.html">services</a>
+            <a href="LIP-news.html">news</a>
+            <a href="LIP-logout.php" class="btn-warning">Logout</a>
         </nav>
 
         <div class="icons">
-            <div id="search-btn" class="ri-search-line"></div>
+            <div id="chat-btn" class="ri-chat-3-line"></div>
+            <script>
+                document.querySelector('#chat-btn').onclick = () => {
+                    window.location.href = 'http://localhost/CapstoneProject/FINAL%20WEBSITE/chatapplogin.php';
+                }
+            </script>
             <div id="login-btn" class="ri-user-line"></div>
             <script>
                 document.querySelector('#login-btn').onclick = () => {
                     window.location.href = 'LIP-profile.php';
                 }
             </script>
-            <div id="notif-btn" class="ri-notification-2-line"></i>
+            <div id="map-btn" class="ri-map-pin-line">
+            <script>
+                document.querySelector('#map-btn').onclick = () => {
+                    window.location.href = 'https://www.google.com/maps/place/La+Trinidad,+Benguet/@16.4787946,120.5665467,12300m/data=!3m1!1e3!4m6!3m5!1s0x3391a3aef768cde3:0x58d076983f455a79!8m2!3d16.4774284!4d120.5854674!16zL20vMDZtZnI3?entry=ttu';
+                }
+                </script>
         </div>
 
     </header>
@@ -168,8 +177,9 @@
                 <br>
      
                 <div class="flex">
-                    <div class="inputBox">
-                        <textarea type="text" class="form-control" name="any" placeholder="Anything else we should know?" cols="30" rows="10"></textarea>
+                <div class="inputBox">
+                        <span>Select your package.</span>
+                        <select><input type="text" class="form-control" name="any" placeholder="Packages"></input></select>
                     </div>
                     <div class="inputBox">
                         <iframe class="map"
