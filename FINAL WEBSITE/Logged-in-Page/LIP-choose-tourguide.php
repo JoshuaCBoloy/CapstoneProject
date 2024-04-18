@@ -36,7 +36,7 @@ $row = mysqli_fetch_assoc($sql);
         <nav class="navbar">
             <a href="LIP-index.html">home</a>
             <a href="LIP-index.html#about">about</a>
-            <a href="LIP-sign-up-booking.php">booking</a>
+            <a href="./LIP-choose-tourguide.php">booking</a>
             <a href="LIP-services.html">services</a>
             <a href="LIP-news.html">news</a>
             <a href="LIP-logout.php" class="btn-warning">Logout</a>
@@ -46,7 +46,7 @@ $row = mysqli_fetch_assoc($sql);
             <div id="chat-btn" class="ri-chat-3-line"></div>
             <script>
                 document.querySelector('#chat-btn').onclick = () => {
-                    window.location.href = 'http://localhost/CapstoneProject/FINAL%20WEBSITE/chatapplogin.php';
+                    window.location.href = '../chatapplogin.php';
                 }
             </script>
             <div id="login-btn" class="ri-user-line"></div>
@@ -91,17 +91,19 @@ $row = mysqli_fetch_assoc($sql);
                     <div class="content">
                         <h3>Package 1</h3>
                         <br>
-                        <span> Tourist Spot 1 </span>
-                        <span class="info"> Strawberry Farm</span>
+                        <span> Tourist Spot 1: </span>
+                        <span class="info"> <a href="./LIP-t2-strawberry-farm-touristspot.html">Strawberry Farm</a></span>
                         <br>
-                        <span> Tourist Spot 2 </span>
-                        <span class="info"> Bell Church</span>
+                        <span> Tourist Spot 2: </span>
+                        <span class="info"> <a href="./LIP-t1-bell-church-touristspot.html"> Bell Church</a></span>
                         <br>
-                        <span> Tourist Spot 3 </span>
-                        <span class="info"> Mt. Kalugong</span>
+                        <span> Tourist Spot 3: </span>
+                        <span class="info"> <a href="./LIP-t6-kalugong-touristspot.html">Mt. Kalugong</a"></a></span>
                         <br>
-                        <span> Tourist Spot 4 </span>
-                        <span class="info"> Sunflower Farm</span>
+                        <span> Tourist Spot 4: </span>
+                        <span class="info"> <a href="./LIP-t5-sunflower-farm-touristspot.html">Sunflower Farm</a></span>
+                        <br>
+
                     </div>
                     <button class="card-btn1"><a href="LIP-sign-up-booking.php">Book Now</a></button>
                 </div>
@@ -111,17 +113,17 @@ $row = mysqli_fetch_assoc($sql);
                     <div class="content">
                         <h3>Package 2</h3>
                         <br>
-                        <span> Tourist Spot 1 </span>
-                        <span class="info"> Strawberry Farm</span>
+                        <span> Tourist Spot 1: </span>
+                        <span class="info"> <a href="./LIP-t2-strawberry-farm-touristspot.html">Strawberry Farm</a></span>
                         <br>
-                        <span> Tourist Spot 2 </span>
+                        <span> Tourist Spot 2: </span>
                         <span class="info"> Living Gifts Nursery</span>
                         <br>
-                        <span> Tourist Spot 3 </span>
-                        <span class="info"> Bell Church</span>
+                        <span> Tourist Spot 3: </span>
+                        <span class="info"> <a href="./LIP-t1-bell-church-touristspot.html"> Bell Church</a></span>
                         <br>
-                        <span> Tourist Spot 4 </span>
-                        <span class="info"> Mt. Kalugong</span>
+                        <span> Tourist Spot 4: </span>
+                        <span class="info"> <a href="./LIP-t6-kalugong-touristspot.html">Mt. Kalugong</a"></a></span>
                     </div>
                     <button class="card-btn1"><a href="LIP-sign-up-booking.php">Book Now</a></button>
                 </div>

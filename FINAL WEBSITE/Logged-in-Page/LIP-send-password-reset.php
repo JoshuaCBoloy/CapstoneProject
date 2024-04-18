@@ -24,7 +24,6 @@ $stmt->execute();
 if ($mysqli->affected_rows) {
 
   $mail = require __DIR__ . "/LIP-mailer.php";
-
   $mail->setFrom("noreply@example.com");
   $mail->addAddress($email);
   $mail->Subject = "Password Reset";
