@@ -105,7 +105,7 @@ $row = mysqli_fetch_assoc($sql);
                         <br>
 
                     </div>
-                    <button class="card-btn1"><a href="LIP-sign-up-booking.php">Book Now</a></button>
+                    <button class="card-btn1"><a href="LIP-sign-up-booking-p1.php">Book Now</a></button>
                 </div>
 
                 <div class="box" alt="Image Button">
@@ -125,7 +125,7 @@ $row = mysqli_fetch_assoc($sql);
                         <span> Tourist Spot 4: </span>
                         <span class="info"> <a href="./LIP-t6-kalugong-touristspot.html">Mt. Kalugong</a"></a></span>
                     </div>
-                    <button class="card-btn1"><a href="LIP-sign-up-booking.php">Book Now</a></button>
+                    <button class="card-btn1"><a href="LIP-sign-up-booking-p2.php">Book Now</a></button>
                 </div>
             </div>
         </div>

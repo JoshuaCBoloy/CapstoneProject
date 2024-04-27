@@ -178,6 +178,7 @@ section {
     overflow-y: scroll;
     padding-bottom: 8rem;
     border-radius: 2rem;
+    padding: 70px;
 }
 
 .tourguide-booking-container.active {

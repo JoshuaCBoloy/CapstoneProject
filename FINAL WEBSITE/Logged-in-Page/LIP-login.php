@@ -81,7 +81,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 
             	<a href="registration.php">Don't have an account yet? Register Now</a>
                 <a href="http://localhost/CapstoneProject/FINAL%20WEBSITE/index.html">Go to website</a>
-
                 <a href="LIP-forgot-password.php">Forgot Password?</a>
 
                 <div class="form-btn">

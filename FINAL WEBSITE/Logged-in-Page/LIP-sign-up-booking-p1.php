@@ -1,3 +1,32 @@
+<?php
+session_start();
+
+$servername = "localhost";
+$dbname = "login_db";
+$username = "root";
+$password = "";
+
+$con = mysqli_connect($servername, $username, $password, $dbname);
+if ($con->connect_error){
+    die("Something went wrong" . $con->connect_error);
+}
+
+if(!isset($_SESSION['user_id'])) {
+    header("Location: Logged-in-Page/LIP-login.php");
+    exit();
+}
+
+$user_id = $_SESSION['user_id'];
+
+$select = mysqli_query($con, "SELECT * FROM user ");
+if(mysqli_num_rows($select)>0){
+    $id=1;
+    $n=$id+1;
+    while($row=mysqli_fetch_array($select)){
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +61,7 @@
         <nav class="navbar">
             <a href="LIP-index.html">Home</a>
             <a href="LIP-index.html#about">About</a>
-            <a href="LIP-sign-up-booking.php">Booking</a>
+            <a href="LIP-choose-tourguide.php">Booking</a>
             <a href="LIP-services.html">Services</a>
             <a href="LIP-news.html">News</a>
             <a href="LIP-logout.php" class="btn-warning">Logout</a>
@@ -74,29 +103,22 @@
             if (isset($_POST["submit"])) {
                 $firstName = $_POST["first_name"];
                 $lastName = $_POST["last_name"];
-                $email = $_POST["email"];
                 $phoneNumber = $_POST["phone_number"];
                 $numberPeople = $_POST["number_people"];
-                $tourDays = $_POST["tour_days"];
                 $startDate = $_POST["start_date"];
                 $endDate = $_POST["end_date"];
+                $package = $_POST["package"];
                 $any = $_POST["any"];
 
                 $errors = array();
 
-                if (empty($firstName) OR empty($lastName) OR empty($email) OR empty($phoneNumber) OR empty($numberPeople) OR empty($tourDays) OR empty($startDate) OR empty($endDate)) {
+                if (empty($firstName) OR empty($lastName) OR empty($phoneNumber) OR empty($numberPeople) OR empty($startDate) OR empty($endDate)) {
                     array_push($errors, "<div class='required'><h2>All fields are required</h2></div>");
-                }
-                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    array_push($errors, "<div class='valid'><h2>Email is not valid</h2></div>");
                 }
                 if (!is_numeric($phoneNumber)) {
                     array_push($errors);
                 }
                 if (!is_numeric($numberPeople)) {
-                    array_push($errors);
-                }
-                if (!is_numeric($tourDays)) {
                     array_push($errors);
                 }
 
@@ -106,24 +128,23 @@
                     }
                 }else {
                     require_once "LIP-booking-database.php";
-                    $sql = "INSERT INTO users (first_name, last_name, email, phone_number, number_people, tour_days, start_date, end_date, any) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )";
-                    $stmt = mysqli_stmt_init($conn);
+                    $sql = "UPDATE `user` SET `first_name` = ?, `last_name` = ?, `phone_number` = ?, `number_people` = ?, `start_date` = ?, `end_date` = ?, `any` = ?, `package` = ? WHERE `id` = ?";
+                    $stmt = mysqli_stmt_init($con);
                     $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
                     if ($prepareStmt) {
-                        mysqli_stmt_bind_param($stmt, "sssiiisss" , $firstName, $lastName, $email, $phoneNumber, $numberPeople, $tourDays, $startDate, $endDate, $any);
+                        mysqli_stmt_bind_param($stmt, "sssissssi", $firstName, $lastName, $phoneNumber, $numberPeople, $startDate, $endDate, $any, $package, $user_id);
                         mysqli_stmt_execute($stmt);
                         echo "<div class='success'><h2>Your tour guide booking is sent successfully.</h2></div>";
-                    }else {
+                    } else {
                         die("Something went wrong");
-                    }
+                    }                    
                 }
-
             }
             ?>
 
             <br>
 
-            <form action="LIP-sign-up-booking.php" method="post">
+            <form action="LIP-sign-up-booking-p1.php" method="post">
                 <div class="flex">
                     <div class="inputBox">
                         <span>First Name:</span>
@@ -139,10 +160,6 @@
     
                 <div class="flex">
                     <div class="inputBox">
-                        <span>Email:</span>
-                        <input type="email" class="form-control" name="email" placeholder="Your Email:">
-                    </div>
-                    <div class="inputBox">
                         <span>Phone Number:</span>
                         <input type="text" class="form-control" name="phone_number" pattern="[0-9]{11}" placeholder="Your Number:">
                     </div>
@@ -156,8 +173,8 @@
                         <input type="number" class="form-control" name="number_people" placeholder="Number of People:">
                     </div>
                     <div class="inputBox">
-                        <span>How long will you be toured?</span>
-                        <input type="number" class="form-control" name="tour_days" placeholder="Days of Tour:">
+                        <span>Starting date you will be toured.</span>
+                        <input type="date" class="form-control" name="start_date" placeholder="Starting Date:">
                     </div>
                 </div>
 
@@ -165,8 +182,8 @@
 
                 <div class="flex">
                     <div class="inputBox">
-                        <span>Starting date you will be toured.</span>
-                        <input type="date" class="form-control" name="start_date" placeholder="Starting Date:">
+                        <span>Package Chosen</span>
+                        <input type="text" class="form-control" name="package" value="Package 1"></input>
                     </div>
                     <div class="inputBox">
                         <span>End date you will be toured.</span>
@@ -177,9 +194,8 @@
                 <br>
      
                 <div class="flex">
-                <div class="inputBox">
-                        <span>Select your package.</span>
-                        <select><input type="text" class="form-control" name="any" placeholder="Packages"></input></select>
+                    <div class="inputBox">
+                        <textarea type="text" class="form-control" name="any" placeholder="Anything else we should know?" cols="30" rows="10"></textarea>
                     </div>
                     <div class="inputBox">
                         <iframe class="map"
