@@ -1,139 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/x-icon" href="image/eltlogo.png" />
 
     <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
 
     <!-- remix icon cdn link  -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/news.css">
+    <link rel="stylesheet" href="css/news.css" />
 
     <title>Everything La Trinidad</title>
-</head>
+  </head>
 
-<body>
-
-   
+  <body>
     <!-- header section starts  -->
 
     <header class="header">
+      <a href="#" class="logo"
+        ><i class="ri-map-pin-fill"></i><span>Everything La Trinidad</span></a
+      >
 
-        <a href="index.html" class="logo"> <i class="ri-map-pin-fill"></i> Everything La Trinidad </a>
+      <ul class="navbar">
+        <li><a href="../index.html" class="active">Home</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../Logged-in-Page/LIP-login.php">Booking</a></li>
+        <li><a href="../services.html">Services</a></li>
+        <li><a href="../news.html">News</a></li>
+        <li>
+          <a href="../Logged-in-Page/LIP-login.php" class="btn-warning"
+            >Sign In</a
+          >
+        </li>
+      </ul>
 
-        <nav class="navbar">
-            <a href="index.html">home</a>
-            <a href="index.html#about">about</a>
-            <a href="Logged-in-Page/LIP-login.php">booking</a>
-            <a href="services.html">services</a>
-            <a href="news.html">news</a>
-            <a href="Logged-in-Page/LIP-login.php" class="btn-warning">Login</a>
-        </nav>
-
-        <div class="icons">
-            <div id="chat-btn" class="ri-chat-3-line"></div>
-            <script>
-                document.querySelector('#chat-btn').onclick = () => {
-                    window.location.href = 'Logged-in-Page/LIP-login.php';
-                }
-            </script>
-            <div id="login-btn" class="ri-user-line"></div>
-            <script>
-                document.querySelector('#login-btn').onclick = () => {
-                    window.location.href = 'Logged-in-Page/LIP-login.php';
-                }
-            </script>
-            <div id="map-btn" class="ri-map-pin-line">
-            <script>
-                document.querySelector('#map-btn').onclick = () => {
-                    window.location.href = 'https://www.google.com/maps/place/La+Trinidad,+Benguet/@16.4787946,120.5665467,12300m/data=!3m1!1e3!4m6!3m5!1s0x3391a3aef768cde3:0x58d076983f455a79!8m2!3d16.4774284!4d120.5854674!16zL20vMDZtZnI3?entry=ttu';
-                }
-                </script>
-        </div>
-
+      <div class="icons">
+        <a href="../Logged-in-Page/LIP-login.php" class="chat"
+          ><span><i class="ri-chat-3-line" aria-hidden="true"></i></span
+          ><span>Chat</span></a
+        >
+        <a href="../Logged-in-Page/LIP-login.php" class="login"
+          ><span><i class="ri-user-line"></i></span><span>Profile</span></a
+        >
+        <a href="../Logged-in-Page/LIP-login.php" class="map"
+          ><span><i class="ri-map-pin-line"></i></span><span>Map</span></a
+        >
+        <div class="bx bx-menu" id="menu-icon"></div>
+      </div>
     </header>
 
     <!-- header section ends  -->
 
-
     <!-- news section starts  -->
 
     <section class="news" id="news">
+      <div class="content">
+        <span>La Trinidad Newsfeed</span>
+        <h3>Stay updated with the latest happenings around La Trinidad!</h3>
+        <p>
+          Check out the Facebook page! You will be redirected to La Trinidad's
+          Facebook page, click the button below!
+        </p>
+        <a href="https://www.facebook.com/lgulatrinidad" class="btn"
+          >Check it out!</a
+        >
+      </div>
 
-        <div class="content">
-            <span>La Trinidad Newsfeed</span>
-            <h3>Stay updated with the latest happenings around La Trinidad!</h3>
-            <p>Check out the Facebook page! You will be redirected to La Trinidad's Facebook page, click the button below!</p>
-            <a href="https://www.facebook.com/lgulatrinidad" class="btn">Check it out!</a>
-        </div>
-    
-        <div class="image">
-            <img src="image/news-image.png" alt="" class="news-img">
-            <img src="image/news-parallax-img.png" alt="" class="news-parallax-img">
-        </div>
-    
+      <div class="image">
+        <img src="image/news-image.png" alt="" class="news-img" />
+        <img
+          src="image/news-parallax-img.png"
+          alt=""
+          class="news-parallax-img"
+        />
+      </div>
     </section>
 
     <!-- news section ends  -->
 
     <!-- js script  -->
     <script>
-        document.querySelector('.news').onmousemove = (e) => {
-            let x = (window.innerWidth - e.pageX * 2) / 90;
-            let y = (window.innerHeight - e.pageY * 2) / 90;
+      document.querySelector(".news").onmousemove = (e) => {
+        let x = (window.innerWidth - e.pageX * 2) / 90;
+        let y = (window.innerHeight - e.pageY * 2) / 90;
 
-            document.querySelector('.news .news-parallax-img').style.transform = `translateX(${y}px) translateY(${x}px)`;
-        }
+        document.querySelector(
+          ".news .news-parallax-img"
+        ).style.transform = `translateX(${y}px) translateY(${x}px)`;
+      };
 
-        document.querySelector('.news').onmouseleave = () => {
-            document.querySelector('.news .news-parallax-img').style.transform = `translateX(0px) translateY(0px)`;
-        }
+      document.querySelector(".news").onmouseleave = () => {
+        document.querySelector(
+          ".news .news-parallax-img"
+        ).style.transform = `translateX(0px) translateY(0px)`;
+      };
     </script>
     <!-- end of js script  -->
 
     <section class="newsfeed" id="newsfeed">
-
-        <div class="heading"> 
-            <h3>What's up La Trinidad?</h3>
-            <p>What's new in our beautiful town? Any exciting festivals, local gatherings, or community initiatives happening lately? I'm curious to hear about the latest buzz and activities around here. Whether it's about upcoming events, local news, or simply what's making our town lively, I'd love to stay connected and informed about all things La Trinidad!"</p>
-        </div>
+      <div class="heading">
+        <h3>What's up La Trinidad?</h3>
+        <p>
+          What's new in our beautiful town? Any exciting festivals, local
+          gatherings, or community initiatives happening lately? I'm curious to
+          hear about the latest buzz and activities around here. Whether it's
+          about upcoming events, local news, or simply what's making our town
+          lively, I'd love to stay connected and informed about all things La
+          Trinidad!"
+        </p>
+      </div>
     </section>
 
-    <section class="news" id="news">   
-        <div class="nf-content">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flgulatrinidad%2Fposts%2Fpfbid0vQgjubEU5V9HCWFVAjt8j7zGoGNV6XKMeEUuSRwHWewLq2QzXwdV6Jx2wb11fnM3l&show_text=false&width=500" width="500" height="498" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-        </div>
-        
-        <div class="nf-content">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flgulatrinidad%2Fposts%2Fpfbid02GoS17ienAG8ZaTr1tYN9UbfJ91ibdwPu8CGQxqZNh1rD6L8iaFtB94ZrSc7Q4d7sl&show_text=false&width=500" width="500" height="498" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>     
-        </div>
+    <section class="news" id="news">
+      <div class="nf-content">
+        <iframe
+          src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flgulatrinidad%2Fposts%2Fpfbid0vQgjubEU5V9HCWFVAjt8j7zGoGNV6XKMeEUuSRwHWewLq2QzXwdV6Jx2wb11fnM3l&show_text=false&width=500"
+          width="500"
+          height="498"
+          style="border: none; overflow: hidden"
+          scrolling="no"
+          frameborder="0"
+          allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+        ></iframe>
+      </div>
 
-        <div class="nf-content">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLaTrinidadTourism%2Fposts%2Fpfbid02BPrEC5Y86WGirR1z6Q2bHvLWpYnS9baRXSStryNduzN2j6RDF1WM3Udv31uqddZjl&show_text=true&width=500" width="500" height="498" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-        </div>
+      <div class="nf-content">
+        <iframe
+          src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flgulatrinidad%2Fposts%2Fpfbid02GoS17ienAG8ZaTr1tYN9UbfJ91ibdwPu8CGQxqZNh1rD6L8iaFtB94ZrSc7Q4d7sl&show_text=false&width=500"
+          width="500"
+          height="498"
+          style="border: none; overflow: hidden"
+          scrolling="no"
+          frameborder="0"
+          allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+        ></iframe>
+      </div>
 
-        <div class="nf-content">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLaTrinidadTourism%2Fposts%2Fpfbid04FWPJNyMHoXwgXhjn4LagHLUi7SSMEYg9YZazJbugPkSrNfzSSviFPwdF4gCAT4Xl&show_text=true&width=500" width="500" height="498" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-        </div>
+      <div class="nf-content">
+        <iframe
+          src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLaTrinidadTourism%2Fposts%2Fpfbid02BPrEC5Y86WGirR1z6Q2bHvLWpYnS9baRXSStryNduzN2j6RDF1WM3Udv31uqddZjl&show_text=true&width=500"
+          width="500"
+          height="498"
+          style="border: none; overflow: hidden"
+          scrolling="no"
+          frameborder="0"
+          allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+        ></iframe>
+      </div>
 
-        <div class="nf-content">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLaTrinidadTourism%2Fposts%2Fpfbid027UFkzV2hXrzk6EYpuyCm71nYDEuq7Em686orevqPQHMcSyApAc34o1bzieWvJ5iJl&show_text=true&width=500"width="500" height="498" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>     
-        </div>
+      <div class="nf-content">
+        <iframe
+          src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLaTrinidadTourism%2Fposts%2Fpfbid04FWPJNyMHoXwgXhjn4LagHLUi7SSMEYg9YZazJbugPkSrNfzSSviFPwdF4gCAT4Xl&show_text=true&width=500"
+          width="500"
+          height="498"
+          style="border: none; overflow: hidden"
+          scrolling="no"
+          frameborder="0"
+          allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+        ></iframe>
+      </div>
 
-        <div class="nf-content">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLaTrinidadTourism%2Fposts%2Fpfbid0296HX2DVkhY871ruZCaoCKJiRGbga7oeBzkt2PjsBsX6SDdqCxhEUQyZNMqHD8ZAFl&show_text=true&width=500" width="500" height="498" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-        </div>
-    
+      <div class="nf-content">
+        <iframe
+          src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLaTrinidadTourism%2Fposts%2Fpfbid027UFkzV2hXrzk6EYpuyCm71nYDEuq7Em686orevqPQHMcSyApAc34o1bzieWvJ5iJl&show_text=true&width=500"
+          width="500"
+          height="498"
+          style="border: none; overflow: hidden"
+          scrolling="no"
+          frameborder="0"
+          allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+        ></iframe>
+      </div>
+
+      <div class="nf-content">
+        <iframe
+          src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLaTrinidadTourism%2Fposts%2Fpfbid0296HX2DVkhY871ruZCaoCKJiRGbga7oeBzkt2PjsBsX6SDdqCxhEUQyZNMqHD8ZAFl&show_text=true&width=500"
+          width="500"
+          height="498"
+          style="border: none; overflow: hidden"
+          scrolling="no"
+          frameborder="0"
+          allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+        ></iframe>
+      </div>
     </section>
-
-
-
-</body>
+  </body>
 </html>
