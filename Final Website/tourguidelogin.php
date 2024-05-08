@@ -48,7 +48,7 @@ if (isset($_SESSION["user"])) {
         <div class="login-content">
             <form action="tourguidevalidate.php" method="post">
                 <img src="image/avatar.svg">
-                <h2  class="title">Log In</h2>
+                <h2  class="title">Tour Guide Log In</h2>
                 <div class="input-div one">
                     <div class="i">
                         <i class="fas fa-envelope"></i>
@@ -68,6 +68,9 @@ if (isset($_SESSION["user"])) {
                         <input type="password" class="input" name="password">
                     </div>
                 </div>
+
+                <a href="adminlogin.php">Admin Log In</a>
+                <a href="index.html">Go to website</a>
 
                 <div class="form-btn">
                     <input type="submit" class="btn btn-primary" value="Login" name="login">
