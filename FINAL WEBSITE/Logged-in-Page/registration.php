@@ -7,12 +7,7 @@
     <title>Registration Form</title>
     <link rel="stylesheet" type="text/css" href="css/new-style.css" />
     <link rel="shortcut icon" type="image/x-icon" href="image/ELT.png" />
-    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
-    <script src="/js/validate.js" defer></script>
-    <link
-      href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   </head>
   <body>
@@ -23,7 +18,7 @@
       </div>
 
       <div class="login-content">
-        <form action="process-signup.php" method="post" id="signup" novalidate>
+        <form action="process-signup.php" method="post" id="signup" onsubmit="return validateForm()">
           <img src="image/avatar.svg" />
           <h2 class="title">Sign Up</h2>
           <div class="input-div one">
@@ -33,7 +28,7 @@
             <div class="div">
               <h5>Full Name</h5>
               <input type="text" class="input" name="full_name" />
-              <div class="error-message"></div>
+              <div class="error" id="nameError"></div>
             </div>
           </div>
 
@@ -44,7 +39,7 @@
             <div class="div">
               <h5>Email Address</h5>
               <input type="email" class="input" name="email"/>
-              <div class="error-message"></div>
+              <div class="error" id="emailError"></div>
             </div>
           </div>
 
@@ -55,7 +50,7 @@
             <div class="div">
               <h5>Password</h5>
               <input type="password" class="input" name="password"/>
-              <div class="error-message"></div>
+              <div class="error" id="passwordError"></div>
             </div>
           </div>
 
@@ -66,7 +61,7 @@
             <div class="div">
               <h5>Confirm Password</h5>
               <input type="password" class="input" name="repeat_password"/>
-              <div class="error-message"></div>
+              <div class="error" id="confirmPasswordError"></div>
             </div>
           </div>
 
@@ -83,7 +78,6 @@
         </form>
       </div>
     </div>
-
     <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>
