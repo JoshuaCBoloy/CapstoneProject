@@ -50,39 +50,36 @@ if(mysqli_num_rows($sql) === 0) {
     <!-- header section starts  -->
 
     <header class="header">
+      <a href="#" class="logo"
+        ><i class="ri-map-pin-fill"></i><span>Everything La Trinidad</span></a
+      >
 
-        <a href="LIP-index.html" class="logo"> <i class="ri-map-pin-fill"></i> Everything La Trinidad </a>
+      <ul class="navbar">
+        <li><a href="LIP-index.html" class="active">Home</a></li>
+        <li><a href="LIP-index.html#about">About</a></li>
+        <li><a href="LIP-choose-tourguide.php">Booking</a></li>
+        <li><a href="LIP-services.html">Services</a></li>
+        <li><a href="LIP-news.html">News</a></li>
+        <li>
+          <a href="LIP-login.php" class="btn-warning">Logout</a>
+        </li>
+      </ul>
 
-        <nav class="navbar">
-            <a href="LIP-index.html">home</a>
-            <a href="LIP-index.html#about">about</a>
-            <a href="LIP-choose-tourguide.php">booking</a>
-            <a href="LIP-services.html">services</a>
-            <a href="LIP-news.html">news</a>
-            <a href="LIP-logout.php" class="btn-warning">Logout</a>
-        </nav>
-
-        <div class="icons">
-            <div id="chat-btn" class="ri-chat-3-line"></div>
-            <script>
-                document.querySelector('#chat-btn').onclick = () => {
-                    window.location.href = '../chatapplogin.php';
-                }
-            </script>
-            <div id="login-btn" class="ri-user-line"></div>
-            <script>
-                document.querySelector('#login-btn').onclick = () => {
-                    window.location.href = 'LIP-profile.php';
-                }
-            </script>
-            <div id="map-btn" class="ri-map-pin-line">
-            <script>
-                document.querySelector('#map-btn').onclick = () => {
-                    window.location.href = 'https://www.google.com/maps/place/La+Trinidad,+Benguet/@16.4787946,120.5665467,12300m/data=!3m1!1e3!4m6!3m5!1s0x3391a3aef768cde3:0x58d076983f455a79!8m2!3d16.4774284!4d120.5854674!16zL20vMDZtZnI3?entry=ttu';
-                }
-                </script>
-        </div>
-
+      <div class="icons">
+        <a href="../chatapplogin.php" class="chat"
+          ><span><i class="ri-chat-3-line" aria-hidden="true"></i></span
+          ><span>Chat</span></a
+        >
+        <a href="LIP-profile.php" class="login"
+          ><span><i class="ri-user-line"></i></span><span>Profile</span></a
+        >
+        <a
+          href="https://www.google.com/maps/place/La+Trinidad,+Benguet/@16.4787946,120.5665467,12300m/data=!3m1!1e3!4m6!3m5!1s0x3391a3aef768cde3:0x58d076983f455a79!8m2!3d16.4774284!4d120.5854674!16zL20vMDZtZnI3?entry=ttu"
+          class="map"
+          ><span><i class="ri-map-pin-line"></i></span><span>Map</span></a
+        >
+        <div class="bx bx-menu" id="menu-icon"></div>
+      </div>
     </header>
 
     <!-- header section ends  -->

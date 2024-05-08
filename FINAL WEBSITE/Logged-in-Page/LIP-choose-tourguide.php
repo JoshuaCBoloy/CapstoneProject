@@ -41,19 +41,21 @@ $row = mysqli_fetch_assoc($sql);
         <li><a href="LIP-services.html">Services</a></li>
         <li><a href="LIP-news.html">News</a></li>
         <li>
-          <a href="Logged-in-Page/LIP-login.php" class="btn-warning">Logout</a>
+          <a href="LIP-login.php" class="btn-warning">Logout</a>
         </li>
       </ul>
 
       <div class="icons">
-        <a href="Logged-in-Page/LIP-login.php" class="chat"
+        <a href="../chatapplogin.php" class="chat"
           ><span><i class="ri-chat-3-line" aria-hidden="true"></i></span
           ><span>Chat</span></a
         >
-        <a href="Logged-in-Page/LIP-login.php" class="login"
+        <a href="LIP-profile.php" class="login"
           ><span><i class="ri-user-line"></i></span><span>Profile</span></a
         >
-        <a href="Logged-in-Page/LIP-login.php" class="map"
+        <a
+          href="https://www.google.com/maps/place/La+Trinidad,+Benguet/@16.4787946,120.5665467,12300m/data=!3m1!1e3!4m6!3m5!1s0x3391a3aef768cde3:0x58d076983f455a79!8m2!3d16.4774284!4d120.5854674!16zL20vMDZtZnI3?entry=ttu"
+          class="map"
           ><span><i class="ri-map-pin-line"></i></span><span>Map</span></a
         >
         <div class="bx bx-menu" id="menu-icon"></div>
