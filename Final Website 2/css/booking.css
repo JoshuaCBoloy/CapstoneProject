@@ -1,0 +1,361 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Poppins, sans-serif;
+  text-decoration: none;
+  list-style: none;
+  text-transform: capitalize;
+}
+
+body {
+  background-color: #e1dee9;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 8.5rem;
+}
+
+html::-webkit-scrollbar {
+  width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: #f7f6f9;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #383347;
+}
+
+section {
+  padding: 2rem 9%;
+}
+
+/* reusable css start */
+
+.heading {
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.heading span {
+  font-family: "Satisfy", cursive;
+  font-size: 3rem;
+  color: #52389b;
+}
+
+.heading h3 {
+  font-size: 3rem;
+  color: #130f40;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 1.7rem 2.8rem;
+  font-size: 1.7rem;
+  cursor: pointer;
+  color: #f7f6f9;
+  background: linear-gradient(135deg, #494262, #6e6592);
+  border-radius: 1rem;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #6e6592, #494262);
+}
+
+/* reusable css end */
+
+/* header section start */
+
+.header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #f7f6f9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 2rem 9%;
+  border-radius: 0 0 2rem 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.7rem;
+  font-weight: bolder;
+  color: #130f40;
+}
+
+.logo i {
+  padding-right: 0.5rem;
+  color: #494262;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navbar a {
+  font-size: 1.7rem;
+  margin: 0 1rem;
+  color: #383347;
+  transition: all 0.4s ease-out;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  font-weight: 500;
+}
+
+.navbar a:hover {
+  color: #52389b;
+}
+
+.navbar a.active {
+  color: #52389b;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icons a {
+  margin-right: 25px;
+  margin-left: 10px;
+  color: #000;
+  font-weight: 500;
+  transition: all 0.5s ease;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  font-size: 1.7rem;
+}
+
+.icons a span:first-child {
+  display: inline-block;
+  padding: 10px;
+}
+
+.icons a span:last-child {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-100%);
+}
+
+.icons a span {
+  transition: transform 0.2s ease-out;
+}
+.icons a:hover span:first-child {
+  transform: translateY(100%);
+}
+.icons a:hover span:last-child {
+  transform: none;
+}
+
+.chat {
+  display: flex;
+  align-items: center;
+}
+
+.chat i {
+  color: #52389b;
+  font-size: 23px;
+  margin-right: 7px;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+}
+
+.login i {
+  color: #52389b;
+  font-size: 23px;
+  margin-right: 7px;
+}
+
+.map {
+  display: flex;
+  align-items: center;
+}
+
+.map i {
+  color: #52389b;
+  font-size: 23px;
+  margin-right: 7px;
+}
+
+.main a:hover {
+  color: #d8d5e2;
+}
+
+.header .btn-warning {
+  color: white;
+  background-color: #ff9800;
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+}
+#menu-icon {
+  font-size: 35px;
+  color: #52389b;
+  cursor: pointer;
+  z-index: 10001;
+  display: none;
+}
+
+@media (max-width: 1280px) {
+  header {
+    padding: 14px 2%;
+    transition: 0.2s;
+  }
+  .navbar a {
+    padding: 5px 0;
+    margin: 0px 20px;
+  }
+}
+
+@media (max-width: 1090px) {
+  #menu-icon {
+    display: block;
+  }
+  .navbar {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    width: 270px;
+    height: 40vh;
+    background: #d8d5e2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+  }
+  .navbar a {
+    display: block;
+    margin: 12px 0;
+    padding: 0px 25px;
+    transition: all 0.5s ease;
+  }
+  .navbar a:hover {
+    color: #52389b;
+    transform: translateY(5px);
+  }
+  .navbar a.active {
+    color: #52389b;
+  }
+  .navbar.open {
+    right: 2%;
+    transition: all 0.5s ease;
+  }
+}
+
+/* header section end */
+
+/* sign-up section start */
+
+.sign-up .icons-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(30rem, 1fr)) [auto-fit];
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.sign-up .icons-container .icons {
+  border-radius: 2rem;
+  padding: 2rem;
+  text-align: center;
+  background: #f7f6f9;
+}
+
+.sign-up .icons-container .icons img {
+  height: 10rem;
+}
+
+.sign-up .icons-container .icons h3 {
+  font-size: 2rem;
+  color: #130f40;
+  margin-top: 0.5rem;
+}
+
+.sign-up form {
+  background: #f7f6f9;
+  padding: 2.3rem;
+  border-radius: 2rem;
+}
+
+.sign-up form .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.sign-up form .flex .inputBox {
+  width: 49%;
+  padding: 0.7rem 0;
+}
+
+.sign-up form .flex span {
+  font-size: 1.7rem;
+  color: #494262;
+}
+
+.sign-up form .flex input,
+.sign-up form .flex textarea {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 1rem 1.2rem;
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+  text-transform: none;
+  color: #130f40;
+}
+
+.sign-up form .flex textarea {
+  height: 20rem;
+  resize: none;
+}
+
+.sign-up form .flex .map {
+  height: 100%;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+/* sign-up section end */

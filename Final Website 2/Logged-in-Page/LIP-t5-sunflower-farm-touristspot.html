@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="image/ELT.png" />
+
+    <!-- font awesome cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <!-- remix icon cdn link  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/dashboard-touristspot.css" />
+
+    <title>Everything La Trinidad</title>
+  </head>
+
+  <body>
+    <!-- header section starts  -->
+
+    <header class="header">
+      <a href="#" class="logo"
+        ><i class="ri-map-pin-fill"></i><span>Everything La Trinidad</span></a
+      >
+
+      <ul class="navbar">
+        <li><a href="LIP-index.html" class="active">Home</a></li>
+        <li><a href="LIP-index.html#about">About</a></li>
+        <li><a href="LIP-choose-tourguide.php">Booking</a></li>
+        <li><a href="LIP-services.html">Services</a></li>
+        <li><a href="LIP-news.html">News</a></li>
+        <li>
+          <a href="LIP-login.php" class="btn-warning">Logout</a>
+        </li>
+      </ul>
+
+      <div class="icons">
+        <a href="../chatapplogin.php" class="chat"
+          ><span><i class="ri-chat-3-line" aria-hidden="true"></i></span
+          ><span>Chat</span></a
+        >
+        <a href="LIP-profile.php" class="login"
+          ><span><i class="ri-user-line"></i></span><span>Profile</span></a
+        >
+        <a
+          href="https://www.google.com/maps/place/La+Trinidad,+Benguet/@16.4787946,120.5665467,12300m/data=!3m1!1e3!4m6!3m5!1s0x3391a3aef768cde3:0x58d076983f455a79!8m2!3d16.4774284!4d120.5854674!16zL20vMDZtZnI3?entry=ttu"
+          class="map"
+          ><span><i class="ri-map-pin-line"></i></span><span>Map</span></a
+        >
+        <div class="bx bx-menu" id="menu-icon"></div>
+      </div>
+    </header>
+    <!-- header section ends  -->
+
+    <!-- search-form start -->
+
+    <section class="search-form-container">
+      <form action="">
+        <input type="search" placeholder="search here..." id="search-box" />
+        <label for="search-box" class="ri-search-line"></label>
+      </form>
+    </section>
+
+    <!-- search-form end -->
+
+    <section class="about" id="sunflower-farm">
+      <div class="content">
+        <br />
+        <br />
+        <span>Sunflower Farm</span>
+        <p>
+          Bask in the golden beauty of La Trinidad's Sunflower Farm, where vast
+          fields of radiant sunflowers sway under the gentle Benguet breeze.
+          This enchanting tourist spot offers a serene escape, inviting visitors
+          to immerse themselves in the sea of cheerful blooms against the
+          backdrop of the picturesque mountains.
+        </p>
+
+        <br />
+        <br />
+
+        <div class="tourist-spot-image">
+          <img src="image/t5.jpg" alt="" />
+        </div>
+
+        <br />
+        <br />
+        <br />
+
+        <div class="operating-hours">
+          <h2>Rate Us!</h2>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+
+          <br />
+          <br />
+          <br />
+
+          <h2>
+            Location:
+            <p>Bahong, Sadag, La Trinidad</p>
+          </h2>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1913.0381992406071!2d120.6049168385241!3d16.471668768200527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3391a30a40636775%3A0x8db1bb2bf0dcb272!2sBahong%20Sunflower%20Farm!5e0!3m2!1sen!2sph!4v1706792082173!5m2!1sen!2sph"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+
+          <br />
+          <br />
+          <br />
+
+          <h1>Operating Hours:</h1>
+          <p><b>Monday - Sunday | 8:00 AM - 5:00 PM</b></p>
+
+          <br />
+          <br />
+          <br />
+
+          <h1>Contact Us!</h1>
+          <p>
+            <b
+              ><a href="">Chat</a> <br />0985 908 2664
+              <br />cpalangsian@gmail.com
+            </b>
+          </p>
+          <br />
+
+          <div class="container">
+            <div class="text">
+              <h2>Activities</h2>
+            </div>
+            <div class="slider-wrapper">
+              <div class="slider">
+                <img id="slide-1" src="image/t5.jpg" alt="" />
+                <img id="slide-2" src="image/t5.jpg" alt="" />
+              </div>
+              <div class="slider-nav">
+                <a href="#slide-1"></a>
+                <a href="#slide-2"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const starContainers = document.querySelectorAll(".stars");
+
+      // Loop through the "starContainers" NodeList
+      starContainers.forEach((container) => {
+        // Select stars within the current container
+        const stars = container.querySelectorAll("i");
+
+        // Loop through the stars NodeList
+        stars.forEach((star, index1) => {
+          // Add an event listener that runs a function when the "click" event is triggered
+          star.addEventListener("click", () => {
+            // Toggle the "active" class on the clicked star
+            star.classList.toggle("active");
+
+            // Loop through the stars NodeList again
+            stars.forEach((star, index2) => {
+              // Add the "active" class to the clicked star and any stars with a lower index
+              if (index1 >= index2) {
+                star.classList.add("active");
+              } else {
+                // Remove the "active" class from stars with a higher index
+                star.classList.remove("active");
+              }
+            });
+          });
+        });
+      });
+    </script>
+
+    <!-- about section ends -->
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

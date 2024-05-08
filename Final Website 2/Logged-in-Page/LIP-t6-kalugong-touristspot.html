@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="image/ELT.png" />
+
+    <!-- font awesome cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <!-- remix icon cdn link  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/dashboard-touristspot.css" />
+
+    <title>Everything La Trinidad</title>
+  </head>
+
+  <body>
+    <!-- header section starts  -->
+
+    <header class="header">
+      <a href="#" class="logo"
+        ><i class="ri-map-pin-fill"></i><span>Everything La Trinidad</span></a
+      >
+
+      <ul class="navbar">
+        <li><a href="LIP-index.html" class="active">Home</a></li>
+        <li><a href="LIP-index.html#about">About</a></li>
+        <li><a href="LIP-choose-tourguide.php">Booking</a></li>
+        <li><a href="LIP-services.html">Services</a></li>
+        <li><a href="LIP-news.html">News</a></li>
+        <li>
+          <a href="LIP-login.php" class="btn-warning">Logout</a>
+        </li>
+      </ul>
+
+      <div class="icons">
+        <a href="../chatapplogin.php" class="chat"
+          ><span><i class="ri-chat-3-line" aria-hidden="true"></i></span
+          ><span>Chat</span></a
+        >
+        <a href="LIP-profile.php" class="login"
+          ><span><i class="ri-user-line"></i></span><span>Profile</span></a
+        >
+        <a
+          href="https://www.google.com/maps/place/La+Trinidad,+Benguet/@16.4787946,120.5665467,12300m/data=!3m1!1e3!4m6!3m5!1s0x3391a3aef768cde3:0x58d076983f455a79!8m2!3d16.4774284!4d120.5854674!16zL20vMDZtZnI3?entry=ttu"
+          class="map"
+          ><span><i class="ri-map-pin-line"></i></span><span>Map</span></a
+        >
+        <div class="bx bx-menu" id="menu-icon"></div>
+      </div>
+    </header>
+    <!-- header section ends  -->
+
+    <!-- search-form start -->
+
+    <section class="search-form-container">
+      <form action="">
+        <input type="search" placeholder="search here..." id="search-box" />
+        <label for="search-box" class="ri-search-line"></label>
+      </form>
+    </section>
+
+    <!-- search-form end -->
+
+    <section class="about" id="mt-kalugong">
+      <div class="content">
+        <br />
+        <br />
+        <span>Mt. Kalugong</span>
+        <p>
+          Embark on a scenic adventure to Mt. Kalugong in La Trinidad, Benguet,
+          where breathtaking viewpoints await atop towering rock formations.
+          This captivating tourist spot offers not only panoramic vistas of the
+          surrounding landscapes but also a unique experience as visitors can
+          explore the distinctive rock clusters, creating lasting memories in
+          the heart of Benguet's natural beauty.
+        </p>
+
+        <br />
+        <br />
+
+        <div class="tourist-spot-image">
+          <img src="image/t6.jpg" alt="" />
+        </div>
+
+        <br />
+        <br />
+        <br />
+
+        <div class="operating-hours">
+          <h2>Rate Us!</h2>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+
+          <br />
+          <br />
+          <br />
+
+          <h2>
+            Location:
+            <p>Kalugong Rd, La Trinidad</p>
+          </h2>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1913.1485199074516!2d120.59490063852415!3d16.460490268351233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3391a3a21226a707%3A0x796ea8f5dd034dc8!2sMt.%20Kalugong%20Cultural%20Village!5e0!3m2!1sen!2sph!4v1706792378272!5m2!1sen!2sph"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+
+          <br />
+          <br />
+          <br />
+
+          <h1>Operating Hours:</h1>
+          <p><b>Monday - Sunday | 7:00 AM - 6:00 PM</b></p>
+
+          <br />
+          <br />
+          <br />
+
+          <h1>Contact Us!</h1>
+          <p>
+            <b><a href="">Chat</a> <br />0949 898 0328 </b>
+          </p>
+          <br />
+
+          <div class="container">
+            <div class="text">
+              <h2>Activities</h2>
+            </div>
+            <div class="slider-wrapper">
+              <div class="slider">
+                <img id="slide-1" src="image/t6.jpg" alt="" />
+                <img id="slide-2" src="image/t6.jpg" alt="" />
+              </div>
+              <div class="slider-nav">
+                <a href="#slide-1"></a>
+                <a href="#slide-2"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const starContainers = document.querySelectorAll(".stars");
+
+      // Loop through the "starContainers" NodeList
+      starContainers.forEach((container) => {
+        // Select stars within the current container
+        const stars = container.querySelectorAll("i");
+
+        // Loop through the stars NodeList
+        stars.forEach((star, index1) => {
+          // Add an event listener that runs a function when the "click" event is triggered
+          star.addEventListener("click", () => {
+            // Toggle the "active" class on the clicked star
+            star.classList.toggle("active");
+
+            // Loop through the stars NodeList again
+            stars.forEach((star, index2) => {
+              // Add the "active" class to the clicked star and any stars with a lower index
+              if (index1 >= index2) {
+                star.classList.add("active");
+              } else {
+                // Remove the "active" class from stars with a higher index
+                star.classList.remove("active");
+              }
+            });
+          });
+        });
+      });
+    </script>
+
+    <!-- about section ends -->
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
