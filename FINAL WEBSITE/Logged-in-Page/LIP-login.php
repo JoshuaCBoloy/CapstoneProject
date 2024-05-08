@@ -41,55 +41,72 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Login Form</title>
-	<link rel="stylesheet" type="text/css" href="css/new-style.css">
-	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/new-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="image/ELT.png" />
-
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body>
 
-    <img  class="wave" src="image/wave.png">
-    <div class="container">
-        
-        <div class="img">
-            <img src="image/ELT.png">
-        </div>
-        <div class="login-content">
-            <form action="LIP-login.php" method="post">
-                <img src="image/avatar.svg">
-                <h2  class="title">Log In</h2>
-                <div class="input-div one">
-                    <div class="i">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="div">
-                        <h5>Email Address</h5>
-                        <input type="email" class="input" name="email" value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
-                    </div>
-                </div>
-                
-                <div class="input-div pass">
-                    <div class="i">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <div class="div">
-                        <h5>Password</h5>
-                        <input type="password" class="input" name="password">
-                    </div>
-                </div>
-                
-            	<a href="registration.php">Don't have an account yet? Register Now</a>
-                <a href="http://localhost/CapstoneProject/FINAL%20WEBSITE/index.html">Go to website</a>
-                <a href="LIP-forgot-password.php">Forgot Password?</a>
+<img class="wave" src="image/wave.png">
+<div class="container">
 
-                <div class="form-btn">
-                    <input type="submit" class="btn btn-primary" value="Login" name="login">
+    <div class="img">
+        <img src="image/ELT.png">
+    </div>
+    <div class="login-content">
+        <form id="loginForm" action="LIP-login.php" method="post" onsubmit="return validateForm()">
+            <img src="image/avatar.svg">
+            <h2 class="title">Sign In</h2>
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-envelope"></i>
                 </div>
-            </form>
-        </div>
+                <div class="div">
+                    <h5>Email Address</h5>
+                    <input type="email" class="input" id="email" name="email" value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
+                </div>
+            </div>
+
+            <div class="input-div pass">
+                <div class="i">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="div">
+                    <h5>Password</h5>
+                    <input type="password" class="input" id="password" name="password">
+                </div>
+            </div>
+
+            <a href="registration.php">Don't have an account yet? Register Now</a>
+            <a href="http://localhost/CapstoneProject/FINAL%20WEBSITE/index.html">Go to website</a>
+            <a href="LIP-forgot-password.php">Forgot Password?</a>
+
+            <div class="form-btn">
+                <input type="submit" class="btn btn-primary" value="Login" name="login">
+            </div>
+        </form>
+    </div>
 
     <script type="text/javascript" src="js/main.js"></script>
+    <script>
+        function validateForm() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var isValid = true;
 
+            if (!email || !password) {
+                alert('Email and password are required.');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
 </body>
 </html>

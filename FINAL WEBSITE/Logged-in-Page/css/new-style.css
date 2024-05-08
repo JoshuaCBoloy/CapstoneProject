@@ -85,6 +85,7 @@ form {
 .input-div > div {
   position: relative;
   height: 45px;
+  margin-bottom: 10px;
 }
 
 .input-div > div > h5 {
@@ -186,6 +187,31 @@ a:hover {
 }
 .btn:hover {
   background-position: right;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 1px;
+  margin-bottom: 40px;
+}
+
+.signup-text {
+  text-align: center;
+  margin-top: 17rem;
+}
+
+.signup-text a {
+  text-decoration: none;
+  color: #999;
+  font-size: 30px;
+  font-weight: bold;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.signup-text a:hover {
+  color: #38d39f;
 }
 
 @media screen and (max-width: 1050px) {

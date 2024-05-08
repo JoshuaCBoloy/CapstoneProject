@@ -1,91 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/x-icon" href="image/ELT.png" />
 
     <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
 
     <!-- remix icon cdn link  -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/dashboard-cafe.css">
+    <link rel="stylesheet" href="css/dashboard-cafe.css" />
 
     <title>Everything La Trinidad</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <!-- header section starts  -->
 
     <header class="header">
+      <a href="#" class="logo"
+        ><i class="ri-map-pin-fill"></i><span>Everything La Trinidad</span></a
+      >
 
-        <a href="LIP-index.html" class="logo"> <i class="ri-map-pin-fill"></i> Everything La Trinidad </a>
+      <ul class="navbar">
+        <li><a href="LIP-index.html" class="active">Home</a></li>
+        <li><a href="LIP-index.html#about">About</a></li>
+        <li><a href="LIP-choose-tourguide.php">Booking</a></li>
+        <li><a href="LIP-services.html">Services</a></li>
+        <li><a href="LIP-news.html">News</a></li>
+        <li>
+          <a href="LIP-login.php" class="btn-warning">Logout</a>
+        </li>
+      </ul>
 
-        <nav class="navbar">
-            <a href="LIP-index.html">home</a>
-            <a href="LIP-index.html#about">about</a>
-            <a href="LIP-sign-up-booking.php">booking</a>
-            <a href="LIP-services.html">services</a>
-            <a href="LIP-news.html">news</a>
-            <a href="LIP-logout.php" class="btn-warning">Logout</a>
-        </nav>
-
-        <div class="icons">
-            <div id="chat-btn" class="ri-chat-3-line"></div>
-            <script>
-                document.querySelector('#chat-btn').onclick = () => {
-                    window.location.href = '../chatapplogin.php';
-                }
-            </script>
-            <div id="login-btn" class="ri-user-line"></div>
-            <script>
-                document.querySelector('#login-btn').onclick = () => {
-                    window.location.href = 'LIP-profile.php';
-                }
-            </script>
-            <div id="map-btn" class="ri-map-pin-line">
-            <script>
-                document.querySelector('#map-btn').onclick = () => {
-                    window.location.href = 'https://www.google.com/maps/place/La+Trinidad,+Benguet/@16.4787946,120.5665467,12300m/data=!3m1!1e3!4m6!3m5!1s0x3391a3aef768cde3:0x58d076983f455a79!8m2!3d16.4774284!4d120.5854674!16zL20vMDZtZnI3?entry=ttu';
-                }
-                </script>
-        </div>
-
+      <div class="icons">
+        <a href="../chatapplogin.php" class="chat"
+          ><span><i class="ri-chat-3-line" aria-hidden="true"></i></span
+          ><span>Chat</span></a
+        >
+        <a href="LIP-profile.php" class="login"
+          ><span><i class="ri-user-line"></i></span><span>Profile</span></a
+        >
+        <a
+          href="https://www.google.com/maps/place/La+Trinidad,+Benguet/@16.4787946,120.5665467,12300m/data=!3m1!1e3!4m6!3m5!1s0x3391a3aef768cde3:0x58d076983f455a79!8m2!3d16.4774284!4d120.5854674!16zL20vMDZtZnI3?entry=ttu"
+          class="map"
+          ><span><i class="ri-map-pin-line"></i></span><span>Map</span></a
+        >
+        <div class="bx bx-menu" id="menu-icon"></div>
+      </div>
     </header>
-
     <!-- header section ends  -->
-
 
     <!-- search-form start -->
 
     <section class="search-form-container">
-
-        <form action="">
-            <input type="search" placeholder="search here..." id="search-box">
-            <label for="search-box" class="ri-search-line"></label>
-        </form>
-
+      <form action="">
+        <input type="search" placeholder="search here..." id="search-box" />
+        <label for="search-box" class="ri-search-line"></label>
+      </form>
     </section>
 
-    <!-- search-form end -->  
+    <!-- search-form end -->
 
     <section class="about" id="mithi-cafe">
-        <div class="content">
-            <br>
-            <br>
-            <span>Mithi Cafe</span>
-            <p>Indulge your senses at Mithi Cafe, a sweet escape where the air is infused with the enchanting aroma of freshly baked pastries and delicate confections. Nestled in a corner of blissful simplicity, this charming haven offers a delightful menu of desserts that transport patrons to a world of sugary delights, creating moments of joy with each heavenly bite.
-            </p>
+      <div class="content">
+        <br />
+        <br />
+        <span>Mithi Cafe</span>
+        <p>
+          Indulge your senses at Mithi Cafe, a sweet escape where the air is
+          infused with the enchanting aroma of freshly baked pastries and
+          delicate confections. Nestled in a corner of blissful simplicity, this
+          charming haven offers a delightful menu of desserts that transport
+          patrons to a world of sugary delights, creating moments of joy with
+          each heavenly bite.
+        </p>
 
-            <br>
-            <br>
+        <br />
+        <br />
 
+<<<<<<< HEAD
             <div class="cafe-image">
                 <img src="image/c7.jpg" alt="">
             </div>
@@ -152,42 +156,122 @@
                 </div>
 
             </div>
+=======
+        <div class="cafe-image">
+          <img src="image/c7.jpg" alt="" />
+>>>>>>> 2bf6bcf927b384acb5e319f9ae1819643d57d2d2
         </div>
+
+        <br />
+        <br />
+        <br />
+
+        <div class="operating-hours">
+          <h2>Rate Us!</h2>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+
+          <br />
+          <br />
+          <br />
+
+          <h2>
+            Location:
+            <p>
+              2nd Floor, J.C #105 JH Long Rich Fabric Developemtn Bldg., Km5, La
+              Trinidad, Benguet
+            </p>
+          </h2>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.55955170786!2d120.58809587490134!3d16.447180829209525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3391a3cea198e18b%3A0xa9622b37d7122e41!2sMithi%20Cafe%20La%20Trinidad!5e0!3m2!1sen!2sph!4v1706783684419!5m2!1sen!2sph"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+
+          <br />
+          <br />
+          <br />
+
+          <h1>Operating Hours:</h1>
+          <p><b>Monday - Sunday | 8:00 AM - 8:30 PM</b></p>
+
+          <br />
+          <br />
+          <br />
+
+          <h1>Contact Us!</h1>
+          <p>
+            <b
+              ><a href="">Chat</a> <br />0949 672 1946
+              <br />halfcupbakeshop@gmail.com
+            </b>
+          </p>
+          <br />
+
+          <div class="container">
+            <div class="text">
+              <h2>Menu</h2>
+            </div>
+            <div class="slider-wrapper">
+              <div class="slider">
+                <img id="slide-1" src="image/c7-menu1.jpg" alt="" />
+                <img id="slide-2" src="image/c7-menu2.jpg" alt="" />
+                <img id="slide-3" src="image/c7-menu3.jpg" alt="" />
+                <img id="slide-4" src="image/c7-menu4.jpg" alt="" />
+              </div>
+              <div class="slider-nav">
+                <a href="#slide-1"></a>
+                <a href="#slide-2"></a>
+                <a href="#slide-3"></a>
+                <a href="#slide-4"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <script>
-        const starContainers = document.querySelectorAll(".stars");
+      const starContainers = document.querySelectorAll(".stars");
 
-// Loop through the "starContainers" NodeList
-starContainers.forEach((container) => {
-  // Select stars within the current container
-  const stars = container.querySelectorAll("i");
+      // Loop through the "starContainers" NodeList
+      starContainers.forEach((container) => {
+        // Select stars within the current container
+        const stars = container.querySelectorAll("i");
 
-  // Loop through the stars NodeList
-  stars.forEach((star, index1) => {
-    // Add an event listener that runs a function when the "click" event is triggered
-    star.addEventListener("click", () => {
-      // Toggle the "active" class on the clicked star
-      star.classList.toggle("active");
+        // Loop through the stars NodeList
+        stars.forEach((star, index1) => {
+          // Add an event listener that runs a function when the "click" event is triggered
+          star.addEventListener("click", () => {
+            // Toggle the "active" class on the clicked star
+            star.classList.toggle("active");
 
-      // Loop through the stars NodeList again
-      stars.forEach((star, index2) => {
-        // Add the "active" class to the clicked star and any stars with a lower index
-        if (index1 >= index2) {
-          star.classList.add("active");
-        } else {
-          // Remove the "active" class from stars with a higher index
-          star.classList.remove("active");
-        }
+            // Loop through the stars NodeList again
+            stars.forEach((star, index2) => {
+              // Add the "active" class to the clicked star and any stars with a lower index
+              if (index1 >= index2) {
+                star.classList.add("active");
+              } else {
+                // Remove the "active" class from stars with a higher index
+                star.classList.remove("active");
+              }
+            });
+          });
+        });
       });
-    });
-  });
-});
     </script>
 
     <!-- about section ends -->
 
     <script src="js/script.js"></script>
-
-</body>
+  </body>
 </html>
