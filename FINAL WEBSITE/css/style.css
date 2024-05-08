@@ -8,6 +8,7 @@
   font-family: Poppins, sans-serif;
   text-decoration: none;
   list-style: none;
+  text-transform: capitalize;
 }
 
 body {
@@ -401,6 +402,7 @@ section {
   -webkit-box-flex: 1;
   -ms-flex: 1 1 40rem;
   flex: 1 1 40rem;
+  margin-right: 15rem;
 }
 
 .about .image img {

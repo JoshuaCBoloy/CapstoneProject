@@ -16,7 +16,6 @@
       <div class="img">
         <img src="image/ELT.png" />
       </div>
-
       <div class="login-content">
         <form action="process-signup.php" method="post" id="signup" onsubmit="return validateForm()">
           <img src="image/avatar.svg" />

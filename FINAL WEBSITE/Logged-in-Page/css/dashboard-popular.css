@@ -8,6 +8,7 @@
   font-family: Poppins, sans-serif;
   text-decoration: none;
   list-style: none;
+  text-transform: capitalize;
 }
 
 body {

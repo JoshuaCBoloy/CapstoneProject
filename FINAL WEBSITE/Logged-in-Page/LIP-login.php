@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div class="login-content">
         <form id="loginForm" action="LIP-login.php" method="post" onsubmit="return validateForm()">
             <img src="image/avatar.svg">
-            <h2 class="title">Log In</h2>
+            <h2 class="title">Sign In</h2>
             <div class="input-div one">
                 <div class="i">
                     <i class="fas fa-envelope"></i>
