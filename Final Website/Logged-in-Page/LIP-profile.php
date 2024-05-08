@@ -85,11 +85,19 @@ if(mysqli_num_rows($sql) === 0) {
     <!-- header section ends  -->
 
         <!-- about section starts  -->
+        <br>
+        <br>
+        <br>
 
-        <section class="about" id="about">
+        <section class="about" id="about">      
             <div class="content">
+                <div class="cafe" id="cafe">
+                    <div class="heading">
+                        <h3>Booking Status</h3>
+                    </div>
+                </div>
             <div>
-        <table class="table">
+            <table class="table">
             <thead>
             <tr>
                 <th><h2>First Name</h2></th>
