@@ -1,19 +1,20 @@
 <?php
-$con = mysqli_connect('localhost', 'root', '', 'tour_guide_booking');
-$sql = mysqli_query($con, "select * from users");
+$con = mysqli_connect('localhost', 'root', '', 'login_db');
+$sql = mysqli_query($con, "select * from user");
 
 if (isset($_GET['id']) && isset($_GET['status'])) {
     $id = $_GET['id'];
     $status = $_GET['status'];
-    mysqli_query($con, "update users set status='$status' where id='$id'");
+    mysqli_query($con, "update user set status='$status' where id='$id'");
     header("location: adminpagetest.php");
     die();
-}  
+}
 
 if (isset($_GET['id']) && isset($_GET['new_status'])) {
     $id = $_GET['id'];
-    $status = $_GET['new_status'];
-    mysqli_query($con, "update users set new_status='$new_status' where id='$id'");
+    $new_status = $_GET['new_status'];
+    $tourguide_status = ($new_status == 2) ? 2 : 3;
+    mysqli_query($con, "update user set new_status='$new_status', tourguide_status='$tourguide_status' where id='$id'");
     header("location: adminpagetest.php");
     die();
 }
@@ -41,15 +42,15 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
                 <th>Last Name</th>
                 <th>Email</th>
                 <th>Phone Number</th>
-                <th>Number of People</th>
-                <th>Days of Tour</th>
+                <th>Number People</th>
                 <th>Starting Date</th>
-                <th>End Date</th>
+                <th>Ending Date</th>
                 <th>Additional Information</th>
-                <th>Booking Status</th>
+                <th>Package</th>
                 <th>Response</th>
-                <th>Tourguide Status</th>
+                <th>Booking Status</th>
                 <th>Tourguide</th>
+                <th>Tour Guide Status</th>
             </tr>
             <?php
             if (mysqli_num_rows($sql)>0) {
@@ -60,10 +61,17 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
                     <td><?php echo $row['email'];?></td>
                     <td><?php echo $row['phone_number'];?></td>
                     <td><?php echo $row['number_people'];?></td>
-                    <td><?php echo $row['tour_days'];?></td>
                     <td><?php echo $row['start_date'];?></td>
                     <td><?php echo $row['end_date'];?></td>
                     <td><?php echo $row['any'];?></td>
+                    <td><?php echo $row['package'];?></td>
+                    <td>
+                    <select onchange="updateBookingStatus(this.value, '<?php echo $row['id']; ?>')">
+                                <option value="1">Update Status</option>  
+                                <option value="2">Accept</option>  
+                                <option value="3">Decline</option>  
+                           </select>
+                    </td>
                     <td><?php 
                     if ($row['status']==1) {
                         echo "Pending";
@@ -73,27 +81,20 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
                         echo "Declined";
                     }?>
                     <td>
-                    <select onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['id'] ?>')">    
-                                <option value="1">Update Status</option>  
-                                <option value="2">Accept</option>  
-                                <option value="3">Decline</option>  
-                           </select>
-                    </td>
-                    <td><?php 
-                    if ($row['new_status']==1) {
-                        echo "Pending";
-                    } if ($row['new_status']==2) {
-                        echo "Tourguide 1";
-                    } if ($row['new_status']==3) {
-                        echo "Tourguide 2";
-                    }?>
-                    <td>
-                    <select onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['id'] ?>')">    
+                    <select onchange="updateTourGuideStatus(this.value, '<?php echo $row['id']; ?>')">  
                                 <option value="1">Update Status</option>  
                                 <option value="2">Tourguide 1</option>  
                                 <option value="3">Tourguide 2</option>  
                            </select>
                     </td>
+                    <td><?php 
+                    if ($row['tourguide_status']==1) {
+                        echo "Pending";
+                    } if ($row['tourguide_status']==2) {
+                        echo "Tourguide 1";
+                    } if ($row['tourguide_status']==3) {
+                        echo "Tourguide 2";
+                    }?>
                 </tr>
                 <?php }
                 }
@@ -101,16 +102,16 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
         </table>
     </div>
     <script type="text/javascript">
-        function status_update(value,id) {
-            let url = "http://localhost:8081/CapstoneProject/FINAL%20WEBSITE/adminpagetest.php";
-            window.location.href= url+"?id="+id+"&status="+value;
+        function updateBookingStatus(value, id) {
+            let url = "adminpagetest.php?id=" + id + "&status=" + value;
+            window.location.href = url;
         }
 
-        function status_update(value,id) {
-            let url = "http://localhost:8081/CapstoneProject/FINAL%20WEBSITE/adminpagetest.php";
-            window.location.href= url+"?id="+id+"&new_status="+value;
+        function updateTourGuideStatus(value, id) {
+            let url = "adminpagetest.php?id=" + id + "&new_status=" + value;
+            window.location.href = url;
         }
-        </script>
+    </script>
 
 </body>
 </html>

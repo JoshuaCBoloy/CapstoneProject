@@ -1,7 +1,8 @@
 <?php
 session_start();
 if (isset($_SESSION["user"])) {
-   header("Location: index.html");
+   header("Location: tourguidepage.php");
+   exit();
 }
 ?>
 
@@ -11,44 +12,22 @@ if (isset($_SESSION["user"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login Form</title>
-	<link rel="stylesheet" type="text/css" href="css/new-style.css">
-	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <title>Tour Guide Login Form</title>
+    <link rel="stylesheet" type="text/css" href="css/new-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 </head>
 <body>
-    <img  class="wave" src="image/wave.png">
+    <img class="wave" src="image/wave.png">
     <div class="container">
-        <?php
-        if (isset($_POST["login"])) {
-           $email = $_POST["email"];
-           $password = $_POST["password"];
-            require_once "database.php";
-            $sql = "SELECT * FROM users WHERE email = '$email'";
-            $result = mysqli_query($conn, $sql);
-            $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
-            if ($user) {
-                if (password_verify($password, $user["password"])) {
-                    session_start();
-                    $_SESSION["user"] = "yes";
-                    header("Location: index.html");
-                    die();
-                }else{
-                    echo "<div class='alert alert-danger'>Password does not match</div>";
-                }
-            }else{
-                echo "<div class='alert alert-danger'>Email does not match</div>";
-            }
-        }
-        ?>
         
         <div class="img">
             <img src="image/ELT.png">
         </div>
         <div class="login-content">
-            <form action="tourguidevalidate.php" method="post">
+            <form action="tourguidevalidate.php" method="post"> <!-- Ensure the form submits to the correct validation script -->
                 <img src="image/avatar.svg">
-                <h2  class="title">Log In</h2>
+                <h2 class="title">Tour Guide Log In</h2>
                 <div class="input-div one">
                     <div class="i">
                         <i class="fas fa-envelope"></i>

@@ -20,7 +20,7 @@ $user_id = $_SESSION['user_id'];
 
 $sql = mysqli_query($con, "SELECT * FROM user WHERE id = $user_id");
 if(mysqli_num_rows($sql) === 0) {
-    echo "No data found for this user.";
+    echo "";
 }
 ?>
 

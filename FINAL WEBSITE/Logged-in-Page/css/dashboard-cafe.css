@@ -356,6 +356,7 @@ section {
 .stars {
     padding: 1rem 0;
     font-size: 1.7rem;
+    text-align: center;
 }
 
 .stars i {
@@ -365,7 +366,7 @@ section {
     transition: color 0.2s ease;
 }
 
-.stars i.active {
+.stars i.active, .stars i:hover {
     color: #ff9c1a;
 }
 

@@ -3,7 +3,6 @@
 include_once('adminconnection.php');
 
 function test_input($data) {
-	
 	$data = trim($data);
 	$data = stripslashes($data);
 	$data = htmlspecialchars($data);
@@ -11,7 +10,6 @@ function test_input($data) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	
 	$username = test_input($_POST["username"]);
 	$password = test_input($_POST["password"]);
 	$stmt = $conn->prepare("SELECT * FROM adminlogin");
