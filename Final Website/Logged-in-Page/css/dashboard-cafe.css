@@ -484,6 +484,29 @@ section {
   color: #ff9c1a;
 }
 
+.button {
+  display: block;
+  width: 20%;
+  height: 50px;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+  background-size: 200%;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  margin: 1rem 0;
+  cursor: pointer;
+  transition: 0.5s;
+  margin-left: 53rem;
+}
+.button:hover {
+  background-position: right;
+}
+
 /* about section end */
 
 @media screen and (max-width: 991px) {

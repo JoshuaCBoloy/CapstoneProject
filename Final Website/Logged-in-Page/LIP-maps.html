@@ -1,86 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Realtime location tracker</title>
     <link rel="shortcut icon" type="image/x-icon" href="image/ELT.png" />
 
-    <!-- leaflet css  -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-    />
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
+    <!-- remix icon cdn link  -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
 
-      #map {
-        width: 100%;
-        height: 100vh;
-      }
-    </style>
-  </head>
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/maps.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
-  <body>
-    <div id="map"></div>
-  </body>
+    <title>Everything La Trinidad</title>
+</head>
+<body>
+    <!-- header section starts  -->
+    <header class="header">
+        <a href="#" class="logo">
+            <i class="ri-map-pin-fill"></i><span>Everything La Trinidad</span>
+        </a>
+
+        <ul class="navbar">
+            <li><a href="LIP-index.html" class="active">Home</a></li>
+            <li><a href="LIP-index.html#about">About</a></li>
+            <li><a href="LIP-choose-tourguide.php">Booking</a></li>
+            <li><a href="LIP-services.html">Services</a></li>
+            <li><a href="LIP-news.html">News</a></li>
+            <li><a href="LIP-login.php" class="btn-warning">Signout</a></li>
+        </ul>
+
+        <div class="icons">
+            <a href="../chatapplogin.php" class="chat">
+                <span><i class="ri-chat-3-line" aria-hidden="true"></i></span>
+                <span>Chat</span>
+            </a>
+            <a href="LIP-profile.php" class="login">
+                <span><i class="ri-user-line"></i></span>
+                <span>Profile</span>
+            </a>
+            <a href="./LIP-maps.html" class="map">
+                <span><i class="ri-map-pin-line"></i></span>
+                <span>Map</span>
+            </a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+    <!-- header section ends  -->
+
+    <h3>Find Locations in La Trinidad, Benguet</h3>
+    <div id="container">
+        <div id="map"></div>
+        <div id="filter">
+            <button onclick="filterLocations('cafe')">Cafes</button>
+            <button onclick="filterLocations('restaurant')">Restaurants</button>
+            <button onclick="filterLocations('lodging')">Accommodation</button>
+            <button onclick="filterLocations('tourist_attraction')">Tourist Spots</button>
+            <div id="location-list"></div>
+        </div>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxOtesHhrJD_mMU5RQspOftg5qO4LzevA&callback=initMap" async defer></script>
+    <script>
+        var map;
+        var markers = [];
+        var infowindows = [];
+        var locations = [
+            {
+                type: 'cafe',
+                name: 'Kai Cafe',
+                description: 'A nice place to relax.',
+                latitude: 16.4398,
+                longitude: 120.5944,
+                photo: 'image/c1.1.jpg'
+            }, 
+            {
+                type: 'cafe',
+                name: 'Sinner or Saint Cafe',
+                description: 'A nice place to relax.',
+                latitude: 16.4320,
+                longitude: 120.5975,
+                photo: 'image/c2.jpg'
+            },
+            {
+                type: 'cafe',
+                name: 'Half Cup Cafe',
+                description: 'A nice place to relax.',
+                latitude: 16.4474,
+                longitude: 120.5906,
+                photo: 'image/c4.jpg'
+            },
+            {
+                type: 'cafe',
+                name: 'Mithi Cafe',
+                description: 'A nice place to relax.',
+                latitude: 16.4558,
+                longitude: 120.5876,
+                photo: 'image/c7.jpg',
+            },
+            {
+                type: 'restaurant',
+                name: 'Dampa Express',
+                description: 'Delicious food.',
+                latitude: 16.4558,
+                longitude: 120.5876,
+                photo: 'images/restaurant1.jpg'
+            },
+            // Restaurants 
+            {
+                type: 'restaurant',
+                name: 'Calajo Restaurant',
+                description: 'Delicious food.',
+                latitude: 16.4558,
+                longitude: 120.5876,
+                photo: 'images/restaurant1.jpg'
+            },
+            {
+                type: 'restaurant',
+                name: 'Inglay Restaurant & Bakeshop',
+                description: 'Delicious food.',
+                latitude: 16.4558,
+                longitude: 120.5876,
+                photo: 'images/restaurant1.jpg'
+            },
+            {
+                type: 'restaurant',
+                name: 'Mommy La Bakery & Restaurant',
+                description: 'Delicious food.',
+                latitude: 16.4558,
+                longitude: 120.5876,
+                photo: 'images/restaurant1.jpg'
+            },
+            // Accommodation
+            {
+                type: 'lodging',
+                name: 'Lodging 1',
+                description: 'Comfortable stay.',
+                latitude: 16.4558,
+                longitude: 120.5876,
+                photo: 'images/lodging1.jpg'
+            },
+            // Tourist Spots
+            {
+                type: 'tourist_attraction',
+                name: 'Tourist Spot 1',
+                description: 'Beautiful scenery.',
+                latitude: 16.4558,
+                longitude: 120.5876,
+                photo: 'images/tourist_spot1.jpg'
+            }
+        ];
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 16.4558, lng: 120.5876},
+                zoom: 14
+            });
+
+            fetchLocations();
+        }
+
+        function fetchLocations() {
+            // If you have a server-side script to fetch locations, use it here.
+            // For now, we're using the hardcoded locations array above.
+        }
+
+        function filterLocations(type) {
+            clearMarkers();
+            var locationList = document.getElementById('location-list');
+            locationList.innerHTML = '';
+
+            var filteredLocations = locations.filter(location => location.type === type);
+
+            if (filteredLocations.length > 0) {
+                var avgLat = filteredLocations.reduce((sum, location) => sum + location.latitude, 0) / filteredLocations.length;
+                var avgLng = filteredLocations.reduce((sum, location) => sum + location.longitude, 0) / filteredLocations.length;
+                map.setCenter({lat: avgLat, lng: avgLng});
+                map.setZoom(14);
+            }
+
+            filteredLocations.forEach(location => {
+                var listItem = document.createElement('div');
+                listItem.className = 'location-item';
+                listItem.textContent = location.name;
+                listItem.onclick = () => showLocationOnMap(location);
+                locationList.appendChild(listItem);
+
+                var marker = new google.maps.Marker({
+                    position: {lat: location.latitude, lng: location.longitude},
+                    map: map,
+                    title: location.name
+                });
+                markers.push(marker);
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: '<div><a href="' + location.photo + '" target="_blank"><img src="' + location.photo + '" alt="' + location.name + '" style="width:100px;height:100px;"></a><br>' + location.name + '<br>' + location.description + '<br><a href="https://www.google.com/maps/search/?api=1&query=' + location.latitude + ',' + location.longitude + '" target="_blank">Open in Google Maps</a></div>'
+                });
+                infowindows.push(infowindow);
+
+                marker.addListener('click', function() {
+                    infowindows.forEach(iw => iw.close());
+                    infowindow.open(map, marker);
+                });
+            });
+        }
+
+        function showLocationOnMap(location) {
+            clearMarkers();
+            var marker = new google.maps.Marker({
+                position: {lat: location.latitude, lng: location.longitude},
+                map: map,
+                title: location.name
+            });
+            markers.push(marker);
+
+            var infowindow = new google.maps.InfoWindow({
+                content: '<div><a href="' + location.photo + '" target="_blank"><img src="' + location.photo + '" alt="' + location.name + '" style="width:100px;height:100px;"></a><br>' + location.name + '<br>' + location.description + '<br><a href="https://www.google.com/maps/search/?api=1&query=' + location.latitude + ',' + location.longitude + '" target="_blank">Open in Google Maps</a></div>'
+            });
+            infowindows.push(infowindow);
+
+            map.setCenter({lat: location.latitude, lng: location.longitude});
+            map.setZoom(16);
+
+            infowindow.open(map, marker);
+        }
+
+        function clearMarkers() {
+            markers.forEach(marker => marker.setMap(null));
+            markers = [];
+            infowindows = [];
+        }
+
+        document.addEventListener('DOMContentLoaded', initMap);
+    </script>
+</body>
 </html>
-
-<!-- leaflet js  -->
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script>
-  // Map initialization
-  var map = L.map("map").setView([14.0860746, 100.608406], 6);
-
-  //osm layer
-  var osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  });
-  osm.addTo(map);
-
-  if (!navigator.geolocation) {
-    console.log("Your browser doesn't support geolocation feature!");
-  } else {
-    setInterval(() => {
-      navigator.geolocation.getCurrentPosition(getPosition);
-    }, 5000);
-  }
-
-  var marker, circle;
-
-  function getPosition(position) {
-    // console.log(position)
-    var lat = position.coords.latitude;
-    var long = position.coords.longitude;
-    var accuracy = position.coords.accuracy;
-
-    if (marker) {
-      map.removeLayer(marker);
-    }
-
-    if (circle) {
-      map.removeLayer(circle);
-    }
-
-    marker = L.marker([lat, long]);
-    circle = L.circle([lat, long], { radius: accuracy });
-
-    var featureGroup = L.featureGroup([marker, circle]).addTo(map);
-
-    map.fitBounds(featureGroup.getBounds());
-
-    console.log(
-      "Your coordinate is: Lat: " +
-        lat +
-        " Long: " +
-        long +
-        " Accuracy: " +
-        accuracy
-    );
-  }
-</script>

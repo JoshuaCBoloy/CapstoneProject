@@ -373,6 +373,8 @@ section {
   -webkit-box-flex: 1;
   -ms-flex: 1 1 41rem;
   flex: 1 1 41rem;
+  align-content: center;
+  justify-content: center;
 }
 
 .newsfeed .nf-content span {
