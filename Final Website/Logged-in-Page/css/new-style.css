@@ -7,6 +7,7 @@
 body {
   font-family: "Poppins", sans-serif;
   overflow: hidden;
+  background-color: #f8f9fa;
 }
 
 .wave {
@@ -21,9 +22,11 @@ body {
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;
   grid-gap: 7rem;
   padding: 0 2rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .img {
@@ -34,9 +37,13 @@ body {
 
 .login-content {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   text-align: center;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .img img {
@@ -44,7 +51,7 @@ body {
 }
 
 form {
-  width: 360px;
+  width: 100%;
 }
 
 .login-content img {
@@ -58,17 +65,28 @@ form {
   font-size: 2.9rem;
 }
 
-.login-content .input-div {
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.col {
+  flex: 0 0 48%;
+}
+
+.col-12 {
+  flex: 0 0 100%;
+}
+
+.input-div {
   position: relative;
   display: grid;
   grid-template-columns: 7% 93%;
-  margin: 25px 0;
+  margin: 15px 0;
   padding: 5px 0;
   border-bottom: 2px solid #d9d9d9;
-}
-
-.login-content .input-div.one {
-  margin-top: 0;
+  width: 100%;
 }
 
 .i {
@@ -148,11 +166,7 @@ form {
   padding: 0.5rem 0.7rem;
   font-size: 1.2rem;
   color: #555;
-  font-family: "poppins", sans-serif;
-}
-
-.input-div.pass {
-  margin-bottom: 4px;
+  font-family: "Poppins", sans-serif;
 }
 
 a {
@@ -216,39 +230,43 @@ a:hover {
 
 @media screen and (max-width: 1050px) {
   .container {
-    grid-gap: 5rem;
+      grid-gap: 5rem;
   }
 }
 
 @media screen and (max-width: 1000px) {
   form {
-    width: 290px;
+      width: 290px;
   }
 
   .login-content h2 {
-    font-size: 2.4rem;
-    margin: 8px 0;
+      font-size: 2.4rem;
+      margin: 8px 0;
   }
 
   .img img {
-    width: 400px;
+      width: 400px;
   }
 }
 
 @media screen and (max-width: 900px) {
   .container {
-    grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
   }
 
   .img {
-    display: none;
+      display: none;
   }
 
   .wave {
-    display: none;
+      display: none;
   }
 
   .login-content {
-    justify-content: center;
+      justify-content: center;
+  }
+
+  .col {
+      flex: 0 0 100%;
   }
 }
