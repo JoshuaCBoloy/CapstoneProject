@@ -34,9 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     exit;
 }
 
-// Fetch user details to show in the booking section
+// Fetch booking details
 $booking_sql = $conn->prepare('SELECT * FROM user WHERE id = ?');
-$booking_sql->bind_param('i', $user_id); // Changed $id to $user_id
+$booking_sql->bind_param('i', $id);
 $booking_sql->execute();
 $booking_result = $booking_sql->get_result();
 ?>
