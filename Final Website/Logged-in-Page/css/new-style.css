@@ -40,10 +40,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: white;
   padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .img img {
@@ -212,7 +209,6 @@ a:hover {
 
 .signup-text {
   text-align: center;
-  margin-top: 17rem;
 }
 
 .signup-text a {
