@@ -1,52 +1,30 @@
 <?php
-session_start();
-include 'db.php'; // Include your database connection
+$con = mysqli_connect('localhost', 'root', '', 'login_db');
+$sql = mysqli_query($con, "SELECT * FROM user");
 
-if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
-    exit;
+if (isset($_GET['id']) && isset($_GET['status'])) {
+    $id = $_GET['id'];
+    $status = $_GET['status'];
+    mysqli_query($con, "UPDATE user SET status='$status' WHERE id='$id'");
+    header("Location: tourguidedashboard.php"); // Redirect to the same or another page
+    exit();
 }
 
-$user_id = $_SESSION['user_id'];
-
-// Fetch user details
-$stmt = $conn->prepare('SELECT first_name, last_name, email, phone_number FROM user WHERE id = ?');
-$stmt->bind_param('i', $user_id);
-$stmt->execute();
-$stmt->bind_result($first_name, $last_name, $email, $phone_number);
-$stmt->fetch();
-$stmt->close();
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Update user details
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
-    $email = $_POST['email'];
-    $phone_number = $_POST['phone'];
-
-    $stmt = $conn->prepare('UPDATE user SET first_name = ?, last_name = ?, email = ?, phone_number = ? WHERE id = ?');
-    $stmt->bind_param('ssssi', $first_name, $last_name, $email, $phone_number, $user_id);
-    $stmt->execute();
-    $stmt->close();
-
-    // Refresh the page to fetch updated details
-    header('Location: LIP-profile.php');
-    exit;
+if (isset($_GET['id']) && isset($_GET['new_status'])) {
+    $id = $_GET['id'];
+    $new_status = $_GET['new_status'];
+    $tourguide_status = ($new_status == 2) ? 2 : 3;
+    mysqli_query($con, "UPDATE user SET new_status='$new_status', tourguide_status='$tourguide_status' WHERE id='$id'");
+    header("Location: tourguidedashboard.php"); // Redirect to the same or another page
+    exit();
 }
-
-// Fetch user details to show in the booking section
-$booking_sql = $conn->prepare('SELECT * FROM user WHERE id = ?');
-$booking_sql->bind_param('i', $user_id); // Changed $id to $user_id
-$booking_sql->execute();
-$booking_result = $booking_sql->get_result();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Dashboard</title>
+  <title>Admin Dashboard</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
   <style>
@@ -184,17 +162,16 @@ $booking_result = $booking_sql->get_result();
     .table-container h5 {
       margin-bottom: 20px;
     }
-
   </style>
 </head>
 <body>
   <div class="container">
-    <h1 class="text-center">User Dashboard</h1>
+    <h1 class="text-center">Tour Guide Dashboard</h1>
     <div class="row mt-4">
       <div class="col-md-3" id="sidebar">
         <button id="btnDashboard" class="btn btn-light">Dashboard</button>
-        <button id="btnProfile" class="btn btn-primary">Profile</button>
-        <button id="btnBooking" class="btn btn-secondary">Booking</button>
+        <button id="btnBooking" class="btn btn-secondary">Profile</button>
+        <button id="btnProfile" class="btn btn-primary">Booking</button>
       </div>
       <div class="col-md-9">
         <div id="dashboard" class="card">
@@ -203,39 +180,16 @@ $booking_result = $booking_sql->get_result();
             <p>Welcome to your dashboard. Use the buttons on the left to navigate.</p>
           </div>
         </div>
-
-        <div id="profile" class="card">
+        <div id="booking" class="card" style="display:none;">
           <div class="card-body">
-            <h5 class="card-title">Edit Profile</h5>
-            <form method="post" action="LIP-profile.php">
-              <div class="form-group">
-                <i class="fas fa-user icon"></i>
-                <input type="text" id="first_name" name="first_name" value="<?php echo htmlspecialchars($first_name); ?>" required>
-                <label for="first_name">First Name</label>
-              </div>
-              <div class="form-group">
-                <i class="fas fa-user icon"></i>
-                <input type="text" id="last_name" name="last_name" value="<?php echo htmlspecialchars($last_name); ?>" required>
-                <label for="last_name">Last Name</label>
-              </div>
-              <div class="form-group">
-                <i class="fas fa-envelope icon"></i>
-                <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>" required>
-                <label for="email">Email</label>
-              </div>
-              <div class="form-group">
-                <i class="fas fa-phone icon"></i>
-                <input type="tel" id="phone" name="phone" value="<?php echo htmlspecialchars($phone_number); ?>" required>
-                <label for="phone">Phone Number</label>
-              </div>
-              <button type="submit" class="btn btn-primary">Save</button>
-            </form>
+            <h5 class="card-title">Profile Page</h5>
+            <p>Click <a href="index.html" style="text-decoration: underline;">here</a> to go to website.</p>
+            <p>Click <a href="tourguidelogin.php" style="text-decoration: underline;">here</a> to Logout</p>
           </div>
         </div>
-
-        <div id="booking" class="card">
+        <div id="profile" class="card" style="display:none;">
           <div class="card-body">
-            <h5 class="card-title">Your Bookings</h5>
+            <h5 class="card-title">Booking Details</h5>
             <div class="table-container">
               <table class="table">
                 <thead>
@@ -244,47 +198,49 @@ $booking_result = $booking_sql->get_result();
                     <th>Last Name</th>
                     <th>Email</th>
                     <th>Phone Number</th>
-                    <th>Number of People</th>
+                    <th>Number People</th>
                     <th>Starting Date</th>
-                    <th>End Date</th>
+                    <th>Ending Date</th>
                     <th>Additional Information</th>
                     <th>Chosen Package</th>
                     <th>Booking Status</th>
-                    <th>Tourguide Status</th>
+                    <th>Tour Guide</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-                  if ($booking_result->num_rows > 0) {
-                      while ($row = $booking_result->fetch_assoc()) { ?>
-                  <tr>
-                    <td><?php echo htmlspecialchars($row['first_name']); ?></td>
-                    <td><?php echo htmlspecialchars($row['last_name']); ?></td>
-                    <td><?php echo htmlspecialchars($row['email']); ?></td>
-                    <td><?php echo htmlspecialchars($row['phone_number']); ?></td>
-                    <td><?php echo htmlspecialchars($row['number_people']); ?></td>
-                    <td><?php echo htmlspecialchars($row['start_date']); ?></td>
-                    <td><?php echo htmlspecialchars($row['end_date']); ?></td>
-                    <td><?php echo htmlspecialchars($row['any']); ?></td>
-                    <td><?php echo htmlspecialchars($row['package']); ?></td>
-                    <td><?php 
-                      if ($row['status'] == 1) {
-                          echo "Pending";
-                      } elseif ($row['status'] == 2) {
-                          echo "Accepted";
-                      } elseif ($row['status'] == 3) {
-                          echo "Declined";
-                      } ?></td>
-                    <td><?php 
-                      if ($row['tourguide_status'] == 1) {
-                          echo "Pending";
-                      } elseif ($row['tourguide_status'] == 2) {
-                          echo "Tourguide 1";
-                      } elseif ($row['tourguide_status'] == 3) {
-                          echo "Tourguide 2";
-                      } ?></td>
-                  </tr>
-                  <?php }
+                  if (mysqli_num_rows($sql) > 0) {
+                    while ($row = mysqli_fetch_assoc($sql)) { ?>
+                      <tr>
+                        <td><?php echo htmlspecialchars($row['first_name']); ?></td>
+                        <td><?php echo htmlspecialchars($row['last_name']); ?></td>
+                        <td><?php echo htmlspecialchars($row['email']); ?></td>
+                        <td><?php echo htmlspecialchars($row['phone_number']); ?></td>
+                        <td><?php echo htmlspecialchars($row['number_people']); ?></td>
+                        <td><?php echo htmlspecialchars($row['start_date']); ?></td>
+                        <td><?php echo htmlspecialchars($row['end_date']); ?></td>
+                        <td><?php echo htmlspecialchars($row['any']); ?></td>
+                        <td><?php echo htmlspecialchars($row['package']); ?></td>
+                        <td><?php 
+                          if ($row['status'] == 1) {
+                            echo "Pending";
+                          } elseif ($row['status'] == 2) {
+                            echo "Accepted";
+                          } elseif ($row['status'] == 3) {
+                            echo "Declined";
+                          }
+                        ?></td>
+                        <td><?php 
+                          if ($row['tourguide_status'] == 1) {
+                            echo "Pending";
+                          } elseif ($row['tourguide_status'] == 2) {
+                            echo "Tourguide 1";
+                          } elseif ($row['tourguide_status'] == 3) {
+                            echo "Tourguide 2";
+                          }
+                        ?></td>
+                      </tr>
+                      <?php }
                   } else {
                       echo "<tr><td colspan='11'>No bookings found.</td></tr>";
                   }
@@ -297,12 +253,22 @@ $booking_result = $booking_sql->get_result();
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+    function updateBookingStatus(value, id) {
+      let url = "tourguidedashboard.php?id=" + id + "&status=" + value;
+      window.location.href = url;
+    }
+
+    function updateTourGuideStatus(value, id) {
+      let url = "tourguidedashboard.php?id=" + id + "&new_status=" + value;
+      window.location.href = url;
+    }
+  </script>
 
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   <script>
     document.getElementById('btnDashboard').addEventListener('click', function() {
-      // Redirect to the specific file (replace 'your-dashboard-file.html' with the actual file path)
-      window.location.href = 'LIP-index.html';
+      window.location.href = 'index.html';
     });
 
     document.getElementById('btnProfile').addEventListener('click', function() {
