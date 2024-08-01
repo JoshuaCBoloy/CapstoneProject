@@ -458,7 +458,7 @@ a:hover {
                     <input type="submit" class="btn" value="Sign Up">
                 </div>
             </div>
-            <a href="LIP-login.php">Already have an account? Login</a>
+            <a href="LIP-login.php" style="text-align: center;">Already have an account? Login</a>
         </form>
     </div>
 </div>

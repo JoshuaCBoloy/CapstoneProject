@@ -350,13 +350,14 @@ a:hover {
                 </div>
             </div>
 
-            <a href="registration.php">Don't have an account yet? Register Now</a>
-            <a href="../index.html">Go to website</a>
             <a href="LIP-forgot-password.php">Forgot Password?</a>
 
             <div class="form-btn">
                 <input type="submit" class="btn btn-primary" value="Login" name="login">
             </div>
+
+            <a href="registration.php" style="text-align: center;">Don't have an account yet? Register Now</a>
+            <a href="../index.html" style="text-align: center;">Go to website</a>
         </form>
     </div>
 
