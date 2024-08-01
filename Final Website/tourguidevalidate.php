@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		
 		if(($user['username'] == $username) && 
 			($user['password'] == $password)) {
-				header("location: tourguidepage.php");
+				header("location: tourguidedashboard.php");
 		}
 		else {
 			echo "<script language='javascript'>";

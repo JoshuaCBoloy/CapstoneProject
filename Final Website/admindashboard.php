@@ -6,7 +6,7 @@ if (isset($_GET['id']) && isset($_GET['status'])) {
     $id = $_GET['id'];
     $status = $_GET['status'];
     mysqli_query($con, "UPDATE user SET status='$status' WHERE id='$id'");
-    header("Location: admin-dashboard.php"); // Redirect to the same or another page
+    header("Location: admindashboard.php");
     exit();
 }
 
@@ -15,7 +15,7 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
     $new_status = $_GET['new_status'];
     $tourguide_status = ($new_status == 2) ? 2 : 3;
     mysqli_query($con, "UPDATE user SET new_status='$new_status', tourguide_status='$tourguide_status' WHERE id='$id'");
-    header("Location: admin-dashboard.php"); // Redirect to the same or another page
+    header("Location: admindashboard.php");
     exit();
 }
 ?>
@@ -144,12 +144,15 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
       border-bottom: 2px solid #dee2e6;
       padding: 10px;
       background: #f8f9fa;
+      text-align: center;
+      white-space: nowrap;
     }
 
     .table tbody td {
       border-top: 1px solid #dee2e6;
       padding: 10px;
       text-align: center;
+      white-space: nowrap;
     }
 
     .table tbody tr:nth-child(even) {
@@ -167,7 +170,7 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
     <div class="row mt-4">
       <div class="col-md-3" id="sidebar">
         <button id="btnDashboard" class="btn btn-light">Dashboard</button>
-        <button id="btnBooking" class="btn btn-secondary">Home</button>
+        <button id="btnBooking" class="btn btn-secondary">Profile</button>
         <button id="btnProfile" class="btn btn-primary">Booking</button>
       </div>
       <div class="col-md-9">
@@ -179,8 +182,9 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
         </div>
         <div id="booking" class="card" style="display:none;">
           <div class="card-body">
-            <h5 class="card-title">Home Page</h5>
-            <p>Click <a href="index.html" style="text-decoration: underline;">here</a> to go home.</p>
+            <h5 class="card-title">Profile Page</h5>
+            <p>Click <a href="index.html" style="text-decoration: underline;">here</a> to go to website.</p>
+            <p>Click <a href="adminlogin.php" style="text-decoration: underline;">here</a> to Logout</p>
           </div>
         </div>
         <div id="profile" class="card" style="display:none;">
@@ -190,19 +194,19 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
               <table class="table">
                 <thead>
                   <tr>
-                    <th style="text-align: center;">First Name</th>
-                    <th style="text-align: center;">Last Name</th>
-                    <th style="text-align: center;">Email</th>
-                    <th style="text-align: center;">Phone Number</th>
-                    <th style="text-align: center;">Number People</th>
-                    <th style="text-align: center;">Starting Date</th>
-                    <th style="text-align: center;">Ending Date</th>
-                    <th style="text-align: center;">Additional Information</th>
-                    <th style="text-align: center;">Package</th>
-                    <th style="text-align: center;">Response</th>
-                    <th style="text-align: center;">Booking Status</th>
-                    <th style="text-align: center;">Tourguide</th>
-                    <th style="text-align: center;">Tour Guide Status</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Number People</th>
+                    <th>Starting Date</th>
+                    <th>Ending Date</th>
+                    <th>Additional Information</th>
+                    <th>Package</th>
+                    <th>Response</th>
+                    <th>Booking Status</th>
+                    <th>Tour Guide Status</th>
+                    <th>Tour Guide</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -280,7 +284,7 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   <script>
     document.getElementById('btnDashboard').addEventListener('click', function() {
-      window.location.href = 'LIP-index.html';
+      window.location.href = 'index.html';
     });
 
     document.getElementById('btnProfile').addEventListener('click', function() {
