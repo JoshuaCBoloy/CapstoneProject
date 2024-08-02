@@ -22,7 +22,7 @@
         </div>
       </form>
       <div class="link">Not yet signed up? <a href="index.php">Signup now</a></div>
-      <div class="link"><a href="http://localhost:8081/CapstoneProject/FINAL%20WEBSITE/Logged-in-Page/LIP-index.html">Home</a></div>
+      <div class="link"><a href="../Logged-in-Page/LIP-index.html">Home</a></div>
     </section>
   </div>
   
