@@ -19,7 +19,7 @@
           ?>
           <a href="users-profile.php"><img src="php/images/<?php echo $row['img']; ?>" alt=""></a>
           <div class="details">
-            <span><a href="users-profile.php" style="color: black"><?php echo $row['email'] ?></a></span>
+            <span><a href="users-profile.php" style="color: black"><?php echo $row['fullname'] ?></a></span>
             <p><?php echo $row['status']; ?></p>
           </div>
         </div>

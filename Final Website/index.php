@@ -13,18 +13,17 @@
       <form action="#" method="POST" enctype="multipart/form-data" autocomplete="off">
         <div class="error-text"></div>
         <div class="field input">
-          <label>Username</label>
-          <input type="text" name="email" placeholder="Enter your username" required>
+          <label style="font-weight: bold;">Full Name</label>
+          <input type="text" name="fullname" placeholder="Enter your fullname" required>
         </div>
         <div class="field image">
-          <label>Select Image</label>
+          <label style="font-weight: bold;">Select Profile</label>
           <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg,image/jpg" required>
         </div>
         <div class="field button">
           <input type="submit" name="submit" value="Continue to Chat">
         </div>
       </form>
-      <div class="link">Already signed up? <a href="chatapplogin.php">Login now</a></div>
     </section>
   </div>
 

@@ -97,9 +97,6 @@ if(mysqli_num_rows($select)>0){
 
             <?php
             if (isset($_POST["submit"])) {
-                $firstName = $_POST["first_name"];
-                $lastName = $_POST["last_name"];
-                $phoneNumber = $_POST["phone_number"];
                 $numberPeople = $_POST["number_people"];
                 $startDate = $_POST["start_date"];
                 $endDate = $_POST["end_date"];
@@ -108,11 +105,8 @@ if(mysqli_num_rows($select)>0){
 
                 $errors = array();
 
-                if (empty($firstName) OR empty($lastName) OR empty($phoneNumber) OR empty($numberPeople) OR empty($startDate) OR empty($endDate)) {
+                if (empty($numberPeople) OR empty($startDate) OR empty($endDate)) {
                     array_push($errors, "<div class='required'><h2>All fields are required</h2></div>");
-                }
-                if (!is_numeric($phoneNumber)) {
-                    array_push($errors);
                 }
                 if (!is_numeric($numberPeople)) {
                     array_push($errors);
@@ -124,11 +118,11 @@ if(mysqli_num_rows($select)>0){
                     }
                 }else {
                     require_once "LIP-booking-database.php";
-                    $sql = "UPDATE `user` SET `first_name` = ?, `last_name` = ?, `phone_number` = ?, `number_people` = ?, `start_date` = ?, `end_date` = ?, `any` = ?, `package` = ? WHERE `id` = ?";
+                    $sql = "UPDATE `user` SET `number_people` = ?, `start_date` = ?, `end_date` = ?, `any` = ?, `package` = ? WHERE `id` = ?";
                     $stmt = mysqli_stmt_init($con);
                     $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
                     if ($prepareStmt) {
-                        mysqli_stmt_bind_param($stmt, "sssissssi", $firstName, $lastName, $phoneNumber, $numberPeople, $startDate, $endDate, $any, $package, $user_id);
+                        mysqli_stmt_bind_param($stmt, "issssi", $numberPeople, $startDate, $endDate, $any, $package, $user_id);
                         mysqli_stmt_execute($stmt);
                         echo "<div class='success'><h2>Your tour guide booking is sent successfully.</h2></div>";
                     } else {
@@ -141,28 +135,6 @@ if(mysqli_num_rows($select)>0){
             <br>
 
             <form action="LIP-sign-up-booking-p2.php" method="post">
-            <div class="flex">
-                    <div class="inputBox">
-                        <span>First Name:</span>
-                        <input type="text" class="form-control" name="first_name" placeholder="First Name:">
-                    </div>
-                    <div class="inputBox">
-                        <span>Last Name:</span>
-                        <input type="text" class="form-control" name="last_name" placeholder="Last Name:">
-                    </div>
-                </div>
-
-                <br>
-    
-                <div class="flex">
-                    <div class="inputBox">
-                        <span>Phone Number:</span>
-                        <input type="text" class="form-control" name="phone_number" pattern="[0-9]{11}" placeholder="Your Number:">
-                    </div>
-                </div>
-
-                <br>
-    
                 <div class="flex">
                     <div class="inputBox">
                         <span>How many people are in your group?</span>
@@ -179,7 +151,7 @@ if(mysqli_num_rows($select)>0){
                 <div class="flex">
                     <div class="inputBox">
                         <span>Package Chosen</span>
-                        <input type="text" class="form-control" name="package" value="Package 1"></input>
+                        <input type="text" class="form-control" name="package" value="Package 2"></input>
                     </div>
                     <div class="inputBox">
                         <span>End date you will be toured.</span>
