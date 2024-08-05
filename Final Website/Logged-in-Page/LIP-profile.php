@@ -66,6 +66,10 @@ $booking_result = $booking_sql->get_result();
       max-width: 1200px;
     }
 
+    #sidebar {
+      width: 20%;
+    }
+
     #sidebar .btn {
       width: 100%;
       margin-bottom: 10px;
@@ -74,6 +78,7 @@ $booking_result = $booking_sql->get_result();
     .card {
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 100%;
     }
 
     .card-title {
@@ -95,9 +100,10 @@ $booking_result = $booking_sql->get_result();
       color: #999;
       font-size: 18px;
       transition: 0.3s;
+      pointer-events: none;
     }
 
-    .form-group input {
+    .form-group input, .form-group textarea {
       width: 100%;
       padding: 10px 10px 10px 40px;
       font-size: 1rem;
@@ -110,13 +116,16 @@ $booking_result = $booking_sql->get_result();
     }
 
     .form-group input:focus + label,
-    .form-group input:not(:placeholder-shown) + label {
+    .form-group input:not(:placeholder-shown) + label,
+    .form-group textarea:focus + label,
+    .form-group textarea:not(:placeholder-shown) + label {
       top: -10px;
       font-size: 14px;
       color: #38d39f;
     }
 
-    .form-group input:focus {
+    .form-group input:focus,
+    .form-group textarea:focus {
       border-bottom-color: #38d39f;
     }
 
@@ -129,7 +138,8 @@ $booking_result = $booking_sql->get_result();
       transition: 0.3s;
     }
 
-    .form-group input:focus ~ .icon {
+    .form-group input:focus ~ .icon,
+    .form-group textarea:focus ~ .icon {
       color: #38d39f;
     }
 
@@ -155,6 +165,8 @@ $booking_result = $booking_sql->get_result();
 
     .table-container {
       overflow-x: auto;
+      width: 100%;
+      margin-left: auto;
     }
 
     .table {
@@ -185,6 +197,29 @@ $booking_result = $booking_sql->get_result();
       margin-bottom: 20px;
     }
 
+    .modal-body .form-group {
+      margin-bottom: 1.5rem;
+      padding: 10px 0;
+    }
+
+    .modal-body .form-group input, .modal-body .form-group textarea {
+      padding: 10px 20px;
+    }
+
+    .modal-body .form-group label {
+      top: -10px;
+      left: 20px;
+      font-size: 14px;
+      color: #999;
+    }
+
+    .modal-content {
+      padding: 20px;
+    }
+
+    .modal-footer {
+      padding: 20px;
+    }
   </style>
 </head>
 <body>
@@ -251,6 +286,7 @@ $booking_result = $booking_sql->get_result();
                     <th>Chosen Package</th>
                     <th>Booking Status</th>
                     <th>Tourguide Status</th>
+                    <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -283,10 +319,14 @@ $booking_result = $booking_sql->get_result();
                       } elseif ($row['tourguide_status'] == 3) {
                           echo "Tourguide 2";
                       } ?></td>
+                    <td>
+                      <button class="btn btn-warning btn-sm" onclick="editBooking(<?php echo $row['id']; ?>)">Edit</button>
+                      <button class="btn btn-danger btn-sm" onclick="cancelBooking(<?php echo $row['id']; ?>)">Cancel</button>
+                    </td>
                   </tr>
                   <?php }
                   } else {
-                      echo "<tr><td colspan='11'>No bookings found.</td></tr>";
+                      echo "<tr><td colspan='12'>No bookings found.</td></tr>";
                   }
                   ?>
                 </tbody>
@@ -298,7 +338,49 @@ $booking_result = $booking_sql->get_result();
     </div>
   </div>
 
+  <!-- Modal -->
+  <div class="modal fade" id="editBookingModal" tabindex="-1" aria-labelledby="editBookingModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editBookingModalLabel">Edit Booking</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form id="editBookingForm">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="editNumberPeople">Number of People</label>
+              <input type="number" class="form-control" id="editNumberPeople" name="number_people" required>
+            </div>
+            <div class="form-group">
+              <label for="editStartDate">Starting Date</label>
+              <input type="date" class="form-control" id="editStartDate" name="start_date" required>
+            </div>
+            <div class="form-group">
+              <label for="editEndDate">End Date</label>
+              <input type="date" class="form-control" id="editEndDate" name="end_date" required>
+            </div>
+            <div class="form-group">
+              <label for="editAdditionalInfo">Additional Information</label>
+              <textarea class="form-control" id="editAdditionalInfo" name="any" rows="3"></textarea>
+            </div>
+            <input type="hidden" id="editBookingId" name="booking_id">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
     document.getElementById('btnDashboard').addEventListener('click', function() {
       // Redirect to the specific file (replace 'your-dashboard-file.html' with the actual file path)
@@ -331,9 +413,50 @@ $booking_result = $booking_sql->get_result();
 
     // Default view
     document.getElementById('btnProfile').click();
+
+    function editBooking(id) {
+      // Get booking details via AJAX or directly if available
+      // Here, we'll just demonstrate with some example values
+      $('#editBookingId').val(id);
+      $('#editNumberPeople').val(5); // Replace with actual data
+      $('#editStartDate').val('2024-01-01'); // Replace with actual data
+      $('#editEndDate').val('2024-01-10'); // Replace with actual data
+      $('#editAdditionalInfo').val('Some additional info'); // Replace with actual data
+      $('#editBookingModal').modal('show');
+    }
+
+    function cancelBooking(id) {
+      if (confirm('Are you sure you want to cancel this booking?')) {
+        // Perform the cancellation via AJAX or form submission
+        alert('Booking canceled'); // Replace with actual cancellation code
+      }
+    }
+
+    $('#editBookingForm').on('submit', function(e) {
+      e.preventDefault();
+      const bookingData = {
+        booking_id: $('#editBookingId').val(),
+        number_people: $('#editNumberPeople').val(),
+        start_date: $('#editStartDate').val(),
+        end_date: $('#editEndDate').val(),
+        any: $('#editAdditionalInfo').val()
+      };
+
+      $.ajax({
+        url: 'update_booking.php',
+        type: 'POST',
+        data: bookingData,
+        dataType: 'json',
+        success: function(response) {
+          if (response.status === 'success') {
+            alert('Booking updated successfully');
+            location.reload();
+          } else {
+            alert('Failed to update booking: ' + response.message);
+          }
+        }
+      });
+    });
   </script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
