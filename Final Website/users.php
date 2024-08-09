@@ -19,14 +19,14 @@
           ?>
           <a href="users-profile.php"><img src="php/images/<?php echo $row['img']; ?>" alt=""></a>
           <div class="details">
-            <span><a href="users-profile.php" style="color: black"><?php echo $row['fullname'] ?></a></span>
+            <span><a href="users-profile.php" style="color: black"><?php echo $row['fname'] . " " . $row['lname']; ?></a></span>
             <p><?php echo $row['status']; ?></p>
           </div>
         </div>
         <a href="Logged-in-Page/LIP-index.html" class="logout">Home</a>
       </header>
       <div class="search">
-        <span class="text">Select an user to start chat</span>
+        <span class="text">Select a user to start chat</span>
         <input type="text" placeholder="Enter name to search...">
         <button><i class="fas fa-search"></i></button>
       </div>
