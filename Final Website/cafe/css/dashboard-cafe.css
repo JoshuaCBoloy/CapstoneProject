@@ -483,6 +483,18 @@ section {
   color: #ff9c1a;
 }
 
+.rate-us {
+  display: inline-block;
+  padding: 12px 40px;
+  background-color: #31c492;
+  border: 2px solid #31c492;
+  border-radius: 30px;
+  color: #494262;
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 /* about section end */
 
 @media screen and (max-width: 991px) {

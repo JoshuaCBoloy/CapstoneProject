@@ -287,6 +287,7 @@ $booking_result = $booking_sql->get_result();
                     <th>Booking Status</th>
                     <th>Tourguide Status</th>
                     <th>Actions</th>
+                    <th>Pending for Approval</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -323,6 +324,7 @@ $booking_result = $booking_sql->get_result();
                       <button class="btn btn-warning btn-sm" onclick="editBooking(<?php echo $row['id']; ?>)">Edit</button>
                       <button class="btn btn-danger btn-sm" onclick="cancelBooking(<?php echo $row['id']; ?>)">Cancel</button>
                     </td>
+                    <td>You will receive an <br>confirmation email <br>for the next 24hrs</td>
                   </tr>
                   <?php }
                   } else {
