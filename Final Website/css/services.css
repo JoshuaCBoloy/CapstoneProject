@@ -255,19 +255,19 @@ section {
     top: 100%;
     right: -100%;
     width: 270px;
-    height: 40vh;
+    height: 50vh;
     background: #d8d5e2;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     border-radius: 10px;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
   }
   .navbar a {
     display: block;
     margin: 12px 0;
     padding: 0px 25px;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
   }
   .navbar a:hover {
     color: #52389b;

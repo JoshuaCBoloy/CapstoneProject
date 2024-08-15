@@ -86,11 +86,7 @@ section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 2rem 9%;
   border-radius: 0 0 2rem 2rem;
@@ -252,7 +248,7 @@ section {
     top: 100%;
     right: -100%;
     width: 270px;
-    height: 40vh;
+    height: 65vh;
     background: #d8d5e2;
     display: flex;
     flex-direction: column;
