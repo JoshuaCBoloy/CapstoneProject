@@ -30,7 +30,7 @@
     <!-- header section starts  -->
 
     <header class="header">
-      <a href="#" class="logo"
+      <a href="./LIP-index.html" class="logo"
         ><i class="ri-map-pin-fill"></i><span>Everything La Trinidad</span></a
       >
 
@@ -212,6 +212,18 @@
 
     <!-- about section ends -->
 
-    <script src="js/script.js"></script>
+    <script>
+      let menu = document.querySelector("#menu-icon");
+      let navbar = document.querySelector(".navbar");
+  
+      menu.onclick = () => {
+      menu.classList.toggle("bx-x");
+      navbar.classList.toggle("open");
+  };
+  
+  window.onscroll = () => {
+    navbar.classList.remove("active");
+  };
+     </script>
   </body>
 </html>

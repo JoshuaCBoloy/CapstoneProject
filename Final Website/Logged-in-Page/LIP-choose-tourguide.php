@@ -15,6 +15,11 @@ $row = mysqli_fetch_assoc($sql);
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
     <!-- remix icon cdn link  -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
@@ -30,7 +35,7 @@ $row = mysqli_fetch_assoc($sql);
     <!-- header section starts  -->
 
     <header class="header">
-      <a href="#" class="logo"
+      <a href="./LIP-index.html" class="logo"
         ><i class="ri-map-pin-fill"></i><span>Everything La Trinidad</span></a
       >
 
@@ -128,6 +133,6 @@ $row = mysqli_fetch_assoc($sql);
         </div>
     
     <!-- tour guide booking section ends -->
-
+    <script src="js/script.js"></script>
 </body>
 </html>

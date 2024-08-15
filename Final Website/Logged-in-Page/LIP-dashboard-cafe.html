@@ -11,10 +11,14 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
+
+    <!-- remix icon cdn link  -->
     <link
       rel="stylesheet"
       href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
     />
+
+
     <!-- remix icon cdn link  -->
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
@@ -31,7 +35,7 @@
     <!-- header section starts  -->
 
     <header class="header">
-      <a href="#" class="logo"
+      <a href="./LIP-index.html" class="logo"
         ><i class="ri-map-pin-fill"></i><span>Everything La Trinidad</span></a
       >
 
@@ -55,7 +59,7 @@
           ><span><i class="ri-user-line"></i></span><span>Profile</span></a
         >
         <a
-          href="./LIP-maps.html"
+          href="./LIP-maps.html" class="map"
           ><span><i class="ri-map-pin-line"></i></span><span>Map</span></a
         >
         <div class="bx bx-menu" id="menu-icon"></div>
@@ -321,7 +325,18 @@
     </script>
 
     <!-- about section ends -->
-
-    <script src="js/script.js"></script>
+    <script>
+      let menu = document.querySelector("#menu-icon");
+      let navbar = document.querySelector(".navbar");
+  
+      menu.onclick = () => {
+      menu.classList.toggle("bx-x");
+      navbar.classList.toggle("open");
+  };
+  
+  window.onscroll = () => {
+    navbar.classList.remove("active");
+  };
+     </script>
   </body>
 </html>
