@@ -271,12 +271,12 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
   </div>
   <script type="text/javascript">
     function updateBookingStatus(value, id) {
-      let url = "admin-dashboard.php?id=" + id + "&status=" + value;
+      let url = "admindashboard.php?id=" + id + "&status=" + value;
       window.location.href = url;
     }
 
     function updateTourGuideStatus(value, id) {
-      let url = "admin-dashboard.php?id=" + id + "&new_status=" + value;
+      let url = "admindashboard.php?id=" + id + "&new_status=" + value;
       window.location.href = url;
     }
   </script>

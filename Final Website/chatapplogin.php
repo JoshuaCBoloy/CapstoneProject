@@ -14,8 +14,12 @@
       <form action="#" method="POST" enctype="multipart/form-data" autocomplete="off">
         <div class="error-text"></div>
         <div class="field input">
-          <label>Username</label>
-          <input type="text" name="email" placeholder="Enter your username" required>
+        <label style="font-weight: bold;">First Name</label>
+          <input type="text" name="fname" placeholder="Enter your fullname" required>
+        </div>
+        <div class="field input">
+          <label style="font-weight: bold;">Last Name</label>
+          <input type="text" name="lname" placeholder="Enter your fullname" required>
         </div>
         <div class="field button">
           <input type="submit" name="submit" value="Continue to Chat">

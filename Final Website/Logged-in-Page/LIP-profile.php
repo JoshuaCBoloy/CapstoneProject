@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-// Fetch user details
+// Fetch all user details
 $stmt = $conn->prepare('SELECT first_name, last_name, email, phone_number FROM user WHERE id = ?');
 $stmt->bind_param('i', $user_id);
 $stmt->execute();
@@ -17,26 +17,63 @@ $stmt->bind_result($first_name, $last_name, $email, $phone_number);
 $stmt->fetch();
 $stmt->close();
 
+$stmt = $conn->prepare('SELECT number_people, start_date, end_date, any, status, tourguide_status FROM user WHERE id = ?');
+$stmt->bind_param('i', $user_id);
+$stmt->execute();
+$stmt->bind_result($number_people, $start_date, $end_date, $any, $status, $tourguide_status);
+$stmt->fetch();
+$stmt->close();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Update user details
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
-    $email = $_POST['email'];
-    $phone_number = $_POST['phone'];
+  if (isset($_POST['profile_save'])) {
+      // Update user profile details
+      $first_name = $_POST['first_name'];
+      $last_name = $_POST['last_name'];
+      $email = $_POST['email'];
+      $phone_number = $_POST['phone'];
 
-    $stmt = $conn->prepare('UPDATE user SET first_name = ?, last_name = ?, email = ?, phone_number = ? WHERE id = ?');
-    $stmt->bind_param('ssssi', $first_name, $last_name, $email, $phone_number, $user_id);
-    $stmt->execute();
-    $stmt->close();
+      $stmt = $conn->prepare('UPDATE user SET first_name = ?, last_name = ?, email = ?, phone_number = ? WHERE id = ?');
+      $stmt->bind_param('ssssi', $first_name, $last_name, $email, $phone_number, $user_id);
+      $stmt->execute();
+      $stmt->close();
 
-    // Refresh the page to fetch updated details
-    header('Location: LIP-profile.php');
-    exit;
+      // Refresh the page to fetch updated details
+      header('Location: LIP-profile.php');
+      exit;
+  } elseif (isset($_POST['booking_save'])) {
+      // Update booking details
+      $number_people = $_POST['number_people'];
+      $start_date = $_POST['start_date'];
+      $end_date = $_POST['end_date'];
+      $any = $_POST['any'];
+      $status = 1;
+      $tourguide_status = 1;
+
+      $stmt = $conn->prepare('UPDATE user SET number_people = ?, start_date = ?, end_date = ?, any = ?, status = ?, tourguide_status = ? WHERE id = ?');
+      $stmt->bind_param('ssssiii', $number_people, $start_date, $end_date, $any, $status, $tourguide_status, $user_id);
+      $stmt->execute();
+      $stmt->close();
+
+      // Refresh the page to fetch updated details
+      header('Location: LIP-profile.php');
+      exit;
+  } elseif (isset($_POST['cancel_booking'])) {
+      // Handle booking cancellation
+      $stmt = $conn->prepare('UPDATE user SET number_people = NULL, start_date = NULL, end_date = NULL, any = NULL, status = NULL, new_status = NULL, tourguide_status = NULL, package = NULL WHERE id = ?');
+      $stmt->bind_param('i', $user_id);
+      $stmt->execute();
+      $stmt->close();
+
+      // Refresh the page to fetch updated details
+      header('Location: LIP-profile.php');
+      exit;
+  }
 }
+
 
 // Fetch user details to show in the booking section
 $booking_sql = $conn->prepare('SELECT * FROM user WHERE id = ?');
-$booking_sql->bind_param('i', $user_id); // Changed $id to $user_id
+$booking_sql->bind_param('i', $user_id);
 $booking_sql->execute();
 $booking_result = $booking_sql->get_result();
 ?>
@@ -263,7 +300,7 @@ $booking_result = $booking_sql->get_result();
                 <input type="tel" id="phone" name="phone" value="<?php echo htmlspecialchars($phone_number); ?>" required>
                 <label for="phone">Phone Number</label>
               </div>
-              <button type="submit" class="btn btn-primary">Save</button>
+              <button type="submit" name="profile_save" class="btn btn-primary">Save</button>
             </form>
           </div>
         </div>
@@ -321,7 +358,14 @@ $booking_result = $booking_sql->get_result();
                           echo "Tourguide 2";
                       } ?></td>
                     <td>
-                      <button class="btn btn-warning btn-sm" onclick="editBooking(<?php echo $row['id']; ?>)">Edit</button>
+                      <button class="btn btn-warning btn-sm" onclick="editBooking(this)"
+                        id="<?php echo $row['id']; ?>"
+                        number_people="<?php echo $row['number_people']; ?>"
+                        start_date="<?php echo $row['start_date']; ?>"
+                        end_date="<?php echo $row['end_date']; ?>"
+                        any="<?php echo $row['any']; ?>"
+                        status="<?php echo $row['any']; ?>"
+                        tourguide_status="<?php echo $row['any']; ?>">Edit</button>
                       <button class="btn btn-danger btn-sm" onclick="cancelBooking(<?php echo $row['id']; ?>)">Cancel</button>
                     </td>
                     <td>You will receive an <br>confirmation email <br>for the next 24hrs</td>
@@ -342,42 +386,46 @@ $booking_result = $booking_sql->get_result();
 
   <!-- Modal -->
   <div class="modal fade" id="editBookingModal" tabindex="-1" aria-labelledby="editBookingModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="editBookingModalLabel">Edit Booking</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <form id="editBookingForm">
-          <div class="modal-body">
-            <div class="form-group">
-              <label for="editNumberPeople">Number of People</label>
-              <input type="number" class="form-control" id="editNumberPeople" name="number_people" required>
-            </div>
-            <div class="form-group">
-              <label for="editStartDate">Starting Date</label>
-              <input type="date" class="form-control" id="editStartDate" name="start_date" required>
-            </div>
-            <div class="form-group">
-              <label for="editEndDate">End Date</label>
-              <input type="date" class="form-control" id="editEndDate" name="end_date" required>
-            </div>
-            <div class="form-group">
-              <label for="editAdditionalInfo">Additional Information</label>
-              <textarea class="form-control" id="editAdditionalInfo" name="any" rows="3"></textarea>
-            </div>
-            <input type="hidden" id="editBookingId" name="booking_id">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save changes</button>
-          </div>
-        </form>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editBookingModalLabel">Edit Booking</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <form method="post" action="LIP-profile.php">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="editNumberPeople">Number of People</label>
+            <input type="number" id="editNumberPeople" name="number_people" value="<?php echo htmlspecialchars($number_people); ?>">
+          </div>
+          <div class="form-group">
+            <label for="editStartDate">Starting Date</label>
+            <input type="date" id="editStartDate" name="start_date" value="<?php echo htmlspecialchars($start_date); ?>">
+          </div>
+          <div class="form-group">
+            <label for="editEndDate">End Date</label>
+            <input type="date" id="editEndDate" name="end_date" value="<?php echo htmlspecialchars($end_date); ?>">
+          </div>
+          <div class="form-group">
+            <label for="editAdditionalInfo">Additional Information</label>
+            <textarea id="editAdditionalInfo" name="any" rows="3"><?php echo htmlspecialchars($any); ?></textarea>
+          </div>
+          <div class="form-group">
+            <label for="editNumberPeople" hidden>Booking Status</label>
+            <input type="text" id="editBookingStatus" name="status" hidden>
+          </div>
+          <div class="form-group">
+            <label for="editNumberPeople" hidden>Tourguide Status</label>
+            <input type="text" id="editTourguideStatus" name="tourguide_status" hidden>
+          </div>
+          <button type="submit" name="booking_save" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
     </div>
   </div>
+</div>
 
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -416,23 +464,42 @@ $booking_result = $booking_sql->get_result();
     // Default view
     document.getElementById('btnProfile').click();
 
-    function editBooking(id) {
-      // Get booking details via AJAX or directly if available
-      // Here, we'll just demonstrate with some example values
-      $('#editBookingId').val(id);
-      $('#editNumberPeople').val(5); // Replace with actual data
-      $('#editStartDate').val('2024-01-01'); // Replace with actual data
-      $('#editEndDate').val('2024-01-10'); // Replace with actual data
-      $('#editAdditionalInfo').val('Some additional info'); // Replace with actual data
-      $('#editBookingModal').modal('show');
-    }
+    function cancelBooking(bookingId) {
+    if (confirm('Are you sure you want to cancel this booking?')) {
+        // Create a form dynamically and submit it
+        var form = document.createElement('form');
+        form.method = 'POST';
+        form.action = 'LIP-profile.php';
 
-    function cancelBooking(id) {
-      if (confirm('Are you sure you want to cancel this booking?')) {
-        // Perform the cancellation via AJAX or form submission
-        alert('Booking canceled'); // Replace with actual cancellation code
-      }
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'cancel_booking';
+        input.value = bookingId;
+        form.appendChild(input);
+
+        document.body.appendChild(form);
+        form.submit();
     }
+}
+
+    function editBooking(button) {
+    var id = button.getAttribute('data-id');
+    var numberPeople = button.getAttribute('number_people');
+    var startDate = button.getAttribute('start_date');
+    var endDate = button.getAttribute('end_date');
+    var any = button.getAttribute('any');
+    var status = button.getAttribute('status');
+    var tourguideStatus = button.getAttribute('tourguide_status');
+
+    $('#editBookingId').val(id);
+    $('#editNumberPeople').val(numberPeople);
+    $('#editStartDate').val(startDate);
+    $('#editEndDate').val(endDate);
+    $('#editAdditionalInfo').val(any);
+    $('#editBookingStatus').val(1);
+    $('#editTourguideStatus').val(1);
+    $('#editBookingModal').modal('show');
+}
 
     $('#editBookingForm').on('submit', function(e) {
       e.preventDefault();
@@ -441,11 +508,13 @@ $booking_result = $booking_sql->get_result();
         number_people: $('#editNumberPeople').val(),
         start_date: $('#editStartDate').val(),
         end_date: $('#editEndDate').val(),
-        any: $('#editAdditionalInfo').val()
+        any: $('#editAdditionalInfo').val(),
+        status: $('#editBookingStatus').val(1),
+        tourguide_status: $('#editTourguideStatus').val(1)
       };
 
       $.ajax({
-        url: 'update_booking.php',
+        url: 'LIP-profile.php',
         type: 'POST',
         data: bookingData,
         dataType: 'json',
