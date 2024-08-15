@@ -533,6 +533,7 @@ section {
 .restaurant .box-container .box .content {
   padding: 2rem 1.5rem;
   background: #f7f6f9;
+  height: 300px;
 }
 
 .restaurant .box-container .box .content .tags {
@@ -757,3 +758,7 @@ section {
 /* responsive end */
 
 /* responsive navbar */
+
+
+/* Content */
+
