@@ -50,7 +50,6 @@ if(mysqli_num_rows($select)>0){
 
 <body>
 
-   
     <!-- header section starts  -->
 
     <header class="header">
@@ -88,96 +87,113 @@ if(mysqli_num_rows($select)>0){
 
     <!-- header section ends  -->
 
-
 <section class="sign-up" id="sign-up">
-            <div class="heading">
-                <span>Tour Guide Booking</span>
-                <h3>Sign up</h3>
-            </div>
+    <div class="heading">
+        <span>Tour Guide Booking</span>
+        <h3>Sign up</h3>
+    </div>
 
-            <?php
-            if (isset($_POST["submit"])) {
-                $numberPeople = $_POST["number_people"];
-                $startDate = $_POST["start_date"];
-                $endDate = $_POST["end_date"];
-                $package = $_POST["package"];
-                $any = $_POST["any"];
+    <?php
+    if (isset($_POST["submit"])) {
+        $numberPeople = $_POST["number_people"];
+        $startDate = $_POST["start_date"];
+        $endDate = $_POST["end_date"];
+        $package = $_POST["package"];
+        $any = $_POST["any"];
 
-                $errors = array();
+        $errors = array();
 
-                if (empty($numberPeople) OR empty($startDate) OR empty($endDate)) {
-                    array_push($errors, "<div class='required'><h2>All fields are required</h2></div>");
-                }
-                if (!is_numeric($numberPeople)) {
-                    array_push($errors);
-                }
+        if (empty($numberPeople) OR empty($startDate) OR empty($endDate)) {
+            array_push($errors, "<div class='required'><h2>All fields are required</h2></div>");
+        }
+        if (!is_numeric($numberPeople)) {
+            array_push($errors, "<div class='required'><h2>Number of people must be a number</h2></div>");
+        }
 
-                if (count($errors)>0) {
-                    foreach($errors as $error) {
-                        echo "<div class='alert alert-danger'>$error</div>";
-                    }
-                }else {
-                    require_once "LIP-booking-database.php";
-                    $sql = "UPDATE `user` SET `number_people` = ?, `start_date` = ?, `end_date` = ?, `any` = ?, `package` = ? WHERE `id` = ?";
-                    $stmt = mysqli_stmt_init($con);
-                    $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
-                    if ($prepareStmt) {
-                        mysqli_stmt_bind_param($stmt, "issssi", $numberPeople, $startDate, $endDate, $any, $package, $user_id);
-                        mysqli_stmt_execute($stmt);
-                        echo "<div class='success'><h2>Your tour guide booking is sent successfully.</h2></div>";
-                    } else {
-                        die("Something went wrong");
-                    }                    
-                }
+        // Calculate the number of days
+        $startDateTime = new DateTime($startDate);
+        $endDateTime = new DateTime($endDate);
+        $interval = $startDateTime->diff($endDateTime);
+        $days = $interval->days;
+
+        if ($startDateTime > $endDateTime) {
+            array_push($errors, "<div class='required'><h2>Start date must be before end date</h2></div>");
+        }
+
+        if (count($errors) > 0) {
+            foreach($errors as $error) {
+                echo "<div class='alert alert-danger'>$error</div>";
             }
-            ?>
+        } else {
+            require_once "LIP-booking-database.php";
+            $sql = "UPDATE `user` SET `number_people` = ?, `start_date` = ?, `end_date` = ?, `any` = ?, `package` = ?, `days` = ? WHERE `id` = ?";
+            $stmt = mysqli_stmt_init($con);
+            $prepareStmt = mysqli_stmt_prepare($stmt, $sql);
+            if ($prepareStmt) {
+                mysqli_stmt_bind_param($stmt, "issssii", $numberPeople, $startDate, $endDate, $any, $package, $days, $user_id);
+                mysqli_stmt_execute($stmt);
+                echo "<div class='success'><h2>Your tour guide booking is sent successfully.</h2></div>";
+            } else {
+                die("Something went wrong");
+            }                    
+        }
+    }
+    ?>
 
-            <br>
+    <br>
 
-            <form action="LIP-sign-up-booking-p1.php" method="post">
-                <div class="flex">
-                    <div class="inputBox">
-                        <span>How many people are in your group?</span>
-                        <input type="number" class="form-control" name="number_people" placeholder="Number of People:">
-                    </div>
-                    <div class="inputBox">
-                        <span>Starting date you will be toured.</span>
-                        <input type="date" class="form-control" name="start_date" placeholder="Starting Date:">
-                    </div>
-                </div>
+    <form action="LIP-sign-up-booking-p1.php" method="post">
+        <div class="flex">
+            <div class="inputBox">
+                <span>How many people are in your group?</span>
+                <input type="number" class="form-control" name="number_people" placeholder="Number of People:">
+            </div>
+            <div class="inputBox">
+                <span>Starting date you will be toured.</span>
+                <input type="date" class="form-control" name="start_date" placeholder="Starting Date:">
+            </div>
+        </div>
 
-                <br>
+        <br>
 
-                <div class="flex">
-                    <div class="inputBox">
-                        <span>Package Chosen</span>
-                        <input type="text" class="form-control" name="package" value="Package 1"></input>
-                    </div>
-                    <div class="inputBox">
-                        <span>End date you will be toured.</span>
-                        <input type="date" class="form-control" name="end_date" placeholder="End Date:">
-                    </div>
-                </div>
+        <div class="flex">
+            <div class="inputBox">
+                <span>Package Chosen</span>
+                <input type="text" class="form-control" name="package" value="Package 1"></input>
+            </div>
+            <div class="inputBox">
+                <span>End date you will be toured.</span>
+                <input type="date" class="form-control" name="end_date" placeholder="End Date:">
+            </div>
+        </div>
 
-                <br>
-     
-                <div class="flex">
-                    <div class="inputBox">
-                        <textarea type="text" class="form-control" name="any" placeholder="Anything else we should know?" cols="30" rows="10"></textarea>
-                    </div>
-                    <div class="inputBox">
-                        <iframe class="map"
-                            src="https://www.google.com/maps/embed/v1/place?q=La+Trinidad,+Benguet,+Philippines&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
-                            allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                </div>
+        <br>
 
-                <br>
+        <div class="flex" hidden>
+            <div class="inputBox" hidden>
+                <span hidden>Number of Days</span>
+                <input type="number" class="form-control" name="days" value="" readonly hidden></input>
+            </div>
+        </div>
 
-                <div>
-                    <input type="submit" class="btn btn-primary" name="submit" value="Book Now">
-                </div>
-            </form>
+        <br>
  
+        <div class="flex">
+            <div class="inputBox">
+                <textarea type="text" class="form-control" name="any" placeholder="Anything else we should know?" cols="30" rows="10"></textarea>
+            </div>
+            <div class="inputBox">
+                <iframe class="map"
+                    src="https://www.google.com/maps/embed/v1/place?q=La+Trinidad,+Benguet,+Philippines&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+                    allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <br>
+
+        <div>
+            <input type="submit" class="btn btn-primary" name="submit" value="Book Now">
+        </div>
+    </form>
 </body>
 </html>

@@ -17,10 +17,10 @@ $stmt->bind_result($first_name, $last_name, $email, $phone_number);
 $stmt->fetch();
 $stmt->close();
 
-$stmt = $conn->prepare('SELECT number_people, start_date, end_date, any, status, tourguide_status FROM user WHERE id = ?');
+$stmt = $conn->prepare('SELECT number_people, start_date, end_date, days, any, status, tourguide_status FROM user WHERE id = ?');
 $stmt->bind_param('i', $user_id);
 $stmt->execute();
-$stmt->bind_result($number_people, $start_date, $end_date, $any, $status, $tourguide_status);
+$stmt->bind_result($number_people, $start_date, $end_date, $days, $any, $status, $tourguide_status);
 $stmt->fetch();
 $stmt->close();
 
@@ -45,12 +45,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $number_people = $_POST['number_people'];
       $start_date = $_POST['start_date'];
       $end_date = $_POST['end_date'];
+      $days = $_POST['days'];
       $any = $_POST['any'];
       $status = 1;
       $tourguide_status = 1;
 
       $stmt = $conn->prepare('UPDATE user SET number_people = ?, start_date = ?, end_date = ?, any = ?, status = ?, tourguide_status = ? WHERE id = ?');
-      $stmt->bind_param('ssssiii', $number_people, $start_date, $end_date, $any, $status, $tourguide_status, $user_id);
+      $stmt->bind_param('sssisiii', $number_people, $start_date, $end_date, $days, $any, $status, $tourguide_status, $user_id);
       $stmt->execute();
       $stmt->close();
 
@@ -319,6 +320,7 @@ $booking_result = $booking_sql->get_result();
                     <th>Number of People</th>
                     <th>Starting Date</th>
                     <th>End Date</th>
+                    <th>Number of Days</th>
                     <th>Additional Information</th>
                     <th>Chosen Package</th>
                     <th>Booking Status</th>
@@ -339,6 +341,7 @@ $booking_result = $booking_sql->get_result();
                     <td><?php echo htmlspecialchars($row['number_people']); ?></td>
                     <td><?php echo htmlspecialchars($row['start_date']); ?></td>
                     <td><?php echo htmlspecialchars($row['end_date']); ?></td>
+                    <td><?php echo htmlspecialchars($row['days']); ?></td>
                     <td><?php echo htmlspecialchars($row['any']); ?></td>
                     <td><?php echo htmlspecialchars($row['package']); ?></td>
                     <td><?php 
@@ -363,6 +366,7 @@ $booking_result = $booking_sql->get_result();
                         number_people="<?php echo $row['number_people']; ?>"
                         start_date="<?php echo $row['start_date']; ?>"
                         end_date="<?php echo $row['end_date']; ?>"
+                        days="<?php echo $row['days']; ?>"
                         any="<?php echo $row['any']; ?>"
                         status="<?php echo $row['any']; ?>"
                         tourguide_status="<?php echo $row['any']; ?>">Edit</button>
@@ -407,6 +411,10 @@ $booking_result = $booking_sql->get_result();
           <div class="form-group">
             <label for="editEndDate">End Date</label>
             <input type="date" id="editEndDate" name="end_date" value="<?php echo htmlspecialchars($end_date); ?>">
+          </div>
+          <div class="form-group">
+            <label for="editNumberPeople" hidden>Number of Days</label>
+            <input type="number" id="editBookingStatus" name="days" hidden>
           </div>
           <div class="form-group">
             <label for="editAdditionalInfo">Additional Information</label>
