@@ -1,3 +1,5 @@
+<?php require 'LIP-session-check.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,7 +25,12 @@
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="./css/style.css" />
-
+    <script>
+    window.history.pushState(null, "", window.location.href);        
+    window.onpopstate = function() {
+        window.history.pushState(null, "", window.location.href);
+    };
+</script>
     <title>Everything La Trinidad</title>
   </head>
   <body>
@@ -513,5 +520,6 @@
     </section>
     <!-- footer section ends -->
      <script src="js/script.js"></script>
+     
   </body>
 </html>

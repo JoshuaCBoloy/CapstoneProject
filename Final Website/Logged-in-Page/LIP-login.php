@@ -1,37 +1,55 @@
 <?php
+session_start();
 
 $is_invalid = false;
+$email_error = "";
+$password_error = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     $mysqli = require __DIR__ . "/LIP-database.php";
     
-    $sql = sprintf("SELECT * FROM user
-                    WHERE email = '%s'",
-                   $mysqli->real_escape_string($_POST["email"]));
+    $email = $_POST["email"];
+    $password = $_POST["password"];
     
-    $result = $mysqli->query($sql);
+    if (empty($email)) {
+        $email_error = "Email is required.";
+    }
     
-    $user = $result->fetch_assoc();
+    if (empty($password)) {
+        $password_error = "Password is required.";
+    }
     
-    if ($user && $user["account_activation_hash"] == null) {
+    if (empty($email_error) && empty($password_error)) {
+        $sql = sprintf("SELECT * FROM user WHERE email = '%s'",
+                       $mysqli->real_escape_string($email));
         
-        if (password_verify($_POST["password"], $user["password_hash"])) {
+        $result = $mysqli->query($sql);
+        
+        $user = $result->fetch_assoc();
+        
+        if ($user && $user["account_activation_hash"] == null) {
             
-            session_start();
-            
-            session_regenerate_id();
-            
-            $_SESSION["user_id"] = $user["id"];
-            
-            header("Location: LIP-index.html");
-            exit;
+            if (password_verify($password, $user["password_hash"])) {
+                
+                session_regenerate_id(true); // Regenerate session ID to prevent session fixation attacks
+                
+                $_SESSION["user_id"] = $user["id"];
+                $_SESSION["email"] = $user["email"];
+                $_SESSION["loggedin"] = true;
+                
+                header("Location: LIP-index.html");
+                exit;
+            } else {
+                $password_error = "Invalid password.";
+            }
+        } else {
+            $email_error = "Invalid email or account not activated.";
         }
     }
     
     $is_invalid = true;
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <title>User Login Form</title>
     <link rel="stylesheet" type="text/css" href="css/new-style.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="image/ELT.png" />
     <style>
@@ -316,7 +335,7 @@ a:hover {
   }
 }
 
-    </style>
+</style>
 </head>
 <body>
 
@@ -339,6 +358,9 @@ a:hover {
                     <input type="email" class="input" id="email" name="email" value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
                 </div>
             </div>
+            <?php if (!empty($email_error)): ?>
+                <div class="error"><?= htmlspecialchars($email_error) ?></div>
+            <?php endif; ?>
 
             <div class="input-div pass">
                 <div class="i">
@@ -347,8 +369,12 @@ a:hover {
                 <div class="div">
                     <h5>Password</h5>
                     <input type="password" class="input" id="password" name="password">
+                    <i class="fa fa-eye password-toggle" id="togglePassword"></i>
                 </div>
             </div>
+            <?php if (!empty($password_error)): ?>
+                <div class="error"><?= htmlspecialchars($password_error) ?></div>
+            <?php endif; ?>
 
             <a href="LIP-forgot-password.php">Forgot Password?</a>
 
@@ -368,13 +394,33 @@ a:hover {
             var password = document.getElementById('password').value;
             var isValid = true;
 
-            if (!email || !password) {
-                alert('Email and password are required.');
+            if (!email) {
+                document.getElementById('email').nextElementSibling.innerHTML = "Email is required.";
                 isValid = false;
+            } else {
+                document.getElementById('email').nextElementSibling.innerHTML = "";
+            }
+
+            if (!password) {
+                document.getElementById('password').nextElementSibling.innerHTML = "Password is required.";
+                isValid = false;
+            } else {
+                document.getElementById('password').nextElementSibling.innerHTML = "";
             }
 
             return isValid;
         }
+
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+
+        togglePassword.addEventListener('click', function (e) {
+            // toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            // toggle the eye slash icon
+            this.classList.toggle('fa-eye-slash');
+        });
     </script>
 </body>
 </html>
