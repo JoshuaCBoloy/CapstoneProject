@@ -201,6 +201,7 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
                     <th>Number People</th>
                     <th>Starting Date</th>
                     <th>Ending Date</th>
+                    <th>Number of Days</th>
                     <th>Additional Information</th>
                     <th>Chosen Package</th>
                     <th>Booking Status</th>
@@ -219,6 +220,7 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
                         <td><?php echo htmlspecialchars($row['number_people']); ?></td>
                         <td><?php echo htmlspecialchars($row['start_date']); ?></td>
                         <td><?php echo htmlspecialchars($row['end_date']); ?></td>
+                        <td><?php echo htmlspecialchars($row['days']); ?></td>
                         <td><?php echo htmlspecialchars($row['any']); ?></td>
                         <td><?php echo htmlspecialchars($row['package']); ?></td>
                         <td><?php 

@@ -119,13 +119,14 @@ $row = mysqli_fetch_assoc($sql);
                         <span class="info"> <a href="./LIP-t2-strawberry-farm-touristspot.html">Strawberry Farm</a></span>
                         <br>
                         <span> Tourist Spot 2: </span>
-                        <span class="info"> Living Gifts Nursery</span>
-                        <br>
-                        <span> Tourist Spot 3: </span>
-                        <span class="info"> <a href="./LIP-t1-bell-church-touristspot.html"> Bell Church</a></span>
-                        <br>
-                        <span> Tourist Spot 4: </span>
                         <span class="info"> <a href="./LIP-t6-kalugong-touristspot.html">Mt. Kalugong</a"></a></span>
+                        <br>
+                        <span hidden> Tourist Spot 3: </span>
+                        <span class="info" hidden> Living Gifts Nursery</span>
+                        <br>
+                        <span hidden> Tourist Spot 4: </span>
+                        <span class="info"> <a href="./LIP-t1-bell-church-touristspot.html" hidden> Bell Church</a></span>
+                        <br>
                     </div>
                     <button class="card-btn1"><a href="LIP-sign-up-booking-p2.php">Book Now</a></button>
                 </div>
