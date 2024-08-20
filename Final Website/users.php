@@ -17,9 +17,9 @@
               $row = mysqli_fetch_assoc($sql);
             }
           ?>
-          <a href="users-profile.php"><img src="php/images/<?php echo $row['img']; ?>" alt=""></a>
+          <a href="users.php"><img src="php/images/<?php echo $row['img']; ?>" alt=""></a>
           <div class="details">
-            <span><a href="users-profile.php" style="color: black"><?php echo $row['fname'] . " " . $row['lname']; ?></a></span>
+            <span><a href="users.php" style="color: black"><?php echo $row['fname'] . " " . $row['lname']; ?></a></span>
             <p><?php echo $row['status']; ?></p>
           </div>
         </div>
