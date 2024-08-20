@@ -307,13 +307,13 @@ section {
 }
 
 .home .content span {
-  font-size: 2rem;
-  color: #635985;
+  font-size: 5rem;
+  color: #130f40; 
 }
 
 .home .content h3 {
-  font-size: 4rem;
-  color: #130f40;
+  font-size: 2rem;
+  color: #635985;
   padding-top: 1rem;
 }
 
