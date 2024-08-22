@@ -311,7 +311,7 @@ a:hover {
 .error {
     color: red;
     font-size: 12px;
-    margin-top: 1px;
+    margin-top: 50px;
     margin-bottom: 40px;
 }
 
@@ -402,6 +402,7 @@ a:hover {
                         <div class="div">
                             <h5>First Name</h5>
                             <input type="text" class="input" id="first_name" name="first_name" required>
+                            <span class="error" id="first_name_error"></span>
                         </div>
                     </div>
                     <div class="input-div one">
@@ -411,6 +412,7 @@ a:hover {
                         <div class="div">
                             <h5>Last Name</h5>
                             <input type="text" class="input" id="last_name" name="last_name" required>
+                            <span class="error" id="last_name_error"></span>
                         </div>
                     </div>
                     <div class="input-div one">
@@ -420,6 +422,7 @@ a:hover {
                         <div class="div">
                             <h5>Email</h5>
                             <input type="email" class="input" id="email" name="email" required>
+                            <span class="error" id="email_error"></span>
                         </div>
                     </div>
                 </div>
@@ -430,7 +433,8 @@ a:hover {
                         </div>
                         <div class="div">
                             <h5>Phone Number</h5>
-                            <input type="tel" class="input" id="phone" name="phone" required>
+                            <input type="tel" class="input" id="phone" name="phone" maxlength="11">
+                            <span class="error" id="phone_error"></span>
                         </div>
                     </div>
                     <div class="input-div pass">
@@ -439,7 +443,8 @@ a:hover {
                         </div>
                         <div class="div">
                             <h5>Password</h5>
-                            <input type="password" class="input" id="password" name="password" required>
+                            <input type="password" class="input" id="password" name="password" pattern="[A-Z]{0-10}" title="Password should contain letters and numbers." required>
+                            <span class="error" id="password_error"></span>
                         </div>
                     </div>
                     <div class="input-div pass">
@@ -449,6 +454,7 @@ a:hover {
                         <div class="div">
                             <h5>Repeat Password</h5>
                             <input type="password" class="input" id="repeat_password" name="repeat_password" required>
+                            <span class="error" id="repeat_password_error"></span>
                         </div>
                     </div>
                 </div>
@@ -474,13 +480,41 @@ a:hover {
         var phone = document.getElementById('phone').value;
         var isValid = true;
 
-        if (!first_name || !last_name || !email || !password || !repeat_password || !phone) {
-            alert('All fields are required.');
+        // Clear previous error messages
+        document.getElementById('first_name_error').innerText = '';
+        document.getElementById('last_name_error').innerText = '';
+        document.getElementById('email_error').innerText = '';
+        document.getElementById('password_error').innerText = '';
+        document.getElementById('repeat_password_error').innerText = '';
+        document.getElementById('phone_error').innerText = '';
+
+        if (!first_name) {
+            document.getElementById('first_name_error').innerText = 'First Name is required.';
+            isValid = false;
+        }
+
+        if (!last_name) {
+            document.getElementById('last_name_error').innerText = 'Last Name is required.';
+            isValid = false;
+        }
+
+        if (!email) {
+            document.getElementById('email_error').innerText = 'Email is required.';
+            isValid = false;
+        }
+
+        if (!phone) {
+            document.getElementById('phone_error').innerText = 'Phone Number is required.';
+            isValid = false;
+        }
+
+        if (!password) {
+            document.getElementById('password_error').innerText = 'Password is required.';
             isValid = false;
         }
 
         if (password !== repeat_password) {
-            alert('Passwords must match.');
+            document.getElementById('repeat_password_error').innerText = 'Passwords must match.';
             isValid = false;
         }
 
