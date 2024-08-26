@@ -169,6 +169,15 @@ if(mysqli_num_rows($select)>0){
 
         <br>
 
+        <div class="flex">
+            <div class="inputBox">
+                <span>Price Range</span>
+                <input type="text" class="form-control" name="price" value="₱1,000 - ₱1,650"></input>
+            </div>
+        </div>
+
+        <br>
+
         <div class="flex" hidden>
             <div class="inputBox" hidden>
                 <span hidden>Number of Days</span>

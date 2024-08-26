@@ -14,11 +14,11 @@
         <div class="error-text"></div>
         <div class="field input">
           <label style="font-weight: bold;">First Name</label>
-          <input type="text" name="fname" placeholder="Enter your fullname" required>
+          <input type="text" name="fname" placeholder="Enter your firstname" required>
         </div>
         <div class="field input">
           <label style="font-weight: bold;">Last Name</label>
-          <input type="text" name="lname" placeholder="Enter your fullname" required>
+          <input type="text" name="lname" placeholder="Enter your lastname" required>
         </div>
         <div class="field image">
           <label style="font-weight: bold;">Select Profile</label>
