@@ -1,4 +1,12 @@
-<?php require 'LIP-session-check.php'; ?>
+<?php
+session_start();
+
+// Redirect to login page if not logged in
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("Location: LIP-login.php");
+    exit;
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,18 +45,18 @@
     <!-- header section starts  -->
 
     <header class="header">
-      <a href="./LIP-index.html" class="logo"
+      <a href="./LIP-index.php" class="logo"
         ><i class="ri-map-pin-fill"></i><span>Everything La Trinidad</span></a
       >
 
       <ul class="navbar">
-        <li><a href="LIP-index.html" class="active">Home</a></li>
-        <li><a href="LIP-index.html#about">About</a></li>
+        <li><a href="LIP-index.php" class="active">Home</a></li>
+        <li><a href="LIP-index.php#about">About</a></li>
         <li><a href="LIP-choose-tourguide.php">Booking</a></li>
         <li><a href="LIP-services.html">Services</a></li>
         <li><a href="LIP-news.html">News</a></li>
         <li>
-          <a href="LIP-login.php" class="btn-warning">Logout</a>
+          <a href="LIP-logout.php" class="btn-warning">Logout</a>
         </li>
       </ul>
 

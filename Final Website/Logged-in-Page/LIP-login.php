@@ -1,44 +1,46 @@
 <?php
 session_start();
 
+// Redirect to the homepage if already logged in
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+    header("Location: LIP-index.php");
+    exit;
+}
+
 $is_invalid = false;
 $email_error = "";
 $password_error = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    
     $mysqli = require __DIR__ . "/LIP-database.php";
-    
+
     $email = $_POST["email"];
     $password = $_POST["password"];
-    
+
     if (empty($email)) {
         $email_error = "Email is required.";
     }
-    
+
     if (empty($password)) {
         $password_error = "Password is required.";
     }
-    
+
     if (empty($email_error) && empty($password_error)) {
         $sql = sprintf("SELECT * FROM user WHERE email = '%s'",
                        $mysqli->real_escape_string($email));
-        
+
         $result = $mysqli->query($sql);
-        
         $user = $result->fetch_assoc();
-        
+
         if ($user && $user["account_activation_hash"] == null) {
-            
             if (password_verify($password, $user["password_hash"])) {
-                
                 session_regenerate_id(true); // Regenerate session ID to prevent session fixation attacks
-                
+
                 $_SESSION["user_id"] = $user["id"];
                 $_SESSION["email"] = $user["email"];
                 $_SESSION["loggedin"] = true;
-                
-                header("Location: LIP-index.html");
+
+                header("Location: LIP-index.php");
                 exit;
             } else {
                 $password_error = "Invalid password.";
@@ -47,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $email_error = "Invalid email or account not activated.";
         }
     }
-    
+
     $is_invalid = true;
 }
 ?>
