@@ -292,6 +292,18 @@ a:hover {
   color: #38d39f;
 }
 
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #999;
+}
+.password-toggle:hover {
+    color: #38d39f;
+}
 @media screen and (max-width: 1050px) {
   .container {
       grid-gap: 5rem;
@@ -363,15 +375,17 @@ a:hover {
             <?php endif; ?>
 
             <div class="input-div pass">
-                <div class="i">
-                    <i class="fas fa-lock"></i>
-                </div>
-                <div class="div">
-                    <h5>Password</h5>
-                    <input type="password" class="input" id="password" name="password">
-                    <i class="fa fa-eye password-toggle" id="togglePassword"></i>
-                </div>
-            </div>
+    <div class="i">
+        <i class="fas fa-lock"></i>
+    </div>
+    <div class="div">
+        <h5>Password</h5>
+        <input type="password" class="input" id="password" name="password">
+        <span class="password-toggle">
+            <i class="fa fa-eye" id="togglePassword"></i>
+        </span>
+    </div>
+</div>
             <?php if (!empty($password_error)): ?>
                 <div class="error"><?= htmlspecialchars($password_error) ?></div>
             <?php endif; ?>

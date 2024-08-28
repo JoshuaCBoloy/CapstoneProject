@@ -15,6 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors[] = "Valid email is required";
     }
 
+    if (empty($_POST["phone"])) {
+        $errors[] = "Phone number is required";
+    } elseif (!preg_match("/^\d{10,11}$/", $_POST["phone"])) {
+        $errors[] = "Phone number must be 10 or 11 digits";
+    }
+
     if (strlen($_POST["password"]) < 8) {
         $errors[] = "Password must be at least 8 characters";
     }
@@ -92,6 +98,8 @@ END;
 }
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -100,6 +108,7 @@ END;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Form</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="image/ELT.png" />
     <style>
@@ -309,11 +318,17 @@ a:hover {
 }
 
 .error {
-    color: red;
-    font-size: 12px;
-    margin-top: 50px;
-    margin-bottom: 40px;
-}
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+.error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+            text-align: center;
+        }
 
 .signup-text {
     text-align: center;
@@ -328,6 +343,19 @@ a:hover {
     transition: 0.3s;
     text-align: center;
 }
+
+.password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #999;
+        }
+        .password-toggle:hover {
+            color: #38d39f;
+        }
 
 .signup-text a:hover {
     color: #38d39f;
@@ -385,7 +413,6 @@ a:hover {
 
 <img class="wave" src="image/wave.png">
 <div class="container">
-
     <div class="img">
         <img src="image/ELT.png">
     </div>
@@ -433,7 +460,7 @@ a:hover {
                         </div>
                         <div class="div">
                             <h5>Phone Number</h5>
-                            <input type="tel" class="input" id="phone" name="phone" maxlength="11">
+                            <input type="tel" class="input" id="phone" name="phone" maxlength="11" required>
                             <span class="error" id="phone_error"></span>
                         </div>
                     </div>
@@ -443,7 +470,10 @@ a:hover {
                         </div>
                         <div class="div">
                             <h5>Password</h5>
-                            <input type="password" class="input" id="password" name="password" pattern="[A-Z]{0-10}" title="Password should contain letters and numbers." required>
+                            <input type="password" class="input" id="password" name="password" required>
+                            <span class="password-toggle">
+                                <i class="fa fa-eye" id="togglePassword"></i>
+                            </span>
                             <span class="error" id="password_error"></span>
                         </div>
                     </div>
@@ -454,6 +484,9 @@ a:hover {
                         <div class="div">
                             <h5>Repeat Password</h5>
                             <input type="password" class="input" id="repeat_password" name="repeat_password" required>
+                            <span class="password-toggle">
+                                <i class="fa fa-eye" id="toggleRepeatPassword"></i>
+                            </span>
                             <span class="error" id="repeat_password_error"></span>
                         </div>
                     </div>
@@ -465,57 +498,67 @@ a:hover {
                 </div>
             </div>
             <a href="LIP-login.php" style="text-align: center;">Already have an account? Login</a>
+            <div class="error-message" id="form_error"></div>
         </form>
     </div>
 </div>
-
-<script type="text/javascript" src="js/main.js"></script>
+<script src="js/main.js"></script>
 <script>
+    // JavaScript to toggle password visibility
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#password');
+
+    togglePassword.addEventListener('click', function (e) {
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        this.classList.toggle('fa-eye-slash');
+    });
+
+    const toggleRepeatPassword = document.querySelector('#toggleRepeatPassword');
+    const repeatPassword = document.querySelector('#repeat_password');
+
+    toggleRepeatPassword.addEventListener('click', function (e) {
+        const type = repeatPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+        repeatPassword.setAttribute('type', type);
+        this.classList.toggle('fa-eye-slash');
+    });
+
     function validateForm() {
-        var first_name = document.getElementById('first_name').value;
-        var last_name = document.getElementById('last_name').value;
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-        var repeat_password = document.getElementById('repeat_password').value;
-        var phone = document.getElementById('phone').value;
-        var isValid = true;
+        let isValid = true;
+        let errors = [];
 
-        // Clear previous error messages
-        document.getElementById('first_name_error').innerText = '';
-        document.getElementById('last_name_error').innerText = '';
-        document.getElementById('email_error').innerText = '';
-        document.getElementById('password_error').innerText = '';
-        document.getElementById('repeat_password_error').innerText = '';
-        document.getElementById('phone_error').innerText = '';
-
-        if (!first_name) {
-            document.getElementById('first_name_error').innerText = 'First Name is required.';
+        if (!document.getElementById('first_name').value) {
+            errors.push("First Name is required");
             isValid = false;
         }
 
-        if (!last_name) {
-            document.getElementById('last_name_error').innerText = 'Last Name is required.';
+        if (!document.getElementById('last_name').value) {
+            errors.push("Last Name is required");
             isValid = false;
         }
 
-        if (!email) {
-            document.getElementById('email_error').innerText = 'Email is required.';
+        if (!document.getElementById('email').value) {
+            errors.push("Email is required");
             isValid = false;
         }
 
-        if (!phone) {
-            document.getElementById('phone_error').innerText = 'Phone Number is required.';
+        if (!document.getElementById('phone').value) {
+            errors.push("Phone number is required");
             isValid = false;
         }
 
-        if (!password) {
-            document.getElementById('password_error').innerText = 'Password is required.';
+        if (!document.getElementById('password').value) {
+            errors.push("Password is required");
             isValid = false;
         }
 
-        if (password !== repeat_password) {
-            document.getElementById('repeat_password_error').innerText = 'Passwords must match.';
+        if (document.getElementById('password').value !== document.getElementById('repeat_password').value) {
+            errors.push("Passwords do not match");
             isValid = false;
+        }
+
+        if (!isValid) {
+            document.getElementById('form_error').innerText = errors.join(", ");
         }
 
         return isValid;
