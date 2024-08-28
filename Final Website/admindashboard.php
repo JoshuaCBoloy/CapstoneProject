@@ -31,6 +31,12 @@ if (isset($_GET['id']) && isset($_GET['new_status']) && isset($_GET['tourguide_i
   <title>Admin Dashboard</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
   <style>
     * {
       padding: 0;
@@ -166,6 +172,36 @@ if (isset($_GET['id']) && isset($_GET['new_status']) && isset($_GET['tourguide_i
     .table-container h5 {
       margin-bottom: 20px;
     }
+
+    .modal-body .form-group {
+      margin-bottom: 1.5rem;
+      padding: 10px 0;
+    }
+
+    .modal-body .form-group input, .modal-body .form-group textarea {
+      padding: 10px 20px;
+    }
+
+    .modal-body .form-group label {
+      top: -10px;
+      left: 20px;
+      font-size: 14px;
+      color: #999;
+    }
+
+    .modal-content {
+      padding: 20px;
+    }
+
+    .modal-footer {
+      padding: 20px;
+    }
+
+    #calendar {
+      border: 1px solid #ccc;
+      padding: 10px;
+      background: #fff;
+    }
   </style>
 </head>
 <body>
@@ -269,7 +305,9 @@ if (isset($_GET['id']) && isset($_GET['new_status']) && isset($_GET['tourguide_i
                             echo "Tourguide 2";
                           }
                         ?></td>
-                        <td><div>Booking</div></td>
+                        <td>
+                          <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editBookingModal" onclick="editBooking(this)">Click Here</button>
+                        </td>
                       </tr>
                       <?php }
                   } else {
@@ -284,6 +322,25 @@ if (isset($_GET['id']) && isset($_GET['new_status']) && isset($_GET['tourguide_i
       </div>
     </div>
   </div>
+
+  <div class="modal fade" id="editBookingModal" tabindex="-1" aria-labelledby="editBookingModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editBookingModalLabel">Edit Booking</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <div type="text" id="calendar" class="form-control"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
   <script type="text/javascript">
     function updateBookingStatus(value, id) {
       let url = "admindashboard.php?id=" + id + "&status=" + value;
@@ -327,8 +384,19 @@ if (isset($_GET['id']) && isset($_GET['new_status']) && isset($_GET['tourguide_i
       document.getElementById('btnDashboard').classList.remove('btn-primary');
     });
 
-    // Default view
-    document.getElementById('btnProfile').click();
+    $(document).ready(function() {
+  // Reinitialize the datepicker when the modal is shown
+  $('#editBookingModal').on('shown.bs.modal', function () {
+    $("#calendar").datepicker(); // Ensure the calendar is reinitialized
+  });
+  
+  document.getElementById('btnProfile').click(); // Default view
+
+  function editBooking(button) {
+    $('#editBookingModal').modal('show');
+  }
+});
+
   </script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>

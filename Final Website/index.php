@@ -27,6 +27,16 @@
         <div class="field button">
           <input type="submit" name="submit" value="Continue to Chat">
         </div>
+        <div class="home"><a href="Logged-in-Page/LIP-index.php" style="color: black;">Home</a>
+        <style>
+          .home {
+            font-size: 19px;
+            text-align: center;
+            font-weight: bold;
+            font-family: 'Poppins';
+          }
+        </style>
+        </div>
       </form>
     </section>
   </div>
