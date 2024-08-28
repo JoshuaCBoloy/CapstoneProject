@@ -10,15 +10,19 @@ if (isset($_GET['id']) && isset($_GET['status'])) {
     exit();
 }
 
-if (isset($_GET['id']) && isset($_GET['new_status'])) {
+if (isset($_GET['id']) && isset($_GET['new_status']) && isset($_GET['tourguide_id'])) {
     $id = $_GET['id'];
     $new_status = $_GET['new_status'];
+    $tourguide_id = $_GET['tourguide_id'];
     $tourguide_status = ($new_status == 2) ? 2 : 3;
-    mysqli_query($con, "UPDATE user SET new_status='$new_status', tourguide_status='$tourguide_status' WHERE id='$id'");
+
+    // Update the user table with the selected tour guide ID
+    mysqli_query($con, "UPDATE user SET new_status='$new_status', tourguide_status='$tourguide_status', tourguide_id='$tourguide_id' WHERE id='$id'");
     header("Location: admindashboard.php");
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -208,6 +212,7 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
                     <th>Booking Status</th>
                     <th>Tour Guide Status</th>
                     <th>Tour Guide</th>
+                    <th>Tour Guide Booking Schedule</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -242,10 +247,17 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
                           }
                         ?></td>
                         <td>
-                          <select onchange="updateTourGuideStatus(this.value, '<?php echo $row['id']; ?>')">  
-                            <option value="1">Update Status</option>  
-                            <option value="2">Tourguide 1</option>  
-                            <option value="3">Tourguide 2</option>  
+                          <select onchange="updateTourGuideStatus(this.value, '<?php echo $row['id']; ?>')">
+                          <option value="1">Update Status</option>
+                          <?php
+                          $tourGuides = [2 => 'Tourguide 1', 3 => 'Tourguide 2'];
+                          foreach ($tourGuides as $tgId => $tgName) {
+                            $conflictQuery = mysqli_query($con, "SELECT * FROM user WHERE tourguide_status='$tgId' AND (start_date <= '{$row['end_date']}' AND end_date >= '{$row['start_date']}')");
+                            if (mysqli_num_rows($conflictQuery) == 0) {
+                              echo "<option value='$tgId'>$tgName</option>";
+                            }
+                          }
+                          ?>
                           </select>
                         </td>
                         <td><?php 
@@ -257,6 +269,7 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
                             echo "Tourguide 2";
                           }
                         ?></td>
+                        <td><div>Booking</div></td>
                       </tr>
                       <?php }
                   } else {
@@ -278,9 +291,10 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
     }
 
     function updateTourGuideStatus(value, id) {
-      let url = "admindashboard.php?id=" + id + "&new_status=" + value;
-      window.location.href = url;
-    }
+    let tourguide_id = value; // The selected tour guide ID is passed as 'value'
+    let url = "admindashboard.php?id=" + id + "&new_status=" + value + "&tourguide_id=" + tourguide_id;
+    window.location.href = url;
+  }
   </script>
 
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
