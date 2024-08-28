@@ -63,17 +63,18 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
       <div class="icons">
         <a href="../index.php" class="chat"
           ><span><i class="ri-chat-3-line" aria-hidden="true"></i></span
-          ><span>Chat</span></a
-        >
+          ><span>Chat</span></a>
+
         <a href="LIP-profile.php" class="login"
-          ><span><i class="ri-user-line"></i></span><span>Profile</span></a
-        >
-        <a
-          href="./LIP-maps.html"
-          class="map"
-          ><span><i class="ri-map-pin-line"></i></span><span>Map</span></a
-        >
+          ><span><i class="ri-user-line"></i></span><span>Profile</span></a>
+
+        <a href="./LIP-maps.html" class="map"><span><i class="ri-map-pin-line"></i></span><span>Map</span></a>
+
+        <a href="./LIP-notification.html" class="notification"><span><i class="ri-notification-line"></i></span><span>Notif</span></a>
+
         <div class="bx bx-menu" id="menu-icon"></div>
+
+
       </div>
     </header>
     <!-- header section ends  -->

@@ -210,6 +210,17 @@ section {
   margin-right: 7px;
 }
 
+.notification {
+  display: flex;
+  align-items: center;
+}
+
+.notification i {
+  color: #52389b;
+  font-size: 23px;
+  margin-right: 7px;
+}
+
 .main a:hover {
   color: #d8d5e2;
 }
@@ -315,7 +326,7 @@ body {
 }
 #filter button {
   width: 100%;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   padding: 10px;

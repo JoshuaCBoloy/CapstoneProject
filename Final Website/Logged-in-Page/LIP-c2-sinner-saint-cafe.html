@@ -54,10 +54,12 @@
         <a href="LIP-profile.php" class="login"
           ><span><i class="ri-user-line"></i></span><span>Profile</span></a
         >
-        <a
-          href="./LIP-maps.html"
-          class="map"
+        <a href="./LIP-maps.html" class="map"
           ><span><i class="ri-map-pin-line"></i></span><span>Map</span></a
+        >
+        <a href="./LIP-notification.html" class="notification"
+          ><span><i class="ri-notification-line"></i></span
+          ><span>Notif</span></a
         >
         <div class="bx bx-menu" id="menu-icon"></div>
       </div>
@@ -127,24 +129,30 @@
 
           <h1>Contact Us!</h1>
           <p>
-            <b>0946 651 9895
-              <br />sinnerorsaintcafe@gmail.com
-            </b>
+            <b>0946 651 9895 <br />sinnerorsaintcafe@gmail.com </b>
           </p>
-          
+
           <br />
           <br />
           <br />
 
-          <div><a href="LIP-rating/c2-sinner-saint-cafe-rate.php" style="display: 
-            inline-block; padding: 10px 60px; 
-            background-color: #31c492;
-            border: 2px solid #31c492;
-            border-radius: 30px;
-            color: white;
-            font-size: 25px;
-            cursor: pointer;
-            text-decoration: none;">Rate Us!</a></div>
+          <div>
+            <a
+              href="LIP-rating/c2-sinner-saint-cafe-rate.php"
+              style="
+                display: inline-block;
+                padding: 10px 60px;
+                background-color: #31c492;
+                border: 2px solid #31c492;
+                border-radius: 30px;
+                color: white;
+                font-size: 25px;
+                cursor: pointer;
+                text-decoration: none;
+              "
+              >Rate Us!</a
+            >
+          </div>
 
           <br />
           <br />
@@ -169,7 +177,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -209,15 +216,15 @@
     <script>
       let menu = document.querySelector("#menu-icon");
       let navbar = document.querySelector(".navbar");
-  
+
       menu.onclick = () => {
-      menu.classList.toggle("bx-x");
-      navbar.classList.toggle("open");
-  };
-  
-  window.onscroll = () => {
-    navbar.classList.remove("active");
-  };
-     </script>
+        menu.classList.toggle("bx-x");
+        navbar.classList.toggle("open");
+      };
+
+      window.onscroll = () => {
+        navbar.classList.remove("active");
+      };
+    </script>
   </body>
 </html>

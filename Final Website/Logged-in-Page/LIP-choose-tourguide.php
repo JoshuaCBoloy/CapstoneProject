@@ -63,6 +63,7 @@ $row = mysqli_fetch_assoc($sql);
           class="map"
           ><span><i class="ri-map-pin-line"></i></span><span>Map</span></a
         >
+        <a href="./LIP-notification.html" class="notification"><span><i class="ri-notification-line"></i></span><span>Notif</span></a>
         <div class="bx bx-menu" id="menu-icon"></div>
       </div>
     </header>

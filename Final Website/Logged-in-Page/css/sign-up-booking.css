@@ -214,6 +214,17 @@ section {
   margin-right: 7px;
 }
 
+.notification {
+  display: flex;
+  align-items: center;
+}
+
+.notification i {
+  color: #52389b;
+  font-size: 23px;
+  margin-right: 7px;
+}
+
 .main a:hover {
   color: #d8d5e2;
 }
