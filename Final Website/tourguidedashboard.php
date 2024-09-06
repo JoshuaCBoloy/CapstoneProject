@@ -185,6 +185,7 @@ if (isset($_GET['id']) && isset($_GET['new_status'])) {
             <h5 class="card-title">Profile Page</h5>
             <p>Click <a href="index.html" style="text-decoration: underline;">here</a> to go to website.</p>
             <p>Click <a href="tourguidelogin.php" style="text-decoration: underline;">here</a> to Logout</p>
+            <p>Click <a href="index.php." style="text-decoration: underline;">here</a> to Chat</p>
           </div>
         </div>
         <div id="profile" class="card" style="display:none;">

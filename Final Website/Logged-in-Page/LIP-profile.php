@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $status = 1;
       $tourguide_status = 1;
 
-      $stmt = $conn->prepare('UPDATE user SET number_people = ?, start_date = ?, end_date = ?, any = ?, status = ?, tourguide_status = ? WHERE id = ?');
+      $stmt = $conn->prepare('UPDATE user SET number_people = ?, start_date = ?, end_date = ?, days = ?, any = ?, status = ?, tourguide_status = ? WHERE id = ?');
       $stmt->bind_param('sssisiii', $number_people, $start_date, $end_date, $days, $any, $status, $tourguide_status, $user_id);
       $stmt->execute();
       $stmt->close();
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       exit;
   } elseif (isset($_POST['cancel_booking'])) {
       // Handle booking cancellation
-      $stmt = $conn->prepare('UPDATE user SET number_people = NULL, start_date = NULL, end_date = NULL, any = NULL, status = NULL, new_status = NULL, tourguide_status = NULL, package = NULL WHERE id = ?');
+      $stmt = $conn->prepare('UPDATE user SET number_people = NULL, start_date = NULL, end_date = NULL, any = NULL, status = NULL, new_status = NULL, tourguide_status = NULL, package = NULL, days = NULL WHERE id = ?');
       $stmt->bind_param('i', $user_id);
       $stmt->execute();
       $stmt->close();
@@ -442,7 +442,7 @@ $booking_result = $booking_sql->get_result();
   <script>
     document.getElementById('btnDashboard').addEventListener('click', function() {
       // Redirect to the specific file (replace 'your-dashboard-file.html' with the actual file path)
-      window.location.href = 'LIP-index.html';
+      window.location.href = 'LIP-index.php';
     });
 
     document.getElementById('btnProfile').addEventListener('click', function() {
