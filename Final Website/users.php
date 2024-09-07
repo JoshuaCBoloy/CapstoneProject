@@ -23,7 +23,7 @@
             <p><?php echo $row['status']; ?></p>
           </div>
         </div>
-        <a href="Logged-in-Page/LIP-index.html" class="logout">Home</a>
+        <a href="Logged-in-Page/LIP-index.php" class="logout">Home</a>
       </header>
       <div class="search">
         <span class="text">Select a user to start chat</span>

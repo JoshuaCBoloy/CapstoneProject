@@ -73,7 +73,7 @@ if ($stmt->execute()) {
     $mail->addAddress($email);
     $mail->Subject = "Account Activation";
     $mail->Body = <<<END
-Click <a href="http://localhost/CapstoneProject/FINAL%20WEBSITE/Logged-in-Page/LIP-activate-account.php?token=$activation_token">here</a> 
+Click <a href="http://localhost:8081/CapstoneProject/FINAL%20WEBSITE/Logged-in-Page/LIP-activate-account.php?token=" . $activation_token>here</a> 
 to ACTIVATE YOUR ACCOUNT.
 END;
 
