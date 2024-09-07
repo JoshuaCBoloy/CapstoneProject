@@ -64,6 +64,11 @@ if ($stmt->execute()) {
 
     $mail = require __DIR__ . "/LIP-mailer.php";
 
+    // Ensure the mailer object is properly initialized
+    if (!$mail) {
+        die("Mailer initialization failed");
+    }
+
     $mail->setFrom("noreply@example.com");
     $mail->addAddress($email);
     $mail->Subject = "Account Activation";

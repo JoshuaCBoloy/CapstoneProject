@@ -106,7 +106,8 @@ $row = mysqli_fetch_assoc($sql);
                         <span> Tourist Spot 4: </span>
                         <span class="info"> <a href="./LIP-t5-sunflower-farm-touristspot.html">Sunflower Farm</a></span>
                         <br>
-
+                        <br>
+                        <span>Price Range: <b>₱1,000 - ₱1,600</b></span>
                     </div>
                     <button class="card-btn1"><a href="LIP-sign-up-booking-p1.php">Book Now</a></button>
                 </div>
@@ -128,6 +129,7 @@ $row = mysqli_fetch_assoc($sql);
                         <span hidden> Tourist Spot 4: </span>
                         <span class="info"> <a href="./LIP-t1-bell-church-touristspot.html" hidden> Bell Church</a></span>
                         <br>
+                        <span>Price Range: <b>₱700 - ₱1,000</b></span>
                     </div>
                     <button class="card-btn1"><a href="LIP-sign-up-booking-p2.php">Book Now</a></button>
                 </div>
